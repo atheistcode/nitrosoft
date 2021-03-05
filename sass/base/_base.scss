@@ -1,0 +1,12 @@
+html {
+  /* To make calculations easier when using rem. */
+  font-size: 62.5%;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: [full-start] minmax(1.5rem, 1fr) [center-start] repeat(
+      12,
+      [col-start] minmax(min-content, 10rem) [col-end]
+    ) [center-end] minmax(1.5rem, 1fr) [full-end];
+}

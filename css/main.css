@@ -1,3 +1,160 @@
+/* FONTS */
+html {
+  /* To make calculations easier when using rem. */
+  font-size: 62.5%;
+}
 
+.main {
+  display: grid;
+  grid-template-columns: [full-start] minmax(1.5rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(1.5rem, 1fr) [full-end];
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  /* Resetting with outline-width: 0 prevents the browser from clearing the styles and when you reapply a width the style will still be there. */
+  outline-width: 0;
+  font: inherit;
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Stop IE showing a scrollbar when there is no need for one. */
+textarea {
+  overflow: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* rubik-regular - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-regular.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-500 - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-500.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-500.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-600 - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-600.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-600.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-700 - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-700.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-700.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-800 - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 800;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-800.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-800.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-italic - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 400;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-italic.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-500italic - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 500;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-500italic.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-500italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-600italic - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 600;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-600italic.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-600italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-700italic - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 700;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-700italic.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-700italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-800italic - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: "Rubik";
+  font-style: italic;
+  font-weight: 800;
+  src: local(""), url("../assets/fonts/rubik-v12-latin-800italic.woff2") format("woff2"), url("../assets/fonts/rubik-v12-latin-800italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+body {
+  font-family: Rubik, sans-serif;
+  font-size: 1.6rem;
+}
 
 /*# sourceMappingURL=main.css.map */
