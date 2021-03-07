@@ -11,6 +11,7 @@
 
 /* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
 @mixin sub-list-hover {
+  z-index: initial;
   visibility: visible;
   opacity: 1;
   transform: translateY(-1rem);

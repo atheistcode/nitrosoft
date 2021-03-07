@@ -307,6 +307,7 @@ body {
   transform: rotate(45deg) translateX(-75%) scaleX(1.5);
 }
 .nav-list__item:hover > .sub-list, .nav-list__item:hover > .sub-list--2 {
+  z-index: initial;
   visibility: visible;
   opacity: 1;
   transform: translateY(-1rem);
@@ -318,6 +319,8 @@ body {
 .sub-list, .sub-list--2 {
   position: absolute;
   top: 100%;
+  /* To fix a bug that makes sublists that we don't hover over accidentally become visible.  */
+  z-index: -1;
   visibility: hidden;
   opacity: 0;
   min-width: 25rem;
@@ -327,18 +330,6 @@ body {
   background-color: white;
   padding: 2rem 0;
   transition: all 0.2s ease-in-out;
-}
-.sub-list::before, .sub-list--2::before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: rotateZ(45deg) translateY(65%);
-  width: 1.4rem;
-  height: 1.4rem;
-  border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
-  border-left: 0.1rem solid rgba(98, 119, 147, 0.2);
-  background-color: white;
 }
 .sub-list__item {
   /* To make the title of a sublist always has the hover effect when hover on any child of this sublist. */
@@ -359,6 +350,18 @@ body {
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
+.sub-list::before, .sub-list--2::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: rotateZ(45deg) translateY(65%);
+  width: 1.4rem;
+  height: 1.4rem;
+  border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border-left: 0.1rem solid rgba(98, 119, 147, 0.2);
+  background-color: white;
+}
 
 .sub-list--2 {
   display: flex;
@@ -366,6 +369,7 @@ body {
 }
 .sub-list--2 .sub-list, .sub-list--2 .sub-list--2 {
   /* For sublist that has child sublists, those child sublists should be visible by default. */
+  z-index: initial;
   visibility: visible;
   opacity: 1;
   /* Overwrite styles that are applied in case of the default sublist that has no child sublists. */
