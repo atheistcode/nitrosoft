@@ -11,7 +11,7 @@
 
 /* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
 @mixin sub-list-hover {
-  z-index: initial;
+  z-index: 99;
   visibility: visible;
   opacity: 1;
   transform: translateY(-1rem);
@@ -24,5 +24,20 @@
   &::before {
     transform: translateX(0.8rem);
     opacity: 1;
+  }
+}
+
+@mixin grid-columns {
+  grid-template-columns:
+    [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end])
+    [center-end] minmax(5vw, 1fr) [full-end];
+}
+
+@mixin link-style {
+  color: $color-link;
+  transition: $transition--1;
+
+  &:hover {
+    color: $color-text;
   }
 }

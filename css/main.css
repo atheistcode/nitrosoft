@@ -11,11 +11,11 @@
 /* TRANSITIONS */
 html {
   /* To make calculations easier when using rem. */
-  line-height: 1.4;
   font-size: 62.5%;
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
   color: #0e2b5d;
   transition: all 0.2s ease-in-out;
@@ -36,15 +36,11 @@ select:focus-visible {
   outline: 0.1rem dotted #627793;
 }
 
-a {
-  display: inline-block;
-}
-
 /* Grid definition for the overall page layout. */
 .main {
   display: grid;
-  grid-template-rows: repeat(auto-fit, 1fr);
-  grid-template-columns: [full-start] minmax(1.5rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(1.5rem, 1fr) [full-end];
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  grid-template-rows: minmax(28vw, 62rem) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .logo {
@@ -218,6 +214,52 @@ body {
   color: #627793;
 }
 
+.para, .para--lg, .para--lg-2, .para--lg-1 {
+  width: max-content;
+}
+.para--lg-1 {
+  font-size: 4.5vw;
+  font-weight: 400;
+}
+.para--lg-2 {
+  font-size: 8vw;
+  font-weight: 600;
+}
+
+.arrow-2-icon-btn {
+  position: relative;
+  overflow: hidden;
+  width: max-content;
+  padding: 1rem;
+  padding-right: 6rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.arrow-2-icon-btn::before {
+  content: "→";
+  position: absolute;
+  transform: translate(-145%, -45%);
+  color: currentColor;
+  font-size: 3.7rem;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-2-icon-btn::after {
+  content: "→";
+  position: absolute;
+  transform: translate(45%, -45%);
+  color: currentColor;
+  font-size: 3.7rem;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-2-icon-btn:hover {
+  color: currentColor;
+  padding-left: 6rem;
+  padding-right: 0;
+}
+
 .arrow-icon-btn {
   position: relative;
   color: #627793;
@@ -243,8 +285,7 @@ body {
 
 .menu-btn {
   display: flex;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  margin-top: 0.4rem;
 }
 .menu-btn::before, .menu-btn::after {
   content: "";
@@ -268,7 +309,6 @@ body {
   align-items: center;
   position: relative;
   /* The z-index value for page content is in range 1-99 and for modals is in range 100-199. */
-  z-index: 95;
   max-width: 90%;
   height: 12.2rem;
   margin: auto;
@@ -291,6 +331,7 @@ body {
   display: flex;
   justify-content: space-around;
   border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
+  /* Extend each item to take the full available width. */
 }
 .nav-list > * {
   flex-grow: 1;
@@ -300,21 +341,33 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
-.nav-list__item:hover > .menu-btn::before {
+.nav-list__item:hover {
+  color: #627793;
+}
+.nav-list__item:hover .menu-btn::before {
   transform: rotate(-45deg) translateX(75%) scaleX(1.5);
 }
-.nav-list__item:hover > .menu-btn::after {
+.nav-list__item:hover .menu-btn::after {
   transform: rotate(45deg) translateX(-75%) scaleX(1.5);
 }
 .nav-list__item:hover > .sub-list, .nav-list__item:hover > .sub-list--2 {
-  z-index: initial;
+  z-index: 99;
   visibility: visible;
   opacity: 1;
   transform: translateY(-1rem);
 }
 .nav-list__link {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
   padding: 2rem 0;
+}
+.nav-list__link > .menu-btn {
+  margin-left: 0.5rem;
 }
 
 .sub-list, .sub-list--2 {
@@ -330,6 +383,7 @@ body {
   box-shadow: 0 5px 19px 1px rgba(0, 0, 0, 0.09);
   background-color: white;
   padding: 2rem 0;
+  font-weight: initial;
   transition: all 0.2s ease-in-out;
 }
 .sub-list__item {
@@ -345,7 +399,6 @@ body {
 .sub-list__link {
   display: block;
   padding: 0.5rem 4rem;
-  white-space: nowrap;
 }
 .sub-list__sub-title {
   margin-bottom: 0.5rem;
@@ -373,7 +426,7 @@ body {
   z-index: initial;
   visibility: visible;
   opacity: 1;
-  /* Overwrite styles that are applied in case of the default sublist that has no child sublists. */
+  /* Overwrite the styles that are applied in case of a sublist that has no child sublists. */
   position: relative;
   top: unset;
   border: none;
@@ -451,6 +504,90 @@ body {
 .search__btn {
   border: none;
   background-color: transparent;
+}
+.slider-section {
+  grid-column: full-start/full-end;
+  position: relative;
+}
+
+.carousel-btn, .carousel-btn--right, .carousel-btn--left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  opacity: 0;
+  transform: translateY(50%);
+  width: 7rem;
+  height: 6rem;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease-in-out, background-color 0s;
+}
+.carousel-btn--left {
+  bottom: 50%;
+  left: 0;
+  border-radius: 0 3rem 3rem 0;
+}
+.carousel-btn--right {
+  bottom: 50%;
+  right: 0;
+  border-radius: 3rem 0 0 3rem;
+}
+.slider-section:hover .carousel-btn, .slider-section:hover .carousel-btn--left, .slider-section:hover .carousel-btn--right {
+  opacity: 1;
+}
+.carousel-btn:hover, .carousel-btn--left:hover, .carousel-btn--right:hover {
+  background-color: black;
+}
+
+.carousel-icon, .carousel-icon--right, .carousel-icon--left {
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: #0e2b5d;
+}
+.carousel-btn:hover .carousel-icon, .carousel-btn--left:hover .carousel-icon, .carousel-btn--right:hover .carousel-icon, .carousel-btn:hover .carousel-icon--left, .carousel-btn--left:hover .carousel-icon--left, .carousel-btn--right:hover .carousel-icon--left, .carousel-btn:hover .carousel-icon--right, .carousel-btn--left:hover .carousel-icon--right, .carousel-btn--right:hover .carousel-icon--right {
+  fill: white;
+}
+
+.slide, .slide--3, .slide--2, .slide--1 {
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #1fc2ef;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+.slide--1 {
+  background-image: url("/assets/images/background-images/slider-images/slider-1.jpg");
+}
+.slide--2 {
+  display: none;
+  background-image: url("/assets/images/background-images/slider-images/slider-2.jpg");
+}
+.slide--3 {
+  display: none;
+  background-image: url("/assets/images/background-images/slider-images/slider-3.jpg");
+}
+.slide__content {
+  grid-column: center-start/center-end;
+  color: white;
+  line-height: 0.9;
+}
+.slide__content > .para--lg-2:last-of-type::after {
+  content: "";
+  display: block;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  width: 17%;
+  height: 0.5rem;
+  background-color: currentColor;
+}
+.slide__content > [class*=btn] {
+  margin-top: 5%;
 }
 
 /*# sourceMappingURL=main.css.map */

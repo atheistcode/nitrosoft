@@ -1,17 +1,12 @@
 html {
   /* To make calculations easier when using rem. */
-  line-height: 1.4;
   font-size: 62.5%;
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
-  color: $color-link;
-  transition: $transition--1;
-
-  &:hover {
-    color: $color-text;
-  }
+  @include link-style;
 }
 
 ul {
@@ -28,20 +23,13 @@ select {
   }
 }
 
-a {
-  display: inline-block;
-}
-
 /* Grid definition for the overall page layout. */
 .main {
   display: grid;
-  grid-template-rows: repeat(auto-fit, 1fr);
-  grid-template-columns:
-    [full-start] minmax(1.5rem, 1fr) [center-start] repeat(
-      12,
-      [col-start] minmax(min-content, 10rem) [col-end]
-    )
-    [center-end] minmax(1.5rem, 1fr) [full-end];
+  @include grid-columns;
+  // I don't know why this is not working.
+  // grid-template-rows: minmax(28vw, 62rem) repeat(auto-fit, 100%);
+  grid-template-rows: minmax(28vw, 62rem) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .logo {
@@ -64,7 +52,7 @@ a {
     }
 
     :nth-child(2) {
-      color: $color-primary--light-1;
+      color: $color-light--1;
     }
   }
 }

@@ -5,7 +5,7 @@
     align-items: center;
     position: relative;
     /* The z-index value for page content is in range 1-99 and for modals is in range 100-199. */
-    z-index: 95;
+    // z-index: 95; Commented out because sublists accidentally become visible when hovering over the next section.
     max-width: 90%;
     height: 12.2rem;
     margin: auto;
@@ -34,6 +34,7 @@
   justify-content: space-around;
   border-top: $border--1;
 
+  /* Extend each item to take the full available width. */
   & > * {
     flex-grow: 1;
   }
@@ -43,9 +44,14 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    white-space: nowrap;
+    font-size: $font-size--md;
+    font-weight: 500;
 
     &:hover {
-      & > .menu-btn {
+      color: $color-text;
+
+      & .menu-btn {
         @include menu-btn-hover;
       }
 
@@ -56,7 +62,14 @@
   }
 
   &__link {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
     padding: 2rem 0;
+
+    & > .menu-btn {
+      margin-left: 0.5rem;
+    }
   }
 }
 
@@ -73,6 +86,7 @@
   box-shadow: $shadow--2;
   background-color: $color-white;
   padding: 2rem 0;
+  font-weight: initial;
   transition: $transition--1;
 
   &__item {
@@ -85,7 +99,6 @@
   &__link {
     display: block;
     padding: 0.5rem 4rem;
-    white-space: nowrap;
   }
 
   &__sub-title {
@@ -117,7 +130,7 @@
     z-index: initial;
     visibility: visible;
     opacity: 1;
-    /* Overwrite styles that are applied in case of the default sublist that has no child sublists. */
+    /* Overwrite the styles that are applied in case of a sublist that has no child sublists. */
     position: relative;
     top: unset;
     border: none;

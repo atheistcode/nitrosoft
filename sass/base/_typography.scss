@@ -113,3 +113,29 @@ body {
   font-size: $font-size--rg;
   color: $color-text;
 }
+
+.para {
+  width: max-content;
+
+  &--lg {
+    @extend .para;
+
+    &-1 {
+      @extend .para--lg;
+      // Needs to be updated to use javascript
+      // "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
+      // https://github.com/Jam3/nextjs-boilerplate/pull/49
+      font-size: 4.5vw;
+      font-weight: 400;
+    }
+
+    &-2 {
+      @extend .para--lg;
+      // Needs to be updated to use javascript
+      // "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
+      // https://github.com/Jam3/nextjs-boilerplate/pull/49
+      font-size: 8vw;
+      font-weight: 600;
+    }
+  }
+}

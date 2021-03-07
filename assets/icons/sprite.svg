@@ -38,4 +38,10 @@
     <title>Arrow Forward</title>
     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144m124-144H100"></path>
   </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24" id="iconmonstr-angel-right-thin">
+    <path d="M4 .755L18.374 12 4 23.219l.619.781L20 12 4.609 0 4 .755z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24" id="iconmonstr-angel-left-thin">
+    <path d="M20 .755L5.626 12 20 23.219l-.619.781L4 12 19.391 0 20 .755z"></path>
+  </symbol>
 </svg>

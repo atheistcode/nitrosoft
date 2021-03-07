@@ -36,8 +36,10 @@
             <li class="nav-list__item"><a href="/" class="nav-list__link">Home</a></li>
 
             <li class="nav-list__item">
-              <a href="#" class="nav-list__link">Company</a>
-              <div class="menu-btn"></div>
+              <a href="#" class="nav-list__link"
+                >Company
+                <div class="menu-btn"></div
+              ></a>
               <ul class="sub-list">
                 <li class="sub-list__item">
                   <a href="#" class="sub-list__link arrow-icon-btn">About</a>
@@ -67,8 +69,10 @@
             </li>
 
             <li class="nav-list__item">
-              <a href="#" class="nav-list__link">IT Solutions</a>
-              <div class="menu-btn"></div>
+              <a href="#" class="nav-list__link"
+                >IT Solutions
+                <div class="menu-btn"></div
+              ></a>
               <ul class="sub-list--2">
                 <li class="sub-list__item">
                   <a href="#" class="sub-list__link sub-list__sub-title arrow-icon-btn">IT Services</a>
@@ -169,11 +173,38 @@
     <main class="main">
       <!-- START slider-section -->
       <section class="slider-section">
-        <article class="slide">
-          <p>every device</p>
-          <p>managed IT</p>
-          <p>solutions.</p>
-          <a class="slide__icon-btn" href="#">Find your solution</a>
+        <span class="carousel-btn--left"
+          ><svg class="carousel-icon--left">
+            <use xlink:href="/assets/icons/sprite.svg#iconmonstr-angel-left-thin"></use></svg
+        ></span>
+        <span class="carousel-btn--right"
+          ><svg class="carousel-icon--right">
+            <use xlink:href="/assets/icons/sprite.svg#iconmonstr-angel-right-thin"></use></svg
+        ></span>
+
+        <article class="slide--1">
+          <div class="slide__content">
+            <p class="para--lg-1">every device</p>
+            <p class="para--lg-2">managed IT</p>
+            <p class="para--lg-2">solutions.</p>
+            <a class="arrow-2-icon-btn" href="#">Find your solution</a>
+          </div>
+        </article>
+        <article class="slide--2">
+          <div class="slide__content">
+            <p class="para--lg-1">focus</p>
+            <p class="para--lg-2">business</p>
+            <p class="para--lg-1">Let us provide the support you deserve.</p>
+            <a class="arrow-2-icon-btn" href="#">Discover US No.1 Service Provider</a>
+          </div>
+        </article>
+        <article class="slide--3">
+          <div class="slide__content">
+            <p class="para--lg-1">workplace</p>
+            <p class="para--lg-2">technology</p>
+            <p class="para--lg-2">partner</p>
+            <a class="arrow-2-icon-btn" href="#">Make IT Stress Free</a>
+          </div>
         </article>
       </section>
       <!-- END slider-section -->

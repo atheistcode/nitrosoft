@@ -1,0 +1,37 @@
+.arrow-2-icon-btn {
+  position: relative;
+
+  overflow: hidden;
+  width: max-content;
+  padding: 1rem;
+  padding-right: 6rem;
+  color: $color-white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: $font-size--lg;
+  font-weight: 500;
+
+  &::before {
+    content: "\2192";
+    position: absolute;
+    transform: translate(-145%, -45%);
+    color: currentColor;
+    font-size: 3.7rem;
+    transition: $transition--1;
+  }
+
+  &::after {
+    content: "\2192";
+    position: absolute;
+    transform: translate(45%, -45%);
+    color: currentColor;
+    font-size: 3.7rem;
+    transition: $transition--1;
+  }
+
+  &:hover {
+    color: currentColor;
+    padding-left: 6rem;
+    padding-right: 0;
+  }
+}
