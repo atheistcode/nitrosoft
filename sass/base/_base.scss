@@ -4,12 +4,6 @@ html {
   font-size: 62.5%;
 }
 
-a {
-  display: inline-block;
-  text-decoration: none;
-  @include link-style;
-}
-
 ul {
   list-style: none;
 }

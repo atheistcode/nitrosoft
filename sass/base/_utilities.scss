@@ -1,0 +1,9 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  @include link-style;
+}
+
+.border-bottom {
+  border-bottom: 0.1rem dotted $color-text;
+}

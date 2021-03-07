@@ -2,34 +2,61 @@
   grid-column: full-start / full-end;
   display: grid;
   @include grid-columns;
+  row-gap: 3rem;
   background-color: $color-primary--dark;
   padding-top: 8rem;
 
   &__header {
-    grid-column: full-start / full-end;
+    grid-column: center-start / center-end;
+    grid-row: 1;
     display: grid;
-    @include grid-columns;
-    justify-content: start;
-    column-gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
 
     & > .heading-3 {
-      grid-column: center-start / col-end 6;
+      grid-column: 1;
       color: $color-white;
     }
 
     & > .heading-6 {
-      grid-column: center-start / col-end 6;
+      grid-column: 1;
       color: $color-primary--light;
     }
 
     & > .para {
-      grid-column: col-start 7 / center-end;
+      grid-column: 2;
     }
   }
 
   &__info-figures {
     grid-column: center-start / center-end;
+    grid-row: 2;
     display: grid;
-    @include grid-columns;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    gap: 3rem;
+  }
+
+  &__footer {
+    grid-column: center-start / center-end;
+    grid-row: 3;
+    text-align: center;
+  }
+}
+
+.info-figure {
+  position: relative;
+
+  &__img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__caption {
+    position: relative;
+    margin: -8rem auto 0 auto;
+    width: 80%;
+    background-color: $color-white;
+    padding: 2rem;
+    text-align: center;
   }
 }

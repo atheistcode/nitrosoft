@@ -158,10 +158,6 @@
   border-right: $border--1;
   padding-right: 2.5rem;
   font-size: $font-size--sm;
-
-  & > a {
-    border-bottom: 0.1rem dotted $color-text;
-  }
 }
 
 .search-icon {

@@ -15,16 +15,6 @@ html {
   font-size: 62.5%;
 }
 
-a {
-  display: inline-block;
-  text-decoration: none;
-  color: #032a5e;
-  transition: all 0.2s ease-in-out;
-}
-a:hover {
-  color: #667c99;
-}
-
 ul {
   list-style: none;
 }
@@ -225,6 +215,20 @@ body {
   letter-spacing: 0.4rem;
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  color: #032a5e;
+  transition: all 0.2s ease-in-out;
+}
+.link:hover {
+  color: #667c99;
+}
+
+.border-bottom {
+  border-bottom: 0.1rem dotted #667c99;
 }
 
 .arrow-2-icon-btn {
@@ -450,9 +454,6 @@ body {
   padding-right: 2.5rem;
   font-size: 1.5rem;
 }
-.extras-text > a {
-  border-bottom: 0.1rem dotted #667c99;
-}
 
 .search-icon {
   margin-left: 0.5rem;
@@ -511,31 +512,55 @@ body {
   grid-column: full-start/full-end;
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  row-gap: 3rem;
   background-color: #231834;
   padding-top: 8rem;
 }
 .company-section__header {
-  grid-column: full-start/full-end;
+  grid-column: center-start/center-end;
+  grid-row: 1;
   display: grid;
-  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
-  justify-content: start;
-  column-gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
 }
 .company-section__header > .heading-3 {
-  grid-column: center-start/col-end 6;
+  grid-column: 1;
   color: white;
 }
 .company-section__header > .heading-6 {
-  grid-column: center-start/col-end 6;
+  grid-column: 1;
   color: #1fc2ef;
 }
 .company-section__header > .para {
-  grid-column: col-start 7/center-end;
+  grid-column: 2;
 }
 .company-section__info-figures {
   grid-column: center-start/center-end;
+  grid-row: 2;
   display: grid;
-  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  gap: 3rem;
+}
+.company-section__footer {
+  grid-column: center-start/center-end;
+  grid-row: 3;
+  text-align: center;
+}
+
+.info-figure {
+  position: relative;
+}
+.info-figure__img {
+  object-fit: cover;
+  object-position: center;
+}
+.info-figure__caption {
+  position: relative;
+  margin: -8rem auto 0 auto;
+  width: 80%;
+  background-color: white;
+  padding: 2rem;
+  text-align: center;
 }
 
 .slider-section {
