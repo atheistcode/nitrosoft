@@ -1,0 +1,35 @@
+.company-section {
+  grid-column: full-start / full-end;
+  display: grid;
+  @include grid-columns;
+  background-color: $color-primary--dark;
+  padding-top: 8rem;
+
+  &__header {
+    grid-column: full-start / full-end;
+    display: grid;
+    @include grid-columns;
+    justify-content: start;
+    column-gap: 3rem;
+
+    & > .heading-3 {
+      grid-column: center-start / col-end 6;
+      color: $color-white;
+    }
+
+    & > .heading-6 {
+      grid-column: center-start / col-end 6;
+      color: $color-primary--light;
+    }
+
+    & > .para {
+      grid-column: col-start 7 / center-end;
+    }
+  }
+
+  &__info-figures {
+    grid-column: center-start / center-end;
+    display: grid;
+    @include grid-columns;
+  }
+}

@@ -7,7 +7,6 @@
     /* The z-index value for page content is in range 1-99 and for modals is in range 100-199. */
     // z-index: 95; Commented out because sublists accidentally become visible when hovering over the next section.
     max-width: 90%;
-    // height: 12.2rem;
     margin: auto;
   }
 
@@ -27,6 +26,7 @@
 .nav-info {
   padding: 1.5rem 0;
   text-align: center;
+  font-size: $font-size--sm;
 }
 
 .nav-list {
@@ -46,12 +46,9 @@
     align-items: center;
     position: relative;
     white-space: nowrap;
-    font-size: $font-size--md;
     font-weight: 500;
 
     &:hover {
-      color: $color-text;
-
       & .menu-btn {
         @include menu-btn-hover;
       }
@@ -77,13 +74,13 @@
 .sub-list {
   position: absolute;
   top: 100%;
-  /* To fix a bug that makes sublists that we don't hover over accidentally become visible.  */
+  /* To fix a bug that makes sublists that we don't hover over accidentally become visible. When sublist is visible we specified z-index: 99;. */
   z-index: -1;
   visibility: hidden;
   opacity: 0;
   min-width: 25rem;
   border: $border--1;
-  border-radius: $border-radius--rg;
+  border-radius: $border-radius--lg;
   box-shadow: $shadow--2;
   background-color: $color-white;
   padding: 2rem 0;
@@ -91,7 +88,8 @@
   transition: $transition--1;
 
   &__item {
-    /* To make the title of a sublist always has the hover effect when hover on any child of this sublist. */
+    font-size: $font-size--sm;
+    /* To make the title of a sublist always has the hover effect when hovering over any child of this sublist. */
     &:hover .sub-list__sub-title {
       @include arrow-icon-btn-hover;
     }
@@ -131,7 +129,7 @@
     z-index: initial;
     visibility: visible;
     opacity: 1;
-    /* Overwrite the styles that are applied in case of a sublist that has no child sublists. */
+    /* Overwrite some styles that are applied in case of a sublist that has no child sublists. */
     position: relative;
     top: unset;
     border: none;
@@ -151,14 +149,15 @@
 // --------------------------------------------------
 
 .extras-icon {
+  margin-right: 1.5rem;
   width: 4rem;
   height: 4rem;
-  margin-right: 1.5rem;
 }
 
 .extras-text {
-  padding-right: 2.5rem;
   border-right: $border--1;
+  padding-right: 2.5rem;
+  font-size: $font-size--sm;
 
   & > a {
     border-bottom: 0.1rem dotted $color-text;
@@ -177,7 +176,7 @@
     transition: $transition--1;
   }
 
-  &:hover > svg {
+  &:hover svg {
     fill: $color-text;
   }
 }
@@ -192,13 +191,15 @@
   z-index: 99;
   visibility: hidden;
   opacity: 0;
+  transition: $transition--1;
 
   &__label {
     position: absolute;
     right: 0;
-    /* In order to make the search icon visible above the input. */
+    /* To make the search icon visible above the input. */
     z-index: -1;
 
+    /* Span included only for web accessibility purposes. */
     & > span {
       display: none;
     }
@@ -208,7 +209,7 @@
     width: 2rem;
     height: 5.5rem;
     border: $border--1;
-    border-radius: $border-radius--rg;
+    border-radius: $border-radius--lg;
     box-shadow: $shadow--1;
     padding-right: 4rem;
     padding-left: 2rem;
@@ -222,9 +223,5 @@
   &__btn {
     border: none;
     background-color: transparent;
-  }
-
-  &__icon {
-    @extend .search-icon;
   }
 }

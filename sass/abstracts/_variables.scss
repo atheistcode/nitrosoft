@@ -1,35 +1,31 @@
 /* COLORS */
-/* Variants may have a postfix number to specify the degree of that variant. For example, light-1 is lighter than light-2 and dark-1 is darker than dark-2. */
 $color-primary: hsl(214, 94%, 19%);
-$color-primary--light-1: hsl(193, 87%, 53%);
-$color-primary--dark-1: hsl(218, 74%, 21%);
-// $color-primary--dark: hsl(264, 37%, 15%);
-
+$color-primary--light: hsl(193, 87%, 53%);
+$color-primary--dark: hsl(264, 37%, 15%);
 $color-secondary: hsl(5, 100%, 56%);
 
-$color-light--1: hsl(214, 20%, 48%);
-$color-light--2: hsla(214, 20%, 48%, 20%);
+$color-light--1: hsl(214, 20%, 50%);
+$color-light--2: hsl(214, 20%, 90%);
 
 $color-white: hsl(0, 0%, 100%);
-$color-gray: hsl(0, 0%, 0%, 35%);
 $color-black: hsl(0, 0%, 0%);
 
 /* TEXT COLORS */
 $color-text: $color-light--1;
-$color-link: $color-primary--dark-1;
+$color-link: $color-primary;
 
 /* FONTS */
-$font-size--rg: 1.5rem;
-$font-size--md: 1.6rem;
+$font-size--sm: 1.5rem;
+$font-size--rg: 1.6rem;
 $font-size--lg: 1.7rem;
 
 $font-size-logo: 2.6rem;
 
 /* BORDERS */
 $border-color--1: $color-light--2;
-$border-color--2: $color-gray;
+$border-color--2: $color-light--1;
 
-$border-radius--rg: 0.5rem;
+$border-radius--lg: 0.5rem;
 
 $border--1: 0.1rem solid $border-color--1;
 $border--2: 0.1rem solid $border-color--2;

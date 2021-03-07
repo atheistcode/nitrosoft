@@ -1,9 +1,9 @@
 @charset "UTF-8";
-/* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
-/* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
-/* I included this as a mixin here also because I may need to use this effect when hover over another or parent element.  */
+/* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
+/* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
+/* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
+/* Main grid-template-columns definition that consists of 14 columns. */
 /* COLORS */
-/* Variants may have a postfix number to specify the degree of that variant. For example, light-1 is lighter than light-2 and dark-1 is darker than dark-2. */
 /* TEXT COLORS */
 /* FONTS */
 /* BORDERS */
@@ -18,11 +18,11 @@ html {
 a {
   display: inline-block;
   text-decoration: none;
-  color: #0e2b5d;
+  color: #032a5e;
   transition: all 0.2s ease-in-out;
 }
 a:hover {
-  color: #627793;
+  color: #667c99;
 }
 
 ul {
@@ -34,7 +34,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 0.1rem dotted #627793;
+  outline: 0.1rem dotted #667c99;
 }
 
 /* Grid definition for the overall page layout. */
@@ -61,7 +61,7 @@ select:focus-visible {
   color: #032a5e;
 }
 .logo__title :nth-child(2) {
-  color: #627793;
+  color: #667c99;
 }
 
 *,
@@ -210,8 +210,21 @@ button {
 }
 body {
   font-family: Rubik, sans-serif;
-  font-size: 1.5rem;
-  color: #627793;
+  font-size: 1.6rem;
+  color: #667c99;
+}
+
+.heading-3 {
+  margin: 1rem 0;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.heading-6 {
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .arrow-2-icon-btn {
@@ -223,7 +236,6 @@ body {
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
-  font-size: 1.7rem;
   font-weight: 500;
 }
 .arrow-2-icon-btn::before {
@@ -250,7 +262,7 @@ body {
 
 .arrow-icon-btn {
   position: relative;
-  color: #627793;
+  color: currentColor;
   transition: all 0.2s ease-in-out;
 }
 .arrow-icon-btn::before {
@@ -264,7 +276,7 @@ body {
   transition: all 0.2s ease-in-out;
 }
 .arrow-icon-btn:hover {
-  color: #0e2b5d;
+  color: #032a5e;
 }
 .arrow-icon-btn:hover::before {
   transform: translateX(0.8rem);
@@ -279,7 +291,7 @@ body {
   content: "";
   width: 0.8rem;
   height: 0;
-  border-top: 0.1rem solid rgba(0, 0, 0, 0.35);
+  border-top: 0.1rem solid #667c99;
   transition: all 0.3s ease-in-out;
 }
 .menu-btn::before {
@@ -312,13 +324,14 @@ body {
 .nav-info {
   padding: 1.5rem 0;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .nav-list {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border-top: 0.1rem solid #e0e5eb;
   /* Extend each item to take the full available width. */
 }
 .nav-list > * {
@@ -330,11 +343,7 @@ body {
   align-items: center;
   position: relative;
   white-space: nowrap;
-  font-size: 1.6rem;
   font-weight: 500;
-}
-.nav-list__item:hover {
-  color: #627793;
 }
 .nav-list__item:hover .menu-btn::before {
   transform: rotate(-45deg) translateX(75%) scaleX(1.5);
@@ -361,12 +370,12 @@ body {
 .sub-list, .sub-list--2 {
   position: absolute;
   top: 100%;
-  /* To fix a bug that makes sublists that we don't hover over accidentally become visible.  */
+  /* To fix a bug that makes sublists that we don't hover over accidentally become visible. When sublist is visible we specified z-index: 99;. */
   z-index: -1;
   visibility: hidden;
   opacity: 0;
   min-width: 25rem;
-  border: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border: 0.1rem solid #e0e5eb;
   border-radius: 0.5rem;
   box-shadow: 0 5px 19px 1px rgba(0, 0, 0, 0.09);
   background-color: white;
@@ -375,10 +384,11 @@ body {
   transition: all 0.2s ease-in-out;
 }
 .sub-list__item {
-  /* To make the title of a sublist always has the hover effect when hover on any child of this sublist. */
+  font-size: 1.5rem;
+  /* To make the title of a sublist always has the hover effect when hovering over any child of this sublist. */
 }
 .sub-list__item:hover .sub-list__sub-title {
-  color: #0e2b5d;
+  color: #032a5e;
 }
 .sub-list__item:hover .sub-list__sub-title::before {
   transform: translateX(0.8rem);
@@ -400,8 +410,8 @@ body {
   transform: rotateZ(45deg) translateY(65%);
   width: 1.4rem;
   height: 1.4rem;
-  border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
-  border-left: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border-top: 0.1rem solid #e0e5eb;
+  border-left: 0.1rem solid #e0e5eb;
   background-color: white;
 }
 
@@ -414,7 +424,7 @@ body {
   z-index: initial;
   visibility: visible;
   opacity: 1;
-  /* Overwrite the styles that are applied in case of a sublist that has no child sublists. */
+  /* Overwrite some styles that are applied in case of a sublist that has no child sublists. */
   position: relative;
   top: unset;
   border: none;
@@ -426,36 +436,37 @@ body {
   display: none;
 }
 .sub-list--2 > .sub-list__item:last-of-type {
-  border-left: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border-left: 0.1rem solid #e0e5eb;
 }
 
 .extras-icon {
+  margin-right: 1.5rem;
   width: 4rem;
   height: 4rem;
-  margin-right: 1.5rem;
 }
 
 .extras-text {
+  border-right: 0.1rem solid #e0e5eb;
   padding-right: 2.5rem;
-  border-right: 0.1rem solid rgba(98, 119, 147, 0.2);
+  font-size: 1.5rem;
 }
 .extras-text > a {
-  border-bottom: 0.1rem dotted #627793;
+  border-bottom: 0.1rem dotted #667c99;
 }
 
-.search-icon, .search__icon {
+.search-icon {
   margin-left: 0.5rem;
   cursor: pointer;
   padding: 1.5rem;
 }
-.search-icon > svg, .search__icon > svg {
+.search-icon > svg {
   width: 1.8rem;
   height: 2.4rem;
-  fill: #0e2b5d;
+  fill: #032a5e;
   transition: all 0.2s ease-in-out;
 }
-.search-icon:hover > svg, .search__icon:hover > svg {
-  fill: #627793;
+.search-icon:hover svg {
+  fill: #667c99;
 }
 
 .search {
@@ -466,12 +477,14 @@ body {
   z-index: 99;
   visibility: hidden;
   opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
 .search__label {
   position: absolute;
   right: 0;
-  /* In order to make the search icon visible above the input. */
+  /* To make the search icon visible above the input. */
   z-index: -1;
+  /* Span included only for web accessibility purposes. */
 }
 .search__label > span {
   display: none;
@@ -479,7 +492,7 @@ body {
 .search__input {
   width: 2rem;
   height: 5.5rem;
-  border: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border: 0.1rem solid #e0e5eb;
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
   padding-right: 4rem;
@@ -493,9 +506,40 @@ body {
   border: none;
   background-color: transparent;
 }
+
+.company-section {
+  grid-column: full-start/full-end;
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  background-color: #231834;
+  padding-top: 8rem;
+}
+.company-section__header {
+  grid-column: full-start/full-end;
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  justify-content: start;
+  column-gap: 3rem;
+}
+.company-section__header > .heading-3 {
+  grid-column: center-start/col-end 6;
+  color: white;
+}
+.company-section__header > .heading-6 {
+  grid-column: center-start/col-end 6;
+  color: #1fc2ef;
+}
+.company-section__header > .para {
+  grid-column: col-start 7/center-end;
+}
+.company-section__info-figures {
+  grid-column: center-start/center-end;
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+}
+
 .slider-section {
   grid-column: full-start/full-end;
-  /* Temporary fix because grid-template-rows: minmax() in _base.scss is not working. */
   max-height: 62rem;
   height: 48vw;
   position: relative;
@@ -534,7 +578,7 @@ body {
 .carousel-icon, .carousel-icon--right, .carousel-icon--left {
   width: 1.8rem;
   height: 1.8rem;
-  fill: #0e2b5d;
+  fill: #032a5e;
 }
 .carousel-btn:hover .carousel-icon, .carousel-btn--left:hover .carousel-icon, .carousel-btn--right:hover .carousel-icon, .carousel-btn:hover .carousel-icon--left, .carousel-btn--left:hover .carousel-icon--left, .carousel-btn--right:hover .carousel-icon--left, .carousel-btn:hover .carousel-icon--right, .carousel-btn--left:hover .carousel-icon--right, .carousel-btn--right:hover .carousel-icon--right {
   fill: white;
@@ -585,12 +629,16 @@ body {
   line-height: 1;
 }
 .slider-para--sm {
-  /* Another method to specify responsive font-size with javascript. */
-  font-weight: 400;
+  /* Another method to specify responsive font-size with javascript. 
+  "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
+  https://github.com/Jam3/nextjs-boilerplate/pull/49 */
   font-size: clamp(1rem, 5.8rem, 4.5vw);
+  font-weight: 400;
 }
 .slider-para--lg {
-  /* Another method to specify responsive font-size with javascript. */
+  /* Another method to specify responsive font-size with javascript. 
+  "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
+  https://github.com/Jam3/nextjs-boilerplate/pull/49 */
   font-size: clamp(1rem, 10.2rem, 8vw);
   font-weight: 600;
 }
