@@ -1,6 +1,5 @@
 .arrow-2-icon-btn {
   position: relative;
-
   overflow: hidden;
   width: max-content;
   padding: 1rem;
@@ -14,7 +13,7 @@
   &::before {
     content: "\2192";
     position: absolute;
-    transform: translate(-145%, -45%);
+    transform: translate(-145%, -35%);
     color: currentColor;
     font-size: 3.7rem;
     transition: $transition--1;
@@ -23,7 +22,7 @@
   &::after {
     content: "\2192";
     position: absolute;
-    transform: translate(45%, -45%);
+    transform: translate(45%, -35%);
     color: currentColor;
     font-size: 3.7rem;
     transition: $transition--1;

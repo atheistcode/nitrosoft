@@ -10,6 +10,7 @@
 /* SHADOWS */
 /* TRANSITIONS */
 html {
+  line-height: 1.4;
   /* To make calculations easier when using rem. */
   font-size: 62.5%;
 }
@@ -40,7 +41,6 @@ select:focus-visible {
 .main {
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
-  grid-template-rows: minmax(28vw, 62rem) 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .logo {
@@ -214,18 +214,6 @@ body {
   color: #627793;
 }
 
-.para, .para--lg, .para--lg-2, .para--lg-1 {
-  width: max-content;
-}
-.para--lg-1 {
-  font-size: 4.5vw;
-  font-weight: 400;
-}
-.para--lg-2 {
-  font-size: 8vw;
-  font-weight: 600;
-}
-
 .arrow-2-icon-btn {
   position: relative;
   overflow: hidden;
@@ -241,7 +229,7 @@ body {
 .arrow-2-icon-btn::before {
   content: "→";
   position: absolute;
-  transform: translate(-145%, -45%);
+  transform: translate(-145%, -35%);
   color: currentColor;
   font-size: 3.7rem;
   transition: all 0.2s ease-in-out;
@@ -249,7 +237,7 @@ body {
 .arrow-2-icon-btn::after {
   content: "→";
   position: absolute;
-  transform: translate(45%, -45%);
+  transform: translate(45%, -35%);
   color: currentColor;
   font-size: 3.7rem;
   transition: all 0.2s ease-in-out;
@@ -310,7 +298,6 @@ body {
   position: relative;
   /* The z-index value for page content is in range 1-99 and for modals is in range 100-199. */
   max-width: 90%;
-  height: 12.2rem;
   margin: auto;
 }
 .header__navigation {
@@ -330,6 +317,7 @@ body {
 .nav-list {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
   /* Extend each item to take the full available width. */
 }
@@ -507,6 +495,9 @@ body {
 }
 .slider-section {
   grid-column: full-start/full-end;
+  /* Temporary fix because grid-template-rows: minmax() in _base.scss is not working. */
+  max-height: 62rem;
+  height: 48vw;
   position: relative;
 }
 
@@ -575,9 +566,8 @@ body {
 .slide__content {
   grid-column: center-start/center-end;
   color: white;
-  line-height: 0.9;
 }
-.slide__content > .para--lg-2:last-of-type::after {
+.slide__content > .slider-para--lg:last-of-type::after {
   content: "";
   display: block;
   margin-top: 1rem;
@@ -588,6 +578,21 @@ body {
 }
 .slide__content > [class*=btn] {
   margin-top: 5%;
+}
+
+.slider-para, .slider-para--lg, .slider-para--sm {
+  width: max-content;
+  line-height: 1;
+}
+.slider-para--sm {
+  /* Another method to specify responsive font-size with javascript. */
+  font-weight: 400;
+  font-size: clamp(1rem, 5.8rem, 4.5vw);
+}
+.slider-para--lg {
+  /* Another method to specify responsive font-size with javascript. */
+  font-size: clamp(1rem, 10.2rem, 8vw);
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=main.css.map */

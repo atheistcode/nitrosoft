@@ -1,5 +1,10 @@
+@use "sass:math";
+
 .slider-section {
   grid-column: full-start / full-end;
+  /* Temporary fix because grid-template-rows: minmax() in _base.scss is not working. */
+  max-height: 62rem;
+  height: 48vw;
   position: relative;
 }
 
@@ -89,9 +94,8 @@
   &__content {
     grid-column: center-start / center-end;
     color: $color-white;
-    line-height: 0.9;
 
-    & > .para--lg-2:last-of-type::after {
+    & > .slider-para--lg:last-of-type::after {
       content: "";
       display: block;
       margin-top: 1rem;
@@ -104,5 +108,28 @@
     & > [class*="btn"] {
       margin-top: 5%;
     }
+  }
+}
+
+.slider-para {
+  width: max-content;
+  line-height: 1;
+
+  &--sm {
+    @extend .slider-para;
+    /* Another method to specify responsive font-size with javascript. */
+    // "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
+    // https://github.com/Jam3/nextjs-boilerplate/pull/49
+    font-weight: 400;
+    font-size: clamp(1rem, 5.8rem, 4.5vw);
+  }
+
+  &--lg {
+    @extend .slider-para;
+    /* Another method to specify responsive font-size with javascript. */
+    // "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
+    // https://github.com/Jam3/nextjs-boilerplate/pull/49
+    font-size: clamp(1rem, 10.2rem, 8vw);
+    font-weight: 600;
   }
 }
