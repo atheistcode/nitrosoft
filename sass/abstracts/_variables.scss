@@ -1,2 +1,38 @@
+/* COLORS */
+/* Variants may have a postfix number to specify the degree of that variant. For example, light-1 is lighter than light-2 and dark-1 is darker than dark-2. */
+$color-primary: hsl(214, 94%, 19%);
+$color-primary--light-1: hsl(214, 20%, 48%);
+$color-primary--light-2: hsla(214, 20%, 48%, 20%);
+$color-primary--dark-1: hsl(218, 74%, 21%);
+// $color-primary--dark: hsl(264, 37%, 15%);
+
+$color-secondary: hsl(5, 100%, 56%);
+
+$color-white: hsl(0, 0%, 100%);
+$color-grey: hsl(0, 0%, 0%, 35%);
+
+/* TEXT COLORS */
+$color-text: $color-primary--light-1;
+$color-link: $color-primary--dark-1;
+
 /* FONTS */
-$font-size-rg: 1.6rem;
+$font-size--rg: 1.5rem;
+
+$font-size-logo: 2.6rem;
+
+/* BORDERS */
+$border-color--1: $color-primary--light-2;
+$border-color--2: $color-grey;
+
+$border-radius--rg: 0.5rem;
+
+$border--1: 0.1rem solid $border-color--1;
+$border--2: 0.1rem solid $border-color--2;
+
+/* SHADOWS */
+$shadow--1: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
+$shadow--2: 0 5px 19px 1px rgba(0, 0, 0, 0.09);
+
+/* TRANSITIONS */
+$transition--1: all 0.2s ease-in-out;
+$transition--2: all 0.3s ease-in-out;

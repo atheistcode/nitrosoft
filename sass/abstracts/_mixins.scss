@@ -1,0 +1,27 @@
+/* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
+@mixin menu-btn-hover {
+  &::before {
+    transform: rotate(-45deg) translateX(75%) scaleX(1.5);
+  }
+
+  &::after {
+    transform: rotate(45deg) translateX(-75%) scaleX(1.5);
+  }
+}
+
+/* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
+@mixin sub-list-hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-1rem);
+}
+
+/* I included this as a mixin here also because I may need to use this effect when hover over another or parent element.  */
+@mixin arrow-icon-btn-hover {
+  color: $color-link;
+
+  &::before {
+    transform: translateX(0.8rem);
+    opacity: 1;
+  }
+}

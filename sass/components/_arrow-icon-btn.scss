@@ -1,0 +1,20 @@
+.arrow-icon-btn {
+  position: relative;
+  color: $color-text;
+  transition: $transition--1;
+
+  &::before {
+    content: "\279C";
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    opacity: 0;
+    color: currentColor;
+    font-size: 1.2rem;
+    transition: $transition--1;
+  }
+
+  &:hover {
+    @include arrow-icon-btn-hover;
+  }
+}

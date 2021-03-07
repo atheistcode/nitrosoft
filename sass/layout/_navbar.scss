@@ -1,0 +1,213 @@
+.header {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* The z-index value for page content is in range 1-99 and for modals is in range 100-199. */
+    z-index: 95;
+    max-width: 90%;
+    height: 12.2rem;
+    margin: auto;
+  }
+
+  &__navigation {
+    flex: 1 1 0;
+    padding: 0 5%;
+  }
+
+  &__extras {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// --------------------------------------------------
+
+.nav-info {
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  border-top: $border--1;
+
+  & > * {
+    flex-grow: 1;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &:hover {
+      & > .menu-btn {
+        @include menu-btn-hover;
+      }
+
+      & > .sub-list {
+        @include sub-list-hover;
+      }
+    }
+  }
+
+  &__link {
+    padding: 2rem 0;
+  }
+}
+
+.sub-list {
+  position: absolute;
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 25rem;
+  border: $border--1;
+  border-radius: $border-radius--rg;
+  box-shadow: $shadow--2;
+  background-color: $color-white;
+  padding: 2rem 0;
+  transition: $transition--1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: rotateZ(45deg) translateY(65%);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-top: $border--1;
+    border-left: $border--1;
+    background-color: $color-white;
+  }
+
+  &__item {
+    /* To make the title of a sublist always has the hover effect when hover on any child of this sublist. */
+    &:hover .sub-list__sub-title {
+      @include arrow-icon-btn-hover;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 0.5rem 4rem;
+    white-space: nowrap;
+  }
+
+  &__sub-title {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+}
+
+.sub-list--2 {
+  @extend .sub-list;
+  display: flex;
+  padding: 3rem 1rem;
+
+  & .sub-list {
+    /* For sublist that has child sublists, those child sublists should be visible by default. */
+    visibility: visible;
+    opacity: 1;
+    /* Overwrite styles that are applied in case of the default sublist that has no child sublists. */
+    position: relative;
+    top: unset;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    &::before {
+      display: none;
+    }
+  }
+
+  & > .sub-list__item:last-of-type {
+    border-left: $border--1;
+  }
+}
+
+// --------------------------------------------------
+
+.extras-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1.5rem;
+}
+
+.extras-text {
+  padding-right: 2.5rem;
+  border-right: $border--1;
+
+  & > a {
+    border-bottom: 0.1rem dotted $color-text;
+  }
+}
+
+.search-icon {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  padding: 1.5rem;
+
+  & > svg {
+    width: 1.8rem;
+    height: 2.4rem;
+    fill: $color-link;
+    transition: $transition--1;
+  }
+
+  &:hover > svg {
+    fill: $color-text;
+  }
+}
+
+// --------------------------------------------------
+
+.search {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  visibility: hidden;
+  opacity: 0;
+
+  &__label {
+    position: absolute;
+    right: 0;
+    /* In order to make the search icon visible above the input. */
+    z-index: -1;
+
+    & > span {
+      display: none;
+    }
+  }
+
+  &__input {
+    width: 2rem;
+    height: 5.5rem;
+    border: $border--1;
+    border-radius: $border-radius--rg;
+    box-shadow: $shadow--1;
+    padding-right: 4rem;
+    padding-left: 2rem;
+    transition: $transition--1;
+
+    &:focus {
+      width: 28.5rem;
+    }
+  }
+
+  &__btn {
+    border: none;
+    background-color: transparent;
+  }
+
+  &__icon {
+    @extend .search-icon;
+  }
+}

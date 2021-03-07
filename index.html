@@ -17,7 +17,12 @@
       <div class="header__content">
         <!-- START header__brand -->
         <div class="header__brand">
-          <a href="/"> <img class="logo" src="" alt="NitroSoft - IT Solutions and Services Company" /></a>
+          <a class="logo" href="/"
+            ><svg class="logo__icon">
+              <use xlink:href="/assets/icons/sprite.svg#logo"></use>
+            </svg>
+            <span class="logo__title"><span>Nitro</span><span>Soft</span></span></a
+          >
         </div>
         <!-- END header__brand -->
 
@@ -32,83 +37,85 @@
 
             <li class="nav-list__item">
               <a href="#" class="nav-list__link">Company</a>
+              <div class="menu-btn"></div>
               <ul class="sub-list">
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">About</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">About</a>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">Mission, Vision and Values</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">Mission, Vision and Values</a>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">Leadership Team</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">Leadership Team</a>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">Why Choose Us</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">Why Choose Us</a>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">Locations</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">Locations</a>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">FAQ</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">FAQ</a>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">Careers</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">Careers</a>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">Pricing and Plans</a>
+                  <a href="#" class="sub-list__link arrow-icon-btn">Pricing and Plans</a>
                 </li>
               </ul>
             </li>
 
             <li class="nav-list__item">
               <a href="#" class="nav-list__link">IT Solutions</a>
-              <ul class="sub-list">
+              <div class="menu-btn"></div>
+              <ul class="sub-list--2">
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">IT Services</a>
-                  <ul class="sub-list-2">
+                  <a href="#" class="sub-list__link sub-list__sub-title arrow-icon-btn">IT Services</a>
+                  <ul class="sub-list">
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Managed IT</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Managed IT</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">IT Support</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">IT Support</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">IT Consultancy</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">IT Consultancy</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Cloud Computing</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Cloud Computing</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Cyber Security</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Cyber Security</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Custom Software</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Custom Software</a>
                     </li>
                   </ul>
                 </li>
                 <li class="sub-list__item">
-                  <a href="#" class="sub-list__link">Industries</a>
-                  <ul class="sub-list-2">
+                  <a href="#" class="sub-list__link sub-list__sub-title arrow-icon-btn">Industries</a>
+                  <ul class="sub-list">
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Banking</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Banking</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Capital Markets</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Capital Markets</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Enterprise Technology</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Enterprise Technology</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Manufacturing</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Manufacturing</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Healthcare</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Healthcare</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Higher Education</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Higher Education</a>
                     </li>
                     <li class="sub-list__item">
-                      <a href="#" class="sub-list__link">Logistics</a>
+                      <a href="#" class="sub-list__link arrow-icon-btn">Logistics</a>
                     </li>
                   </ul>
                 </li>
@@ -126,17 +133,29 @@
 
         <!-- START header__extras -->
         <div class="header__extras">
-          <img class="extras-icon" src="#" alt="" />
+          <svg class="extras-icon">
+            <use xlink:href="/assets/icons/sprite.svg#conversations"></use>
+          </svg>
           <div class="extras-text">
             Have any questions?<br />
             Free: <a href="tel:+12456789">+12 456 7890</a>
           </div>
+          <span class="search-icon">
+            <svg>
+              <use xlink:href="/assets/icons/sprite.svg#iconmonstr-magnifier-5"></use>
+            </svg>
+          </span>
           <form class="search">
             <label class="search__label">
+              <span>Search for ...</span>
               <input class="search__input" type="search" placeholder="Search ..." />
             </label>
-            <button class="search__icon" type="button">
-              <img src="/assets/icons/iconmonstr-magnifier-5.svg" alt="" />
+            <button class="search__btn" type="submit">
+              <span class="search-icon">
+                <svg>
+                  <use xlink:href="/assets/icons/sprite.svg#iconmonstr-magnifier-5"></use>
+                </svg>
+              </span>
             </button>
           </form>
         </div>

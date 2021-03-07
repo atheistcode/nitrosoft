@@ -1,12 +1,70 @@
+@charset "UTF-8";
+/* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
+/* I had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
+/* I included this as a mixin here also because I may need to use this effect when hover over another or parent element.  */
+/* COLORS */
+/* Variants may have a postfix number to specify the degree of that variant. For example, light-1 is lighter than light-2 and dark-1 is darker than dark-2. */
+/* TEXT COLORS */
 /* FONTS */
+/* BORDERS */
+/* SHADOWS */
+/* TRANSITIONS */
 html {
   /* To make calculations easier when using rem. */
+  line-height: 1.4;
   font-size: 62.5%;
 }
 
+a {
+  text-decoration: none;
+  color: #0e2b5d;
+  transition: all 0.2s ease-in-out;
+}
+a:hover {
+  color: #627793;
+}
+
+ul {
+  list-style: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 0.1rem dotted #627793;
+}
+
+a {
+  display: inline-block;
+}
+
+/* Grid definition for the overall page layout. */
 .main {
   display: grid;
   grid-template-columns: [full-start] minmax(1.5rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(1.5rem, 1fr) [full-end];
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo__icon {
+  width: 3.6rem;
+  height: 4.5rem;
+  margin-right: 0.5rem;
+}
+.logo__title {
+  font-size: 2.6rem;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+.logo__title :nth-child(1) {
+  color: #032a5e;
+}
+.logo__title :nth-child(2) {
+  color: #627793;
 }
 
 *,
@@ -19,7 +77,6 @@ html {
 
 html {
   box-sizing: border-box;
-  line-height: 1.5;
   scroll-behavior: smooth;
 }
 
@@ -38,6 +95,7 @@ select {
 }
 
 input,
+button,
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -51,6 +109,7 @@ textarea {
 
 button {
   cursor: pointer;
+  line-height: 1;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them. */
@@ -154,7 +213,239 @@ button {
 }
 body {
   font-family: Rubik, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  color: #627793;
+}
+
+.arrow-icon-btn {
+  position: relative;
+  color: #627793;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-icon-btn::before {
+  content: "➜";
+  position: absolute;
+  top: 0.6rem;
+  left: 1rem;
+  opacity: 0;
+  color: currentColor;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-icon-btn:hover {
+  color: #0e2b5d;
+}
+.arrow-icon-btn:hover::before {
+  transform: translateX(0.8rem);
+  opacity: 1;
+}
+
+.menu-btn {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.menu-btn::before, .menu-btn::after {
+  content: "";
+  width: 0.8rem;
+  height: 0;
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease-in-out;
+}
+.menu-btn::before {
+  transform-origin: right;
+  transform: rotate(45deg);
+}
+.menu-btn::after {
+  transform-origin: left;
+  transform: rotate(-45deg);
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  /* The z-index value for page content is in range 1-99 and for modals is in range 100-199. */
+  z-index: 95;
+  max-width: 90%;
+  height: 12.2rem;
+  margin: auto;
+}
+.header__navigation {
+  flex: 1 1 0;
+  padding: 0 5%;
+}
+.header__extras {
+  display: flex;
+  align-items: center;
+}
+
+.nav-info {
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
+}
+.nav-list > * {
+  flex-grow: 1;
+}
+.nav-list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.nav-list__item:hover > .menu-btn::before {
+  transform: rotate(-45deg) translateX(75%) scaleX(1.5);
+}
+.nav-list__item:hover > .menu-btn::after {
+  transform: rotate(45deg) translateX(-75%) scaleX(1.5);
+}
+.nav-list__item:hover > .sub-list, .nav-list__item:hover > .sub-list--2 {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-1rem);
+}
+.nav-list__link {
+  padding: 2rem 0;
+}
+
+.sub-list, .sub-list--2 {
+  position: absolute;
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 25rem;
+  border: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 19px 1px rgba(0, 0, 0, 0.09);
+  background-color: white;
+  padding: 2rem 0;
+  transition: all 0.2s ease-in-out;
+}
+.sub-list::before, .sub-list--2::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: rotateZ(45deg) translateY(65%);
+  width: 1.4rem;
+  height: 1.4rem;
+  border-top: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border-left: 0.1rem solid rgba(98, 119, 147, 0.2);
+  background-color: white;
+}
+.sub-list__item {
+  /* To make the title of a sublist always has the hover effect when hover on any child of this sublist. */
+}
+.sub-list__item:hover .sub-list__sub-title {
+  color: #0e2b5d;
+}
+.sub-list__item:hover .sub-list__sub-title::before {
+  transform: translateX(0.8rem);
+  opacity: 1;
+}
+.sub-list__link {
+  display: block;
+  padding: 0.5rem 4rem;
+  white-space: nowrap;
+}
+.sub-list__sub-title {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.sub-list--2 {
+  display: flex;
+  padding: 3rem 1rem;
+}
+.sub-list--2 .sub-list, .sub-list--2 .sub-list--2 {
+  /* For sublist that has child sublists, those child sublists should be visible by default. */
+  visibility: visible;
+  opacity: 1;
+  /* Overwrite styles that are applied in case of the default sublist that has no child sublists. */
+  position: relative;
+  top: unset;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.sub-list--2 .sub-list::before, .sub-list--2 .sub-list--2::before {
+  display: none;
+}
+.sub-list--2 > .sub-list__item:last-of-type {
+  border-left: 0.1rem solid rgba(98, 119, 147, 0.2);
+}
+
+.extras-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1.5rem;
+}
+
+.extras-text {
+  padding-right: 2.5rem;
+  border-right: 0.1rem solid rgba(98, 119, 147, 0.2);
+}
+.extras-text > a {
+  border-bottom: 0.1rem dotted #627793;
+}
+
+.search-icon, .search__icon {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  padding: 1.5rem;
+}
+.search-icon > svg, .search__icon > svg {
+  width: 1.8rem;
+  height: 2.4rem;
+  fill: #0e2b5d;
+  transition: all 0.2s ease-in-out;
+}
+.search-icon:hover > svg, .search__icon:hover > svg {
+  fill: #627793;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  visibility: hidden;
+  opacity: 0;
+}
+.search__label {
+  position: absolute;
+  right: 0;
+  /* In order to make the search icon visible above the input. */
+  z-index: -1;
+}
+.search__label > span {
+  display: none;
+}
+.search__input {
+  width: 2rem;
+  height: 5.5rem;
+  border: 0.1rem solid rgba(98, 119, 147, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
+  padding-right: 4rem;
+  padding-left: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+.search__input:focus {
+  width: 28.5rem;
+}
+.search__btn {
+  border: none;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=main.css.map */

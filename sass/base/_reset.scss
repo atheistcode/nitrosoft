@@ -8,7 +8,6 @@
 
 html {
   box-sizing: border-box;
-  line-height: 1.5;
   scroll-behavior: smooth;
 }
 
@@ -27,6 +26,7 @@ select {
 }
 
 input,
+button,
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -40,6 +40,7 @@ textarea {
 
 button {
   cursor: pointer;
+  line-height: 1;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them. */
