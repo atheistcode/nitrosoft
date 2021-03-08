@@ -6,12 +6,15 @@ $color-secondary: hsl(5, 100%, 56%);
 
 $color-light--1: hsl(214, 20%, 50%);
 $color-light--2: hsl(214, 20%, 90%);
+$color-light--3: hsl(210, 33%, 96%);
 
 $color-white: hsl(0, 0%, 100%);
+$color-gray--light: hsla(0, 0%, 0%, 6%);
 $color-black: hsl(0, 0%, 0%);
 
 /* TEXT COLORS */
 $color-text: $color-light--1;
+$color-text--colored-dark: $color-primary;
 $color-link: $color-primary;
 
 /* FONTS */
@@ -46,3 +49,4 @@ $shadow--4: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8p
 /* TRANSITIONS */
 $transition--1: all 0.2s ease-in-out;
 $transition--2: all 0.3s ease-in-out;
+$transition--3: all 0.35s cubic-bezier(0.12, 0.845, 0.305, 1);

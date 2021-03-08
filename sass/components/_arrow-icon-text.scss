@@ -1,0 +1,11 @@
+.arrow-icon-text {
+  color: $color-primary--light;
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  &::after {
+    content: "\279C";
+    margin-left: 0.5rem;
+    color: currentColor;
+  }
+}

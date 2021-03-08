@@ -33,31 +33,15 @@ select:focus-visible {
   outline: 0.1rem dotted #667c99;
 }
 
+*::selection {
+  background-color: #ff311f;
+  color: white;
+}
+
 /* Grid definition for the overall page layout. */
 .main {
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-.logo__icon {
-  width: 3.6rem;
-  height: 4.5rem;
-  margin-right: 0.5rem;
-}
-.logo__title {
-  font-size: 2.6rem;
-  font-weight: 500;
-  text-transform: lowercase;
-}
-.logo__title :nth-child(1) {
-  color: #032a5e;
-}
-.logo__title :nth-child(2) {
-  color: #667c99;
 }
 
 *,
@@ -306,6 +290,38 @@ body {
 .arrow-icon-btn:hover::before {
   transform: translateX(0.8rem);
   opacity: 1;
+}
+
+.arrow-icon-text, .filled-arrow-icon-btn {
+  color: #1fc2ef;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.arrow-icon-text::after, .filled-arrow-icon-btn::after {
+  content: "➜";
+  margin-left: 0.5rem;
+  color: currentColor;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo__icon {
+  width: 3.6rem;
+  height: 4.5rem;
+  margin-right: 0.5rem;
+}
+.logo__title {
+  font-size: 2.6rem;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+.logo__title :nth-child(1) {
+  color: #032a5e;
+}
+.logo__title :nth-child(2) {
+  color: #667c99;
 }
 
 .menu-btn {
@@ -569,7 +585,7 @@ body {
 .company-section__footer {
   grid-column: full-start/full-end;
   grid-row: 3;
-  background-color: #e0e5eb;
+  background-color: #f1f5f8;
   padding-top: 12rem;
   padding-bottom: 6rem;
   text-align: center;
@@ -602,19 +618,12 @@ body {
   color: #1fc2ef;
 }
 .info-figure__caption .heading-3 {
-  margin: 0;
+  margin: 0.4rem 0;
   color: #032a5e;
 }
-.info-figure__caption a {
+.info-figure__caption .arrow-icon-text, .info-figure__caption .filled-arrow-icon-btn {
   /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space. */
   height: 0;
-  color: #1fc2ef;
-  font-size: 1.6rem;
-}
-.info-figure__caption a::after {
-  content: "➜";
-  margin-left: 0.5rem;
-  color: currentColor;
 }
 .info-figure:hover .info-figure__caption {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -625,6 +634,68 @@ body {
 }
 .info-figure:hover .info-figure__caption > a {
   height: 2.4rem;
+}
+
+.services-section {
+  grid-column: full-start/full-end;
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  padding: 8rem 0 4rem 0;
+}
+.services-section__header {
+  grid-column: center-start/center-end;
+  margin-bottom: 6rem;
+  text-align: center;
+}
+.services-section__header > .heading-2 {
+  color: #032a5e;
+}
+.services-section__service-cards {
+  grid-column: center-start/center-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+.services-section__footer {
+  grid-column: center-start/center-end;
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.service-card {
+  background-color: #f1f5f8;
+  padding: 10%;
+  text-align: center;
+}
+.service-card > .heading-3 {
+  color: #032a5e;
+}
+.service-card__service-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto;
+}
+.service-card__service-icon > svg {
+  height: 8rem;
+  transition: all 0.35s cubic-bezier(0.12, 0.845, 0.305, 1);
+}
+.service-card__service-icon > span {
+  display: inline-block;
+  margin-top: 0.8rem;
+  width: 6.6rem;
+  height: 0.8rem;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.06);
+  transition: all 0.35s cubic-bezier(0.12, 0.845, 0.305, 1);
+}
+.service-card:hover .service-card__service-icon svg {
+  transform: translateY(-2rem) rotate(8deg);
+}
+.service-card:hover .service-card__service-icon svg + span {
+  transform: scale(0.75);
 }
 
 .slider-section {

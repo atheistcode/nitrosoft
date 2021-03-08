@@ -43,7 +43,7 @@
   &__footer {
     grid-column: full-start / full-end;
     grid-row: 3;
-    background-color: $color-light--2;
+    background-color: $color-light--3;
     padding-top: 12rem;
     padding-bottom: 6rem;
     text-align: center;
@@ -80,21 +80,13 @@
     }
 
     .heading-3 {
-      margin: 0;
+      margin: 0.4rem 0;
       color: $color-link;
     }
 
-    a {
+    .arrow-icon-text {
       /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space. */
       height: 0;
-      color: $color-primary--light;
-      font-size: 1.6rem;
-
-      &::after {
-        content: "\279C";
-        margin-left: 0.5rem;
-        color: currentColor;
-      }
     }
   }
 
