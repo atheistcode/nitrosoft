@@ -216,13 +216,13 @@ body {
 
 .heading-2 {
   margin: 1rem 0;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
 }
 
 .heading-3 {
   margin: 1rem 0;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -548,7 +548,7 @@ body {
   grid-row: 1;
   color: #1fc2ef;
 }
-.company-section__header > .heading-3 {
+.company-section__header > .heading-2 {
   grid-column: 1;
   grid-row: 2;
   color: white;
@@ -586,7 +586,7 @@ body {
   position: relative;
   margin: -7rem auto 0 auto;
   width: 80%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 35px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: white;
   padding: 2rem;
   text-align: center;
@@ -601,7 +601,7 @@ body {
   height: 2.4rem;
   color: #1fc2ef;
 }
-.info-figure__caption .heading-2 {
+.info-figure__caption .heading-3 {
   margin: 0;
   color: #032a5e;
 }
