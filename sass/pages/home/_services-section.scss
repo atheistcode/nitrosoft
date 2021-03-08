@@ -27,6 +27,13 @@
     margin-bottom: 6rem;
     text-align: center;
   }
+
+  &__customer-brands {
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1.6rem, 1fr));
+    column-gap: 3rem;
+  }
 }
 
 .service-card {
@@ -68,4 +75,9 @@
       transform: scale(0.75);
     }
   }
+}
+
+.brand__img {
+  width: 100%;
+  height: auto;
 }

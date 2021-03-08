@@ -691,6 +691,12 @@ body {
   margin-bottom: 6rem;
   text-align: center;
 }
+.services-section__customer-brands {
+  grid-column: center-start/center-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1.6rem, 1fr));
+  column-gap: 3rem;
+}
 
 .service-card {
   background-color: #f1f5f8;
@@ -725,6 +731,11 @@ body {
 }
 .service-card:hover .service-card__service-icon svg + span {
   transform: scale(0.75);
+}
+
+.brand__img {
+  width: 100%;
+  height: auto;
 }
 
 .slider-section {
