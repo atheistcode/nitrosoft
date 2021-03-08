@@ -643,6 +643,8 @@ body {
 .info-figure__caption .heading-5 {
   height: 2.4rem;
   color: #1fc2ef;
+  /* This property is to solve text flickering on transition. */
+  will-change: transform;
 }
 .info-figure__caption .heading-3 {
   margin: 0.4rem 0;

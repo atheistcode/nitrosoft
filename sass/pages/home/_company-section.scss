@@ -77,6 +77,8 @@
     .heading-5 {
       height: 2.4rem;
       color: $color-primary--light;
+      /* This property is to solve text flickering on transition. */
+      will-change: transform;
     }
 
     .heading-3 {
