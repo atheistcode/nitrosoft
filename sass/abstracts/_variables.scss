@@ -1,17 +1,16 @@
 /* COLORS */
-$color-primary: hsl(214, 94%, 19%);
-$color-primary--light: hsl(193, 87%, 53%);
-$color-primary--dark: hsl(264, 37%, 15%);
-$color-secondary: hsl(5, 100%, 56%);
-$color-secondary--light: hsl(5, 97%, 63%);
+$color-primary: hsl(214, 94%, 19%); // rgb(3, 42, 94) // #032a5e
+$color-primary--light: hsl(193, 87%, 53%); // rgb(31, 194, 239) // #1FC2EF
+$color-primary--dark: hsl(264, 37%, 15%); // rgb(35, 24, 52) // #231834
+$color-secondary: hsl(5, 100%, 56%); // rgb(255, 49, 31) // #ff311f
+$color-secondary--light: hsl(5, 97%, 63%); // rgb(252, 84, 69) // #fc5445
 
 $color-light--1: hsl(214, 20%, 50%);
-$color-light--2: hsl(214, 20%, 90%);
-$color-light--3: hsl(210, 33%, 96%);
+$color-light--2: hsl(210, 33%, 96%);
 
-$color-white: hsl(0, 0%, 100%);
-$color-gray--light: hsla(0, 0%, 0%, 6%);
-$color-black: hsl(0, 0%, 0%);
+$color-white: hsl(0, 0%, 100%); // rgb(255, 255, 255) // #ffffff
+$color-gray: hsl(0, 0%, 90%); // rgb(230, 230, 230) // #e6e6e6
+$color-black: hsl(0, 0%, 0%); // rgb(0, 0, 0) // #000000
 
 /* TEXT COLORS */
 $color-text: $color-light--1;
@@ -33,19 +32,18 @@ $heading-size--5: 1.6rem;
 $heading-size--6: 1.2rem;
 
 /* BORDERS */
-$border-color--1: $color-light--2;
+$border-color--1: $color-gray;
 $border-color--2: $color-light--1;
-
-$border-radius--lg: 0.5rem;
 
 $border--1: 0.1rem solid $border-color--1;
 $border--2: 0.1rem solid $border-color--2;
 
+$border-radius--lg: 0.5rem;
+
 /* SHADOWS */
-$shadow--1: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
-$shadow--2: 0 5px 19px 1px rgba(0, 0, 0, 0.09);
-$shadow--3: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-$shadow--4: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+$shadow--1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$shadow--2: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+$shadow--3: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
 /* TRANSITIONS */
 $transition--1: all 0.2s ease-in-out;

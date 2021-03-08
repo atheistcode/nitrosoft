@@ -399,7 +399,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 0.1rem solid #e0e5eb;
+  border-top: 0.1rem solid #e6e6e6;
   /* Extend each item to take the full available width. */
 }
 .nav-list > * {
@@ -443,9 +443,9 @@ body {
   visibility: hidden;
   opacity: 0;
   min-width: 25rem;
-  border: 0.1rem solid #e0e5eb;
+  border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
-  box-shadow: 0 5px 19px 1px rgba(0, 0, 0, 0.09);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: white;
   padding: 2rem 0;
   font-weight: initial;
@@ -478,8 +478,8 @@ body {
   transform: rotateZ(45deg) translateY(65%);
   width: 1.4rem;
   height: 1.4rem;
-  border-top: 0.1rem solid #e0e5eb;
-  border-left: 0.1rem solid #e0e5eb;
+  border-top: 0.1rem solid #e6e6e6;
+  border-left: 0.1rem solid #e6e6e6;
   background-color: white;
 }
 
@@ -504,7 +504,7 @@ body {
   display: none;
 }
 .sub-list--2 > .sub-list__item:last-of-type {
-  border-left: 0.1rem solid #e0e5eb;
+  border-left: 0.1rem solid #e6e6e6;
 }
 
 .extras-icon {
@@ -514,7 +514,7 @@ body {
 }
 
 .extras-text {
-  border-right: 0.1rem solid #e0e5eb;
+  border-right: 0.1rem solid #e6e6e6;
   padding-right: 2.5rem;
   font-size: 1.5rem;
 }
@@ -557,9 +557,9 @@ body {
 .search__input {
   width: 2rem;
   height: 5.5rem;
-  border: 0.1rem solid #e0e5eb;
+  border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding-right: 4rem;
   padding-left: 2rem;
   transition: all 0.2s ease-in-out;
@@ -723,7 +723,7 @@ body {
   width: 6.6rem;
   height: 0.8rem;
   border-radius: 100%;
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: #e6e6e6;
   transition: all 0.35s cubic-bezier(0.12, 0.845, 0.305, 1);
 }
 .service-card:hover .service-card__service-icon svg {

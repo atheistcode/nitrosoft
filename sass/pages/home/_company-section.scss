@@ -43,7 +43,7 @@
   &__footer {
     grid-column: full-start / full-end;
     grid-row: 3;
-    background-color: $color-light--3;
+    background-color: $color-light--2;
     padding-top: 12rem;
     padding-bottom: 6rem;
     text-align: center;
@@ -62,7 +62,7 @@
     position: relative;
     margin: -7rem auto 0 auto;
     width: 80%;
-    box-shadow: $shadow--3;
+    box-shadow: $shadow--1;
     background-color: $color-white;
     padding: 2rem;
     text-align: center;
@@ -93,7 +93,7 @@
   }
 
   &:hover .info-figure__caption {
-    box-shadow: $shadow--4;
+    box-shadow: $shadow--3;
 
     & > .heading-5 {
       height: 0;
