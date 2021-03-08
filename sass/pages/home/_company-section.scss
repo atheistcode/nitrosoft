@@ -8,23 +8,25 @@
 
   &__header {
     grid-column: center-start / center-end;
-    grid-row: 1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
     column-gap: 2rem;
-
-    & > .heading-3 {
-      grid-column: 1;
-      color: $color-white;
-    }
 
     & > .heading-6 {
       grid-column: 1;
+      grid-row: 1;
       color: $color-primary--light;
+    }
+
+    & > .heading-3 {
+      grid-column: 1;
+      grid-row: 2;
+      color: $color-white;
     }
 
     & > .para {
       grid-column: 2;
+      grid-row: 1 / span 2;
     }
   }
 
@@ -34,17 +36,22 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
     gap: 3rem;
+    position: relative;
+    margin-bottom: -11rem;
   }
 
   &__footer {
-    grid-column: center-start / center-end;
+    grid-column: full-start / full-end;
     grid-row: 3;
+    background-color: $color-light--2;
+    padding-top: 12rem;
+    padding-bottom: 6rem;
     text-align: center;
   }
 }
 
 .info-figure {
-  position: relative;
+  cursor: pointer;
 
   &__img {
     object-fit: cover;
@@ -53,10 +60,54 @@
 
   &__caption {
     position: relative;
-    margin: -8rem auto 0 auto;
+    margin: -7rem auto 0 auto;
     width: 80%;
+    box-shadow: $shadow--3;
     background-color: $color-white;
     padding: 2rem;
     text-align: center;
+    transition: $transition--1;
+
+    & > * {
+      display: block;
+      overflow: hidden;
+      transition: $transition--1;
+    }
+
+    .heading-5 {
+      height: 2.4rem;
+      color: $color-primary--light;
+    }
+
+    .heading-2 {
+      margin: 0;
+      color: $color-link;
+    }
+
+    a {
+      /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space. */
+      height: 0;
+      color: $color-primary--light;
+      font-size: 1.6rem;
+
+      &::after {
+        content: "\279C";
+        margin-left: 0.5rem;
+        color: currentColor;
+      }
+    }
+  }
+
+  &:hover .info-figure__caption {
+    box-shadow: $shadow--4;
+
+    & > .heading-5 {
+      height: 0;
+      transform: translateY(-100%);
+    }
+
+    & > a {
+      height: 2.4rem;
+    }
   }
 }

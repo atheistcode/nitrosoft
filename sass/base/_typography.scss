@@ -114,9 +114,24 @@ body {
   color: $color-text;
 }
 
+.para {
+  line-height: 1.6;
+}
+
+.heading-2 {
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
 .heading-3 {
   margin: 1rem 0;
   font-size: 3rem;
+  font-weight: 500;
+}
+
+.heading-5 {
+  font-size: 1.6rem;
   font-weight: 500;
 }
 

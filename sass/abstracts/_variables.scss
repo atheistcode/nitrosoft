@@ -21,6 +21,13 @@ $font-size--lg: 1.7rem;
 
 $font-size-logo: 2.6rem;
 
+// $heading-size--1: ;
+// $heading-size--2: ;
+// $heading-size--3: ;
+// $heading-size--4: ;
+// $heading-size--5: ;
+// $heading-size--6: ;
+
 /* BORDERS */
 $border-color--1: $color-light--2;
 $border-color--2: $color-light--1;
@@ -33,6 +40,8 @@ $border--2: 0.1rem solid $border-color--2;
 /* SHADOWS */
 $shadow--1: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
 $shadow--2: 0 5px 19px 1px rgba(0, 0, 0, 0.09);
+$shadow--3: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$shadow--4: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
 /* TRANSITIONS */
 $transition--1: all 0.2s ease-in-out;

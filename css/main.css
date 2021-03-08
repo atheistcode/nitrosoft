@@ -19,6 +19,12 @@ ul {
   list-style: none;
 }
 
+a {
+  display: inline-block;
+  color: initial;
+  text-decoration: none;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -204,9 +210,24 @@ body {
   color: #667c99;
 }
 
+.para {
+  line-height: 1.6;
+}
+
+.heading-2 {
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
 .heading-3 {
   margin: 1rem 0;
   font-size: 3rem;
+  font-weight: 500;
+}
+
+.heading-5 {
+  font-size: 1.6rem;
   font-weight: 500;
 }
 
@@ -518,21 +539,23 @@ body {
 }
 .company-section__header {
   grid-column: center-start/center-end;
-  grid-row: 1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   column-gap: 2rem;
-}
-.company-section__header > .heading-3 {
-  grid-column: 1;
-  color: white;
 }
 .company-section__header > .heading-6 {
   grid-column: 1;
+  grid-row: 1;
   color: #1fc2ef;
+}
+.company-section__header > .heading-3 {
+  grid-column: 1;
+  grid-row: 2;
+  color: white;
 }
 .company-section__header > .para {
   grid-column: 2;
+  grid-row: 1/span 2;
 }
 .company-section__info-figures {
   grid-column: center-start/center-end;
@@ -540,15 +563,20 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   gap: 3rem;
+  position: relative;
+  margin-bottom: -11rem;
 }
 .company-section__footer {
-  grid-column: center-start/center-end;
+  grid-column: full-start/full-end;
   grid-row: 3;
+  background-color: #e0e5eb;
+  padding-top: 12rem;
+  padding-bottom: 6rem;
   text-align: center;
 }
 
 .info-figure {
-  position: relative;
+  cursor: pointer;
 }
 .info-figure__img {
   object-fit: cover;
@@ -556,11 +584,47 @@ body {
 }
 .info-figure__caption {
   position: relative;
-  margin: -8rem auto 0 auto;
+  margin: -7rem auto 0 auto;
   width: 80%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 35px 0px;
   background-color: white;
   padding: 2rem;
   text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+.info-figure__caption > * {
+  display: block;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.info-figure__caption .heading-5 {
+  height: 2.4rem;
+  color: #1fc2ef;
+}
+.info-figure__caption .heading-2 {
+  margin: 0;
+  color: #032a5e;
+}
+.info-figure__caption a {
+  /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space. */
+  height: 0;
+  color: #1fc2ef;
+  font-size: 1.6rem;
+}
+.info-figure__caption a::after {
+  content: "➜";
+  margin-left: 0.5rem;
+  color: currentColor;
+}
+.info-figure:hover .info-figure__caption {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.info-figure:hover .info-figure__caption > .heading-5 {
+  height: 0;
+  transform: translateY(-100%);
+}
+.info-figure:hover .info-figure__caption > a {
+  height: 2.4rem;
 }
 
 .slider-section {
