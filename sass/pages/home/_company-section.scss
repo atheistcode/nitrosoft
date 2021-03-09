@@ -2,7 +2,7 @@
   grid-column: full-start / full-end;
   display: grid;
   @include grid-columns;
-  row-gap: 3rem;
+  row-gap: 2rem;
   background-color: $color-primary--dark;
   padding-top: 8rem;
 

@@ -1,0 +1,72 @@
+.industries-section {
+  grid-column: full-start / full-end;
+  display: grid;
+  @include grid-columns;
+  row-gap: 2rem;
+  background-color: $color-primary--dark-2;
+  padding: 8rem 0;
+
+  &__header {
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    column-gap: 2rem;
+
+    & > .heading-6 {
+      grid-column: 1;
+      grid-row: 1;
+      color: $color-primary--light;
+    }
+
+    & > .heading-2 {
+      grid-column: 1;
+      grid-row: 2;
+      color: $color-white;
+    }
+
+    & > .para {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+
+  &__industry-cards {
+    grid-column: center-start / center-end;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11.2rem, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+}
+
+.industry-card {
+  border: $border--3;
+  border-radius: $border-radius--lg;
+  padding: 15%;
+
+  &__link-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  & .heading-5 {
+    margin-bottom: 1.5rem;
+    color: $color-white;
+  }
+
+  & .para {
+    font-size: $font-size--sm;
+  }
+
+  &__icon {
+    margin-bottom: 3rem;
+    width: 6.4rem;
+    height: auto;
+    /* To visually insert this pseudo element in the first order in link-container. */
+    order: -1;
+  }
+}

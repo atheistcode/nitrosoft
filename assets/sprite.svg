@@ -6,9 +6,6 @@
     <path d="M114.869 5.986c1.35-1.575 3.91-.306 3.474 1.722L90.24 138.42a2 2 0 01-1.955 1.58H4.348c-1.708 0-2.63-2.004-1.518-3.302L114.869 5.986z" fill="#FF3221"></path>
     <path d="M73.131 234.014c-1.35 1.575-3.91.306-3.474-1.722L97.76 101.58a2 2 0 011.955-1.58h83.937c1.708 0 2.63 2.004 1.518 3.302L73.131 234.014z" fill="#032B5F"></path>
   </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 475.084 475.084" id="search">
-    <path d="M464.524 412.846l-97.929-97.925c23.6-34.068 35.406-72.047 35.406-113.917 0-27.218-5.284-53.249-15.852-78.087-10.561-24.842-24.838-46.254-42.825-64.241-17.987-17.987-39.396-32.264-64.233-42.826C254.246 5.285 228.217.003 200.999.003c-27.216 0-53.247 5.282-78.085 15.847C98.072 26.412 76.66 40.689 58.673 58.676c-17.989 17.987-32.264 39.403-42.827 64.241C5.282 147.758 0 173.786 0 201.004c0 27.216 5.282 53.238 15.846 78.083 10.562 24.838 24.838 46.247 42.827 64.234 17.987 17.993 39.403 32.264 64.241 42.832 24.841 10.563 50.869 15.844 78.085 15.844 41.879 0 79.852-11.807 113.922-35.405l97.929 97.641c6.852 7.231 15.406 10.849 25.693 10.849 9.897 0 18.467-3.617 25.694-10.849 7.23-7.23 10.848-15.796 10.848-25.693.003-10.082-3.518-18.651-10.561-25.694zM291.363 291.358c-25.029 25.033-55.148 37.549-90.364 37.549-35.21 0-65.329-12.519-90.36-37.549-25.031-25.029-37.546-55.144-37.546-90.36 0-35.21 12.518-65.334 37.546-90.36 25.026-25.032 55.15-37.546 90.36-37.546 35.212 0 65.331 12.519 90.364 37.546 25.033 25.026 37.548 55.15 37.548 90.36 0 35.216-12.519 65.331-37.548 90.36z" fill="#FFF"></path>
-  </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="verify-user">
     <title>Verify User</title>
     <path d="M36.7 26.9c2.5 0 3-5.1 3-5.8s.1-3.8-2.4-3.8C42.6 4.5 28.4-2.3 17.8 5.1c-4.4 0-4.7 5.9-3.1 12.3-2.5 0-2.4 3-2.4 3.8s.6 5.8 3 5.8a14.6 14.6 0 004.2 7v1.6c0 1.6 0 4-8.1 5.6S2 50 2 50h28.1a17.8 17.8 0 013-12.1 3.6 3.6 0 01-.6-2.3V34a14.6 14.6 0 004.2-7.1z" fill="#8d8ea3"></path>
@@ -59,5 +56,35 @@
     <title>SSD Storage</title>
     <path d="M60.8 33l-6.2-20A5.1 5.1 0 0050 9H14c-2 0-3.7 1.3-4.6 4L3.2 33z" fill="#8d8ea3"></path>
     <path d="M2 53a2 2 0 002 2h56a2 2 0 002-2V37H2zm48.6-13.4a2.1 2.1 0 012.8 0A2 2 0 0154 41a2 2 0 01-2 2 2 2 0 01-2-2 2 2 0 01.6-1.4zM12 45h40a2 2 0 010 4H12a2 2 0 010-4z" fill="#253858"></path>
+  </symbol>
+   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="catalogue">
+    <title>Catalogue</title>
+    <path d="M32 17C32 9 16 7 2 7v44c14 0 30 2 30 10zm22-9.8l8-.2v44c-14 0-30 2-30 10m0-44c0-4.1 4.1-6.6 10-8.1" fill="none" stroke="#28759d" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+    <path d="M42 25.3l6-4 6 4V3.4a67.4 67.4 0 00-12 1.7z" fill="none" stroke="#24ccfd" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="chart">
+    <title>Chart</title>
+    <path stroke-width="2" stroke-miterlimit="10" stroke="#28759d" fill="none" d="M32 47C15.432 47 2 38.047 2 27v10c0 11.046 13.432 20 30 20a40.987 40.987 0 0017-3.523v-10A41 41 0 0132 47z" stroke-linejoin="round" stroke-linecap="round"></path>
+    <path stroke-width="2" stroke-miterlimit="10" stroke="#28759d" fill="none" d="M62 27C62 15.955 48.568 7 32 7S2 15.955 2 27s13.432 20 30 20a41 41 0 0017-3.523V43M32 27V7.008 27" stroke-linejoin="round" stroke-linecap="round"></path>
+    <path stroke-width="2" stroke-miterlimit="10" stroke="#24ccfd" fill="none" d="M49 43.477v10C56.851 49.87 62 43.837 62 37V27c0 6.838-5.149 12.87-13 16.477z" stroke-linejoin="round" stroke-linecap="round"></path>
+    <path stroke-width="2" stroke-linejoin="round" stroke="#24ccfd" fill="none" d="M49 43v.477C56.851 39.87 62 33.838 62 27H32l8 7.529z" stroke-linecap="round"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="data-app">
+    <title>Data App</title>
+    <path d="M2 23v22l30.082 14L62 45V23L32 37.048 2 23zm30 14.048V59m25.332-38.178L62 23M37.459 11.548l9.148 4.269m-29.232.009l9.147-4.27M2 23l4.742-2.213" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="#28759d" fill="none"></path>
+    <ellipse stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="#24ccfd" fill="none" ry="4" rx="7" cy="19" cx="13"></ellipse>
+    <ellipse stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="#24ccfd" fill="none" ry="4" rx="7" cy="25" cx="32"></ellipse>
+    <ellipse stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="#24ccfd" fill="none" ry="4" rx="7" cy="9" cx="32"></ellipse>
+    <ellipse stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="#24ccfd" fill="none" ry="4" rx="7" cy="19" cx="51"></ellipse>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="dollar-badge">
+    <title>Dollar Badge</title>
+    <path stroke-width="2" stroke-miterlimit="10" stroke="#24ccfd" fill="none" d="M39.889 24A8 8 0 0032 17.334c-4.418 0-8 2.914-8 7.333s4 6.42 8 7.334c4 .9 8 2.917 8 7.334s-3.582 7.333-8 7.333a8 8 0 01-8-8" stroke-linejoin="round" stroke-linecap="round"></path>
+    <path d="M32 17.334v-5.335m0 40.003v-5.335m0-42.196l5.967-2.472 4.568 4.567 6.459.001 2.471 5.967 5.969 2.473v6.458L62 26.032l-2.471 5.967L62 37.967l-4.566 4.568v6.458l-5.969 2.472-2.471 5.967-6.459.001-4.568 4.568L32 59.529l-5.967 2.472-4.568-4.568-6.459-.001-2.471-5.967-5.969-2.472v-6.458L2 37.967l2.471-5.968L2 26.032l4.566-4.567v-6.458l5.969-2.473 2.471-5.967 6.459-.001 4.568-4.567L32 4.471z" stroke-width="2" stroke-miterlimit="10" stroke="#28759d" fill="none" stroke-linejoin="round" stroke-linecap="round"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="health">
+    <title>Health</title>
+    <path d="M6.775 7.821l25-5.769a1 1 0 01.45 0l25 5.769A1 1 0 0158 8.8v15.265A41.975 41.975 0 0131.994 62 41.97 41.97 0 016 24.065V8.8a1 1 0 01.775-.979z" fill="none" stroke="#28759d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"></path>
+    <path d="M39 18a7.549 7.549 0 00-7 4.815A7.549 7.549 0 0025 18a7.113 7.113 0 00-7 7.222C18 31.481 23.133 37.741 32 44c8.867-6.259 14-12.519 14-18.778A7.113 7.113 0 0039 18z" fill="none" stroke="#24ccfd" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="round"></path>
   </symbol>
 </svg>

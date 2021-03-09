@@ -19,7 +19,7 @@
         <div class="header__brand">
           <a href="/" class="logo link"
             ><svg class="logo__icon">
-              <use xlink:href="/assets/icons/sprite.svg#logo"></use>
+              <use xlink:href="/assets/sprite.svg#logo"></use>
             </svg>
             <span class="logo__title"><span>Nitro</span><span>Soft</span></span></a
           >
@@ -139,7 +139,7 @@
         <!-- START header__extras -->
         <div class="header__extras">
           <svg class="extras-icon">
-            <use xlink:href="/assets/icons/sprite.svg#conversations"></use>
+            <use xlink:href="/assets/sprite.svg#conversations"></use>
           </svg>
           <div class="extras-text">
             Have any questions?<br />
@@ -147,14 +147,14 @@
           </div>
           <span class="search-icon">
             <svg>
-              <use xlink:href="/assets/icons/sprite.svg#iconmonstr-magnifier-5"></use>
+              <use xlink:href="/assets/sprite.svg#iconmonstr-magnifier-5"></use>
             </svg>
           </span>
           <form class="search">
             <button class="search__btn" type="submit">
               <span class="search-icon">
                 <svg>
-                  <use xlink:href="/assets/icons/sprite.svg#iconmonstr-magnifier-5"></use>
+                  <use xlink:href="/assets/sprite.svg#iconmonstr-magnifier-5"></use>
                 </svg>
               </span>
             </button>
@@ -176,11 +176,11 @@
       <section class="slider-section">
         <span class="carousel-btn--left"
           ><svg class="carousel-icon--left">
-            <use xlink:href="/assets/icons/sprite.svg#iconmonstr-angel-left-thin"></use></svg
+            <use xlink:href="/assets/sprite.svg#iconmonstr-angel-left-thin"></use></svg
         ></span>
         <span class="carousel-btn--right"
           ><svg class="carousel-icon--right">
-            <use xlink:href="/assets/icons/sprite.svg#iconmonstr-angel-right-thin"></use></svg
+            <use xlink:href="/assets/sprite.svg#iconmonstr-angel-right-thin"></use></svg
         ></span>
 
         <article class="slide--1">
@@ -273,7 +273,7 @@
             </p>
             <div class="service-card__service-icon">
               <svg>
-                <use xlink:href="/assets/icons/sprite.svg#syncing-document"></use>
+                <use xlink:href="/assets/sprite.svg#syncing-document"></use>
               </svg>
               <span></span>
             </div>
@@ -287,7 +287,7 @@
             </p>
             <div class="service-card__service-icon">
               <svg>
-                <use xlink:href="/assets/icons/sprite.svg#ssd-storage"></use>
+                <use xlink:href="/assets/sprite.svg#ssd-storage"></use>
               </svg>
               <span></span>
             </div>
@@ -300,7 +300,7 @@
             </p>
             <div class="service-card__service-icon">
               <svg>
-                <use xlink:href="/assets/icons/sprite.svg#private-folder"></use>
+                <use xlink:href="/assets/sprite.svg#private-folder"></use>
               </svg>
               <span></span>
             </div>
@@ -363,16 +363,67 @@
       <!-- START industries-section -->
       <section class="industries-section">
         <div class="industries-section__header">
-          <h6>Industries we serve</h6>
-          <h2>Managed IT services customized for your industry</h2>
-          <p>
+          <h6 class="heading-6">Industries we serve</h6>
+          <h2 class="heading-2">Managed IT services customized for your industry</h2>
+          <p class="para">
             Our vertical solutions expertise allows your business to streamline workflow, and increase
             productivity. No matter the business, NitroSoft has you covered with industry compliant solutions,
             customized to your company’s specific needs.
           </p>
         </div>
 
-        <div class="industries-section__industry-cards"></div>
+        <ul class="industries-section__industry-cards">
+          <li class="industry-card">
+            <a href="#" class="industry-card__link-container">
+              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <h5 class="heading-5">Banking</h5>
+              <p class="para">Let us show you how our experience.</p>
+              <svg class="industry-card__icon">
+                <use xlink:href="/assets/sprite.svg#dollar-badge"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="industry-card">
+            <a href="#" class="industry-card__link-container">
+              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <h5 class="heading-5">Capital markets</h5>
+              <p class="para">Let us show you how our experience.</p>
+              <svg class="industry-card__icon">
+                <use xlink:href="/assets/sprite.svg#chart"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="industry-card">
+            <a href="#" class="industry-card__link-container">
+              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <h5 class="heading-5">Manufacturing</h5>
+              <p class="para">Let us show you how our experience.</p>
+              <svg class="industry-card__icon">
+                <use xlink:href="/assets/sprite.svg#data-app"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="industry-card">
+            <a href="#" class="industry-card__link-container">
+              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <h5 class="heading-5">Healthcare</h5>
+              <p class="para">Let us show you how our experience.</p>
+              <svg class="industry-card__icon">
+                <use xlink:href="/assets/sprite.svg#health"></use>
+              </svg>
+            </a>
+          </li>
+          <li class="industry-card">
+            <a href="#" class="industry-card__link-container">
+              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <h5 class="heading-5">Higher education</h5>
+              <p class="para">Let us show you how our experience.</p>
+              <svg class="industry-card__icon">
+                <use xlink:href="/assets/sprite.svg#catalogue"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
       </section>
       <!-- END industries-section -->
 
