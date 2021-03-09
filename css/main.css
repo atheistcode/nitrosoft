@@ -935,7 +935,7 @@ body {
   grid-column: full-start/full-end;
   grid-row: 3;
   background-color: #f1f5f8;
-  padding-top: 12rem;
+  padding-top: 10rem;
   padding-bottom: 6rem;
   text-align: center;
 }
