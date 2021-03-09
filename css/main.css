@@ -26,6 +26,23 @@
     transform: scale3d(1, 1, 1);
   }
 }
+@keyframes user-pin {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
 html {
   line-height: 1.4;
   /* To make calculations easier when using rem. */
@@ -970,7 +987,7 @@ body {
 .studies-section__footer {
   grid-column: full-start/full-end;
   grid-row: 3;
-  background-color: #f1f5f8;
+  background-image: linear-gradient(to bottom, #f1f5f8, white);
   padding-top: 10rem;
   padding-bottom: 6rem;
   text-align: center;
@@ -1020,6 +1037,82 @@ body {
 }
 .project:hover {
   transform: translateY(-0.6rem);
+}
+
+.users-section {
+  grid-column: full-start/full-end;
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+}
+.users-section__map {
+  grid-column: col-start 2/col-end 11;
+  position: relative;
+  margin: auto;
+  max-width: 92.5rem;
+}
+
+.map-img {
+  display: block;
+}
+
+.user, .user--10, .user--9, .user--8, .user--7, .user--6, .user--5, .user--4, .user--3, .user--2, .user--1 {
+  position: absolute;
+  cursor: pointer;
+}
+.user__img {
+  max-width: 3rem;
+  max-height: 3rem;
+}
+.user::before, .user--10::before, .user--9::before, .user--8::before, .user--7::before, .user--6::before, .user--5::before, .user--4::before, .user--3::before, .user--2::before, .user--1::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #032a5e;
+  opacity: 0.2;
+  animation: user-pin 3s infinite;
+}
+.user--1 {
+  top: -2%;
+  left: 34%;
+}
+.user--2 {
+  top: 30%;
+  left: 24%;
+}
+.user--3 {
+  top: 30%;
+  left: 47%;
+}
+.user--4 {
+  top: 20%;
+  left: 60%;
+}
+.user--5 {
+  top: 10%;
+  left: 10%;
+}
+.user--6 {
+  top: 20%;
+  left: 30%;
+}
+.user--7 {
+  top: 42%;
+  left: 70%;
+}
+.user--8 {
+  top: 40%;
+  left: 55%;
+}
+.user--9 {
+  top: 60%;
+  left: 30%;
+}
+.user--10 {
+  left: 80%;
+  top: 15%;
 }
 
 /*# sourceMappingURL=main.css.map */
