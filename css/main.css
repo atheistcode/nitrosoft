@@ -9,6 +9,23 @@
 /* BORDERS */
 /* SHADOWS */
 /* TRANSITIONS */
+@keyframes shake-icon {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
 html {
   line-height: 1.4;
   /* To make calculations easier when using rem. */
@@ -703,15 +720,17 @@ body {
 }
 
 .industry-card {
-  border: 0.1rem solid #272c30;
+  position: relative;
+  border: 0.1rem solid #251d2f;
   border-radius: 0.5rem;
-  padding: 15%;
 }
 .industry-card__link-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  padding: 15%;
   text-align: center;
 }
 .industry-card .heading-5 {
@@ -724,9 +743,27 @@ body {
 .industry-card__icon {
   margin-bottom: 3rem;
   width: 6.4rem;
-  height: auto;
+  height: 6.4rem;
   /* To visually insert this pseudo element in the first order in link-container. */
   order: -1;
+}
+.industry-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale(1.15);
+  transition: all 0.2s ease-in-out;
+}
+.industry-card:hover::before {
+  transform: scale(1);
+  border: transparent;
+  background-color: #251d2f;
+}
+.industry-card:hover .industry-card__icon {
+  animation: 1s infinite shake-icon;
 }
 
 .services-section {
@@ -912,7 +949,6 @@ body {
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
   background-color: #171122;
-  padding: 8rem 0 0 0;
 }
 .studies-section__header {
   grid-column: center-start/center-end;
