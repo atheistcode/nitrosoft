@@ -907,4 +907,83 @@ body {
   font-weight: 600;
 }
 
+.studies-section {
+  grid-column: full-start/full-end;
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  background-color: #171122;
+  padding: 8rem 0 0 0;
+}
+.studies-section__header {
+  grid-column: center-start/center-end;
+  text-align: center;
+}
+.studies-section__header > .heading-6 {
+  color: #1fc2ef;
+}
+.studies-section__header > .heading-2 {
+  color: white;
+}
+.studies-section__project-cards {
+  grid-column: center-start/center-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  gap: 3rem;
+  margin: 3rem 0 -4.5rem 0;
+}
+.studies-section__footer {
+  grid-column: full-start/full-end;
+  grid-row: 3;
+  background-color: #f1f5f8;
+  padding-top: 12rem;
+  padding-bottom: 6rem;
+  text-align: center;
+}
+
+.project {
+  position: relative;
+  min-height: 20rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+.project__link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* To make the whole container clickable we need to put it in a higher stacking order. */
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 1rem 15%;
+}
+.project .heading-3 {
+  color: white;
+}
+.project__brand-img {
+  margin-top: 1rem;
+}
+.project__back-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+.project:nth-of-type(1) {
+  background-color: #71cbcc;
+}
+.project:nth-of-type(2) {
+  background-color: #3ea9f5;
+}
+.project:nth-of-type(3) {
+  background-color: #8a49a1;
+}
+.project:hover {
+  transform: translateY(-0.6rem);
+}
+
 /*# sourceMappingURL=main.css.map */

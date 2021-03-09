@@ -1,0 +1,91 @@
+.studies-section {
+  grid-column: full-start / full-end;
+  display: grid;
+  @include grid-columns;
+  background-color: $color-primary--dark-2;
+  padding: 8rem 0 0 0;
+
+  &__header {
+    grid-column: center-start / center-end;
+    text-align: center;
+
+    & > .heading-6 {
+      color: $color-primary--light;
+    }
+
+    & > .heading-2 {
+      color: $color-white;
+    }
+  }
+
+  &__project-cards {
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    gap: 3rem;
+    margin: 3rem 0 -4.5rem 0;
+  }
+
+  &__footer {
+    grid-column: full-start / full-end;
+    grid-row: 3;
+    background-color: $color-light--2;
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    text-align: center;
+  }
+}
+
+.project {
+  position: relative;
+  min-height: 20rem;
+  overflow: hidden;
+  border-radius: $border-radius--lg;
+  box-shadow: $shadow--3;
+  text-align: center;
+  transition: $transition--1;
+
+  &__link-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* To make the whole container clickable we need to put it in a higher stacking order. */
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1rem 15%;
+  }
+
+  & .heading-3 {
+    color: $color-white;
+  }
+
+  &__brand-img {
+    margin-top: 1rem;
+  }
+
+  &__back-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    filter: grayscale(100%);
+  }
+
+  &:nth-of-type(1) {
+    background-color: #71cbcc;
+  }
+
+  &:nth-of-type(2) {
+    background-color: #3ea9f5;
+  }
+
+  &:nth-of-type(3) {
+    background-color: #8a49a1;
+  }
+
+  &:hover {
+    transform: translateY(-0.6rem);
+  }
+}
