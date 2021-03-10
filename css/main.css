@@ -2,6 +2,7 @@
 /* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
 /* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
 /* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
+/* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
 /* Main grid-template-columns definition that consists of 14 columns. */
 /* COLORS */
 /* TEXT COLORS */
@@ -324,6 +325,29 @@ body {
 .arrow-icon-btn:hover::before {
   transform: translateX(0.8rem);
   opacity: 1;
+}
+
+.arrow-icon-heading {
+  position: relative;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-icon-heading::after {
+  content: "➜";
+  position: absolute;
+  top: 0.2rem;
+  opacity: 0;
+  transform: translateX(-0.5rem);
+  font-size: 1.5rem;
+  color: currentColor;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-icon-heading:hover {
+  transform: translateX(-1rem);
+}
+.arrow-icon-heading:hover::after {
+  opacity: 1;
+  transform: translateX(1rem);
 }
 
 .arrow-icon-text, .filled-arrow-icon-btn {
@@ -1043,22 +1067,64 @@ body {
   grid-column: full-start/full-end;
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  background-image: linear-gradient(to top, #f1f5f8, white), url("/assets/images/background-images/bg-team.jpg");
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
 }
 .users-section__map {
-  grid-column: col-start 2/col-end 11;
+  grid-column: center-start/center-end;
+}
+.users-section__contact-options {
+  grid-column: center-start/center-end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  border: 0.1rem solid #e6e6e6;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-top: -8rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5% 0;
+}
+.users-section__contact-options::before {
+  content: "";
+  position: absolute;
+  bottom: -0.8rem;
+  transform: translateX(1%);
+  width: 98%;
+  height: 0.8rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: #f1f5f8;
+}
+.users-section__contact-options::after {
+  content: "";
+  position: absolute;
+  bottom: -1.6rem;
+  transform: translateX(2%);
+  width: 96%;
+  height: 0.8rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: #e6e6e6;
+}
+.users-section__footer {
+  grid-column: center-start/center-end;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.map {
   position: relative;
   margin: auto;
   max-width: 92.5rem;
 }
-
-.map-img {
-  display: block;
-}
-
-.user, .user--10, .user--9, .user--8, .user--7, .user--6, .user--5, .user--4, .user--3, .user--2, .user--1 {
+.map__user {
   position: absolute;
   cursor: pointer;
 }
+
 .user__img {
   max-width: 3rem;
   max-height: 3rem;
@@ -1113,6 +1179,54 @@ body {
 .user--10 {
   left: 80%;
   top: 15%;
+}
+
+.contact-option {
+  flex: 1 1 25rem;
+  position: relative;
+  padding: 0 5%;
+}
+.contact-option:first-of-type::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.1rem;
+  height: 100%;
+  background-color: #e6e6e6;
+}
+.contact-option__link-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  row-gap: 1rem;
+  column-gap: 5%;
+}
+.contact-option .heading-3 {
+  grid-column: 1;
+  grid-row: 1;
+  color: #032a5e;
+  margin: 0;
+}
+.contact-option .para {
+  grid-column: 1;
+  grid-row: 2;
+}
+.contact-option__icon {
+  grid-column: 2;
+  grid-row: 1/3;
+  width: 6.4rem;
+  height: 6.4rem;
+}
+.contact-option:hover .contact-option__icon {
+  animation: 1s infinite shake-icon;
+}
+.contact-option:hover .arrow-icon-heading {
+  transform: translateX(-1rem);
+}
+.contact-option:hover .arrow-icon-heading::after {
+  opacity: 1;
+  transform: translateX(1rem);
 }
 
 /*# sourceMappingURL=main.css.map */

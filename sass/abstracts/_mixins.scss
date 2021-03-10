@@ -27,6 +27,16 @@
   }
 }
 
+/* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
+@mixin arrow-icon-heading-hover {
+  transform: translateX(-1rem);
+
+  &::after {
+    opacity: 1;
+    transform: translateX(1rem);
+  }
+}
+
 /* Main grid-template-columns definition that consists of 14 columns. */
 @mixin grid-columns {
   grid-template-columns:
