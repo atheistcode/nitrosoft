@@ -2,7 +2,7 @@
   grid-column: full-start / full-end;
   display: grid;
   @include grid-columns;
-  background-image: linear-gradient(to top, $color-light--2, $color-white),
+  background-image: linear-gradient(to top, $color-primary--light-3, $color-white),
     url("/assets/images/background-images/bg-team.jpg");
   background-position: center bottom;
   background-size: contain;
@@ -19,7 +19,6 @@
     flex-wrap: wrap;
     align-items: center;
     position: relative;
-    border: $border--1;
     border-radius: $border-radius--lg;
     box-shadow: $shadow--1;
     margin-top: -8rem;
@@ -34,7 +33,7 @@
       width: 98%;
       height: 0.8rem;
       border-radius: 0 0 $border-radius--lg $border-radius--lg;
-      background-color: $color-light--2;
+      background-color: rgba($color-primary--light-2, 0.2);
     }
 
     &::after {
@@ -45,7 +44,7 @@
       width: 96%;
       height: 0.8rem;
       border-radius: 0 0 $border-radius--lg $border-radius--lg;
-      background-color: $color-gray--light;
+      background-color: rgba($color-primary--light-2, 0.4);
     }
   }
 
@@ -69,6 +68,8 @@
 
 .user {
   &__img {
+    /* To make .user__img has a higher stacking order than the pseudo element .user::before. */
+    position: relative;
     max-width: 3rem;
     max-height: 3rem;
   }
@@ -76,13 +77,12 @@
   &::before {
     content: "";
     position: absolute;
-    z-index: -1;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     background-color: $color-primary;
     opacity: 0.2;
-    animation: user-pin 3s infinite;
+    animation: pin-on-map 3s infinite;
   }
 
   &--1 {
@@ -163,7 +163,7 @@
   & .heading-3 {
     grid-column: 1;
     grid-row: 1;
-    color: $color-link;
+    color: $text-color--dark;
     margin: 0;
   }
 

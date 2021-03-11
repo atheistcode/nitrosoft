@@ -1,0 +1,124 @@
+.blog-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
+  grid-column: full-start / full-end;
+  /* Subgrid for section contents that has the same columns as the global grid layout. */
+  display: grid;
+  @include grid-columns;
+  padding: 8rem 0;
+
+  &__header {
+    /* Placement in the subgrid layout. */
+    grid-column: center-start / center-end;
+    text-align: center;
+
+    & > .heading-2 {
+      color: $text-color--dark;
+    }
+  }
+
+  &__articles {
+    /* Placement in the subgrid layout. */
+    grid-column: center-start / center-end;
+    /* Another subgrid for blog article cards. */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin: 3rem auto 6rem auto;
+  }
+
+  &__footer {
+    /* Placement in the subgrid layout. */
+    grid-column: center-start / center-end;
+    text-align: center;
+  }
+}
+
+.article-card {
+  overflow: hidden;
+  background-color: $color-primary--light-3;
+
+  /* Placement of the large article card. */
+  &:first-of-type {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+  }
+
+  /* Placement of the small article cards. */
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    grid-row: 1;
+  }
+  &:nth-of-type(4),
+  &:nth-of-type(5) {
+    grid-row: 2;
+  }
+
+  /* The "article-card__link-container" class exists only in small article cards. */
+  &__link-container {
+    /* Expand the container to make its contents occupy the full height. */
+    height: 100%;
+
+    /* For small article cards ("article-card__link-container" class exists), we want the first child ("article-card__heading") to occupy the as much height as possible, pushing down all other elements ("article-card__date"). */
+    & [class*="heading"] {
+      flex-grow: 1;
+    }
+    /* Visually insert the date ("article-card__date") in the same order as in HTML. Otherwise it will be visually inserted first only if it is in a large card ("article-card__link-container" class doesn't exist). */
+    & [class*="date"] {
+      order: 0;
+    }
+  }
+
+  &__article {
+    /* Expand the container to make its contents occupy the full height. */
+    height: 100%;
+    /* Make it a flex container to be able to visually insert elements in an order different from the HTML order. */
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    /* Expand all contents to occupy the full height. */
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    padding: 7% 10%;
+  }
+
+  &__heading {
+    margin-bottom: 2rem;
+    color: $text-color--dark;
+  }
+
+  &__para {
+    margin-bottom: 2rem;
+  }
+
+  &__date {
+    /* Visually insert the date as the first element in large card. */
+    order: -1;
+    font-size: $font-size--sm;
+  }
+
+  &__btn {
+    @include btn;
+    @include filled-btn;
+  }
+
+  &__img-container {
+    /* Visually insert the image as the first element. */
+    order: -1;
+    overflow: hidden;
+    background-color: $color-primary;
+  }
+
+  &__img {
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: $transition--1;
+  }
+
+  &:hover &__img {
+    transform: scale(1.1);
+    filter: grayscale(0);
+  }
+}

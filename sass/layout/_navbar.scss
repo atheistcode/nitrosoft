@@ -81,7 +81,7 @@
   min-width: 25rem;
   border: $border--1;
   border-radius: $border-radius--lg;
-  box-shadow: $shadow--2;
+  box-shadow: $shadow--1;
   background-color: $color-white;
   padding: 2rem 0;
   font-weight: initial;
@@ -168,12 +168,12 @@
   & > svg {
     width: 1.8rem;
     height: 2.4rem;
-    fill: $color-link;
+    fill: $link-color;
     transition: $transition--1;
   }
 
   &:hover svg {
-    fill: $color-text;
+    fill: $text-color;
   }
 }
 

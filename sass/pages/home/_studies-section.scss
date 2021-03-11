@@ -9,7 +9,7 @@
     text-align: center;
 
     & > .heading-6 {
-      color: $color-primary--light;
+      color: $color-primary--light-1;
     }
 
     & > .heading-2 {
@@ -28,7 +28,7 @@
   &__footer {
     grid-column: full-start / full-end;
     grid-row: 3;
-    background-image: linear-gradient(to bottom, $color-light--2, $color-white);
+    background-image: linear-gradient(to bottom, $color-primary--light-3, $color-white);
     padding-top: 10rem;
     padding-bottom: 6rem;
     text-align: center;
@@ -40,7 +40,7 @@
   min-height: 20rem;
   overflow: hidden;
   border-radius: $border-radius--lg;
-  box-shadow: $shadow--3;
+  box-shadow: $shadow--2;
   text-align: center;
   transition: $transition--1;
 

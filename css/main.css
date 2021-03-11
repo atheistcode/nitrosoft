@@ -27,7 +27,7 @@
     transform: scale3d(1, 1, 1);
   }
 }
-@keyframes user-pin {
+@keyframes pin-on-map {
   0% {
     transform: scale(0);
   }
@@ -93,7 +93,7 @@ html {
 }
 
 img {
-  display: inline-block;
+  display: block;
   max-width: 100%;
 }
 
@@ -364,7 +364,7 @@ body {
 
 .filled-arrow-icon-btn {
   position: relative;
-  /* To insert the text above the pseudo element background. */
+  /* To show the text above the pseudo element background. */
   z-index: 1;
   padding: 0.8rem;
 }
@@ -417,7 +417,8 @@ body {
   content: "";
   width: 0.8rem;
   height: 0;
-  border-top: 0.1rem solid #667c99;
+  border-top: 0.1rem solid #e6e6e6;
+  border-color: #667c99;
   transition: all 0.3s ease-in-out;
 }
 .menu-btn::before {
@@ -503,7 +504,7 @@ body {
   min-width: 25rem;
   border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: white;
   padding: 2rem 0;
   font-weight: initial;
@@ -628,6 +629,149 @@ body {
 .search__btn {
   border: none;
   background-color: transparent;
+}
+
+.blog-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
+  grid-column: full-start/full-end;
+  /* Subgrid for section contents that has the same columns as the global grid layout. */
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  padding: 8rem 0;
+}
+.blog-section__header {
+  /* Placement in the subgrid layout. */
+  grid-column: center-start/center-end;
+  text-align: center;
+}
+.blog-section__header > .heading-2 {
+  color: #032a5e;
+}
+.blog-section__articles {
+  /* Placement in the subgrid layout. */
+  grid-column: center-start/center-end;
+  /* Another subgrid for blog article cards. */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin: 3rem auto 6rem auto;
+}
+.blog-section__footer {
+  /* Placement in the subgrid layout. */
+  grid-column: center-start/center-end;
+  text-align: center;
+}
+
+.article-card {
+  overflow: hidden;
+  background-color: #f1f5f8;
+  /* Placement of the large article card. */
+  /* Placement of the small article cards. */
+  /* The "article-card__link-container" class exists only in small article cards. */
+}
+.article-card:first-of-type {
+  grid-column: 1/span 2;
+  grid-row: 1/span 2;
+}
+.article-card:nth-of-type(2), .article-card:nth-of-type(3) {
+  grid-row: 1;
+}
+.article-card:nth-of-type(4), .article-card:nth-of-type(5) {
+  grid-row: 2;
+}
+.article-card__link-container {
+  /* Expand the container to make its contents occupy the full height. */
+  height: 100%;
+  /* For small article cards ("article-card__link-container" class exists), we want the first child ("article-card__heading") to occupy the as much height as possible, pushing down all other elements ("article-card__date"). */
+  /* Visually insert the date ("article-card__date") in the same order as in HTML. Otherwise it will be visually inserted first only if it is in a large card ("article-card__link-container" class doesn't exist). */
+}
+.article-card__link-container [class*=heading] {
+  flex-grow: 1;
+}
+.article-card__link-container [class*=date] {
+  order: 0;
+}
+.article-card__article {
+  /* Expand the container to make its contents occupy the full height. */
+  height: 100%;
+  /* Make it a flex container to be able to visually insert elements in an order different from the HTML order. */
+  display: flex;
+  flex-direction: column;
+}
+.article-card__content {
+  /* Expand all contents to occupy the full height. */
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  padding: 7% 10%;
+}
+.article-card__heading {
+  margin-bottom: 2rem;
+  color: #032a5e;
+}
+.article-card__para {
+  margin-bottom: 2rem;
+}
+.article-card__date {
+  /* Visually insert the date as the first element in large card. */
+  order: -1;
+  font-size: 1.5rem;
+}
+.article-card__btn {
+  white-space: nowrap;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  position: relative;
+  /* Shows the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
+  z-index: 1;
+  border: 0.1rem solid #e6e6e6;
+  border-radius: 0.5rem;
+  padding: 1.5rem 2rem;
+  color: #1fc2ef;
+  /* Transition for border, color, or transform changes. */
+  transition: all 0.2s ease-in-out;
+}
+.article-card__btn::before {
+  content: "";
+  position: absolute;
+  /* The 4 dimensions peoperties have 0 value, to take full width and height. */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Shows the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
+  z-index: -1;
+  /* Makes the height increase animation start from center bottom. */
+  transform-origin: 50% 100%;
+  transform: scaleY(0);
+  background-color: #fc5445;
+  /* Transition when hover on. */
+  transition: all 0.3s ease-in-out;
+}
+.article-card__btn:hover {
+  border-color: #fc5445;
+  color: white;
+}
+.article-card__btn:hover::before {
+  transform: scaleY(1);
+  /* Transition when hover off. */
+  transition: all 0.3s cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+.article-card__img-container {
+  /* Visually insert the image as the first element. */
+  order: -1;
+  overflow: hidden;
+  background-color: #032a5e;
+}
+.article-card__img {
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+}
+.article-card:hover .article-card__img {
+  transform: scale(1.1);
+  filter: grayscale(0);
 }
 
 .company-section {
@@ -762,7 +906,8 @@ body {
 
 .industry-card {
   position: relative;
-  border: 0.1rem solid #251d2f;
+  border: 0.1rem solid #e6e6e6;
+  border-color: rgba(3, 42, 94, 0.5);
   border-radius: 0.5rem;
 }
 .industry-card__link-container {
@@ -795,13 +940,13 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  transform: scale(1.15);
+  transform: scale(1.2);
   transition: all 0.2s ease-in-out;
 }
 .industry-card:hover::before {
   transform: scale(1);
   border: transparent;
-  background-color: #251d2f;
+  background-color: rgba(3, 42, 94, 0.35);
 }
 .industry-card:hover .industry-card__icon {
   animation: 1s infinite shake-icon;
@@ -865,7 +1010,7 @@ body {
   width: 6.6rem;
   height: 0.8rem;
   border-radius: 100%;
-  background-color: #e6e6e6;
+  background-color: rgba(102, 124, 153, 0.2);
   transition: all 0.35s cubic-bezier(0.12, 0.845, 0.305, 1);
 }
 .service-card:hover .service-card__service-icon svg {
@@ -920,7 +1065,6 @@ body {
 .carousel-icon, .carousel-icon--right, .carousel-icon--left {
   width: 1.8rem;
   height: 1.8rem;
-  fill: #032a5e;
 }
 .carousel-btn:hover .carousel-icon, .carousel-btn--left:hover .carousel-icon, .carousel-btn--right:hover .carousel-icon, .carousel-btn:hover .carousel-icon--left, .carousel-btn--left:hover .carousel-icon--left, .carousel-btn--right:hover .carousel-icon--left, .carousel-btn:hover .carousel-icon--right, .carousel-btn--left:hover .carousel-icon--right, .carousel-btn--right:hover .carousel-icon--right {
   fill: white;
@@ -1082,7 +1226,6 @@ body {
   flex-wrap: wrap;
   align-items: center;
   position: relative;
-  border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-top: -8rem;
@@ -1097,7 +1240,7 @@ body {
   width: 98%;
   height: 0.8rem;
   border-radius: 0 0 0.5rem 0.5rem;
-  background-color: #f1f5f8;
+  background-color: rgba(102, 124, 153, 0.2);
 }
 .users-section__contact-options::after {
   content: "";
@@ -1107,7 +1250,7 @@ body {
   width: 96%;
   height: 0.8rem;
   border-radius: 0 0 0.5rem 0.5rem;
-  background-color: #e6e6e6;
+  background-color: rgba(102, 124, 153, 0.4);
 }
 .users-section__footer {
   grid-column: center-start/center-end;
@@ -1126,19 +1269,20 @@ body {
 }
 
 .user__img {
+  /* To make .user__img has a higher stacking order than the pseudo element .user::before. */
+  position: relative;
   max-width: 3rem;
   max-height: 3rem;
 }
 .user::before, .user--10::before, .user--9::before, .user--8::before, .user--7::before, .user--6::before, .user--5::before, .user--4::before, .user--3::before, .user--2::before, .user--1::before {
   content: "";
   position: absolute;
-  z-index: -1;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   background-color: #032a5e;
   opacity: 0.2;
-  animation: user-pin 3s infinite;
+  animation: pin-on-map 3s infinite;
 }
 .user--1 {
   top: -2%;

@@ -7,7 +7,8 @@
     content: "";
     width: 0.8rem;
     height: 0;
-    border-top: $border--2;
+    border-top: $border--1;
+    border-color: $text-color;
     transition: $transition--2;
   }
 

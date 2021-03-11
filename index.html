@@ -375,7 +375,7 @@
         <ul class="industries-section__industry-cards">
           <li class="industry-card">
             <a href="#" class="industry-card__link-container">
-              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <!-- The visual order of elements is different from HTML order. We inserted the image last to have a more semantic HTML structure. -->
               <h5 class="heading-5">Banking</h5>
               <p class="para">Let us show you how our experience.</p>
               <svg class="industry-card__icon">
@@ -385,7 +385,7 @@
           </li>
           <li class="industry-card">
             <a href="#" class="industry-card__link-container">
-              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <!-- The visual order of elements is different from HTML order. We inserted the image last to have a more semantic HTML structure. -->
               <h5 class="heading-5">Capital markets</h5>
               <p class="para">Let us show you how our experience.</p>
               <svg class="industry-card__icon">
@@ -395,7 +395,7 @@
           </li>
           <li class="industry-card">
             <a href="#" class="industry-card__link-container">
-              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <!-- The visual order of elements is different from HTML order. We inserted the image last to have a more semantic HTML structure. -->
               <h5 class="heading-5">Manufacturing</h5>
               <p class="para">Let us show you how our experience.</p>
               <svg class="industry-card__icon">
@@ -405,7 +405,7 @@
           </li>
           <li class="industry-card">
             <a href="#" class="industry-card__link-container">
-              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <!-- The visual order of elements is different from HTML order. We inserted the image last to have a more semantic HTML structure. -->
               <h5 class="heading-5">Healthcare</h5>
               <p class="para">Let us show you how our experience.</p>
               <svg class="industry-card__icon">
@@ -415,7 +415,7 @@
           </li>
           <li class="industry-card">
             <a href="#" class="industry-card__link-container">
-              <!-- The order of elements is not the same as the visual order. We inserted the svg img last to have a more semantic HTML structure. -->
+              <!-- The visual order of elements is different from HTML order. We inserted the image last to have a more semantic HTML structure. -->
               <h5 class="heading-5">Higher education</h5>
               <p class="para">Let us show you how our experience.</p>
               <svg class="industry-card__icon">
@@ -548,34 +548,95 @@
       <!-- START blog-section -->
       <section class="blog-section">
         <div class="blog-section__header">
-          <h6>Form our blog</h6>
-          <h2>More articles from resource library</h2>
+          <h6 class="heading-6">Form our blog</h6>
+          <h2 class="heading-2">More articles from resource library</h2>
         </div>
 
-        <div class="blog-section__articles">
-          <article class="article-card">
-            <span class="article-card__date">May 5, 2021</span>
-            <h2 class="article-card__heading">Improving lives with technology – HSE lighthouse project</h2>
-            <p class="article-card__para">
-              The ‘Lighthouse Projects’ are in the clinical disciplines of the chronic diseases Epilepsy,
-              Haemophilia and Bipolar Disorder. The epilepsy Lighthouse ...
-            </p>
-            <a href="#" class="article-card__btn">Read more</a>
-          </article>
-
-          <article class="article-card">
-            <h2 class="article-card__heading">Improving lives with technology – HSE lighthouse project</h2>
-            <p class="article-card__para">
-              The ‘Lighthouse Projects’ are in the clinical disciplines of the chronic diseases Epilepsy,
-              Haemophilia and Bipolar Disorder. The epilepsy Lighthouse ...
-            </p>
-            <span class="article-card__date">May 5, 2021</span>
-          </article>
-        </div>
+        <ul class="blog-section__articles">
+          <li class="article-card">
+            <article class="article-card__article">
+              <!-- The visual order of elements is different from the HTML order. In HTML the image is inserted last but visually it is inserted first. This is to have a more semantic HTML structure. -->
+              <div class="article-card__content">
+                <h3 class="heading-3 article-card__heading">
+                  Improving lives with technology – HSE lighthouse project
+                </h3>
+                <p class="para article-card__para">
+                  The ‘Lighthouse Projects’ are in the clinical disciplines of the chronic diseases Epilepsy,
+                  Haemophilia and Bipolar Disorder. The epilepsy Lighthouse ...
+                </p>
+                <span class="article-card__date">May 5, 2021</span>
+                <a href="#" class="article-card__btn">Read more</a>
+              </div>
+              <div class="article-card__img-container">
+                <img class="article-card__img" src="/assets/images/blog/blog-1.jpg" alt="blog post image" />
+              </div>
+            </article>
+          </li>
+          <li class="article-card">
+            <a href="#" class="article-card__link-container">
+              <article class="article-card__article">
+                <div class="article-card__content">
+                  <h5 class="heading-5 article-card__heading">
+                    Technology support allows erie non-profit to serve the community
+                  </h5>
+                  <span class="article-card__date">May 5, 2021</span>
+                </div>
+                <div class="article-card__img-container">
+                  <img class="article-card__img" src="/assets/images/blog/blog-2.jpg" alt="blog post image" />
+                </div>
+              </article>
+            </a>
+          </li>
+          <li class="article-card">
+            <a href="#" class="article-card__link-container">
+              <article class="article-card__article">
+                <div class="article-card__content">
+                  <h5 class="heading-5 article-card__heading">
+                    Tips to make your workforce a security front line
+                  </h5>
+                  <span class="article-card__date">May 5, 2021</span>
+                </div>
+                <div class="article-card__img-container">
+                  <img class="article-card__img" src="/assets/images/blog/blog-3.jpg" alt="blog post image" />
+                </div>
+              </article>
+            </a>
+          </li>
+          <li class="article-card">
+            <a href="#" class="article-card__link-container">
+              <article class="article-card__article">
+                <div class="article-card__content">
+                  <h5 class="heading-5 article-card__heading">
+                    Scan & index manager delivers productivity at beaumont hospital
+                  </h5>
+                  <span class="article-card__date">May 5, 2021</span>
+                </div>
+                <div class="article-card__img-container">
+                  <img class="article-card__img" src="/assets/images/blog/blog-4.jpg" alt="blog post image" />
+                </div>
+              </article>
+            </a>
+          </li>
+          <li class="article-card">
+            <a href="#" class="article-card__link-container">
+              <article class="article-card__article">
+                <div class="article-card__content">
+                  <h5 class="heading-5 article-card__heading">
+                    Partnering with IT provider helps erie manufacturing company thrive in 21st century
+                  </h5>
+                  <span class="article-card__date">May 5, 2021</span>
+                </div>
+                <div class="article-card__img-container">
+                  <img class="article-card__img" src="/assets/images/blog/blog-5.jpg" alt="blog post image" />
+                </div>
+              </article>
+            </a>
+          </li>
+        </ul>
 
         <p class="blog-section__footer">
           Insights to help you do what you do better, faster and more profitably.
-          <a href="#">View all article</a>
+          <a href="#" class="link border-bottom">View all article</a>
         </p>
       </section>
       <!-- END blog-section -->

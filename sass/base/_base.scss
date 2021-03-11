@@ -20,7 +20,7 @@ input,
 textarea,
 select {
   &:focus-visible {
-    outline: 0.1rem dotted $color-text;
+    outline: 0.1rem dotted $text-color;
   }
 }
 

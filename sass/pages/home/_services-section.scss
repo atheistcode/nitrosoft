@@ -10,7 +10,7 @@
     text-align: center;
 
     & > .heading-2 {
-      color: $color-text--colored-dark;
+      color: $text-color--dark;
     }
   }
 
@@ -37,12 +37,12 @@
 }
 
 .service-card {
-  background-color: $color-light--2;
+  background-color: $color-primary--light-3;
   padding: 10%;
   text-align: center;
 
   & > .heading-3 {
-    color: $color-text--colored-dark;
+    color: $text-color--dark;
   }
 
   &__service-icon {
@@ -63,7 +63,7 @@
       width: 6.6rem;
       height: 0.8rem;
       border-radius: 100%;
-      background-color: $color-gray--light;
+      background-color: rgba($color-primary--light-2, 0.2);
       transition: $transition--3;
     }
   }

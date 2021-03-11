@@ -3,7 +3,7 @@
   display: grid;
   @include grid-columns;
   row-gap: 2rem;
-  background-color: $color-primary--dark;
+  background-color: $color-primary--dark-1;
   padding-top: 8rem;
 
   &__header {
@@ -15,7 +15,7 @@
     & > .heading-6 {
       grid-column: 1;
       grid-row: 1;
-      color: $color-primary--light;
+      color: $color-primary--light-1;
     }
 
     & > .heading-2 {
@@ -43,7 +43,7 @@
   &__footer {
     grid-column: full-start / full-end;
     grid-row: 3;
-    background-color: $color-light--2;
+    background-color: $color-primary--light-3;
     padding-top: 12rem;
     padding-bottom: 6rem;
     text-align: center;
@@ -76,14 +76,14 @@
 
     .heading-5 {
       height: 2.4rem;
-      color: $color-primary--light;
+      color: $color-primary--light-1;
       /* This property is to solve text flickering on transition. */
       will-change: transform;
     }
 
     .heading-3 {
       margin: 0.4rem 0;
-      color: $color-link;
+      color: $text-color--dark;
     }
 
     .arrow-icon-text {
@@ -93,7 +93,7 @@
   }
 
   &:hover .info-figure__caption {
-    box-shadow: $shadow--3;
+    box-shadow: $shadow--2;
 
     & > .heading-5 {
       height: 0;

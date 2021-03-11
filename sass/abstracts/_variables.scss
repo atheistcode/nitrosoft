@@ -1,23 +1,23 @@
 /* COLORS */
-$color-primary: hsl(214, 94%, 19%); // rgb(3, 42, 94) // #032a5e
-$color-primary--light: hsl(193, 87%, 53%); // rgb(31, 194, 239) // #1FC2EF
-$color-primary--dark: hsl(264, 37%, 15%); // rgb(35, 24, 52) // #231834
-$color-primary--dark-2: hsl(263, 35%, 10%); // rgb(24, 17, 35) // #181123
-$color-secondary: hsl(5, 100%, 56%); // rgb(255, 49, 31) // #ff311f
-$color-secondary--light: hsl(5, 97%, 63%); // rgb(252, 84, 69) // #fc5445
+$color-primary: hsl(214, 94%, 19%);
+$color-primary--light-1: hsl(193, 87%, 53%);
+$color-primary--light-2: hsl(214, 20%, 50%);
+$color-primary--light-3: hsl(210, 33%, 96%);
+$color-primary--dark-1: hsl(264, 37%, 15%);
+$color-primary--dark-2: hsl(263, 35%, 10%);
+$color-secondary: hsl(5, 100%, 56%);
+$color-secondary--light: hsl(5, 97%, 63%);
 
-$color-light--1: hsl(214, 20%, 50%);
-$color-light--2: hsl(210, 33%, 96%);
-$color-light--3: hsl(265, 23%, 15%);
-
-$color-white: hsl(0, 0%, 100%); // rgb(255, 255, 255) // #ffffff
-$color-gray--light: hsl(0, 0%, 90%); // rgb(230, 230, 230) // #e6e6e6
-$color-black: hsl(0, 0%, 0%); // rgb(0, 0, 0) // #000000
+$color-white: hsl(0, 0%, 100%);
+$color-gray--light: hsl(0, 0%, 90%); // #e6e6e6
+$color-black: hsl(0, 0%, 0%);
 
 /* TEXT COLORS */
-$color-text: $color-light--1;
-$color-text--colored-dark: $color-primary;
-$color-link: $color-primary;
+$text-color: $color-primary--light-2;
+$text-color--light: $color-primary--light-1;
+$text-color--dark: $color-primary;
+
+$link-color: $color-primary;
 
 /* FONTS */
 $font-size--sm: 1.5rem;
@@ -26,29 +26,23 @@ $font-size--lg: 1.7rem;
 
 $font-size-logo: 2.6rem;
 
-// $heading-size--1: ;
+$heading-size--1: 4rem;
 $heading-size--2: 3rem;
 $heading-size--3: 2rem;
-// $heading-size--4: ;
+$heading-size--4: 1.8;
 $heading-size--5: 1.6rem;
 $heading-size--6: 1.2rem;
 
 /* BORDERS */
 $border-color--1: $color-gray--light;
-$border-color--2: $color-light--1;
-$border-color--3: $color-light--3;
 
 $border--1: 0.1rem solid $border-color--1;
-$border--2: 0.1rem solid $border-color--2;
-$border--3: 0.1rem solid $border-color--3;
 
 $border-radius--lg: 0.5rem;
 
 /* SHADOWS */
 $shadow--1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-$shadow--2: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-$shadow--3: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-$shadow--4: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+$shadow--2: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
 /* TRANSITIONS */
 $transition--1: all 0.2s ease-in-out;
