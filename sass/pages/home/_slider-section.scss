@@ -1,67 +1,79 @@
 @use "sass:math";
 
 .slider-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
-  // Temporary fix because grid-template-rows: minmax() in _base.scss is not working.
-  max-height: 62rem;
-  height: 48vw;
   position: relative;
-}
+  // Temporary fix because grid-template-rows: minmax() in _base.scss is not working.
+  height: 48vw;
+  max-height: 62rem;
 
-.carousel-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  opacity: 0;
-  transform: translateY(50%);
-  width: 7rem;
-  height: 6rem;
-  cursor: pointer;
-  background-color: $color-white;
-  transition: $transition--1, background-color 0s;
+  // --------------------------------------------------
+  &__carousel-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    opacity: 0;
+    transform: translateY(50%);
+    width: 7rem;
+    height: 6rem;
+    cursor: pointer;
+    background-color: $color-white;
+    /* Different transition effects for each background color and opacity. */
+    transition: $transition--1, background-color 0s;
 
-  &--left {
-    @extend .carousel-btn;
-    bottom: 50%;
-    left: 0;
-    border-radius: 0 3rem 3rem 0;
+    &--left {
+      @extend .slider-section__carousel-btn;
+      bottom: 50%;
+      left: 0;
+      border-radius: 0 3rem 3rem 0;
+    }
+
+    &--right {
+      @extend .slider-section__carousel-btn;
+      bottom: 50%;
+      right: 0;
+      border-radius: 3rem 0 0 3rem;
+    }
+
+    &:hover {
+      background-color: $color-black;
+
+      .slider-section__carousel-icon {
+        fill: $color-white;
+      }
+    }
   }
 
-  &--right {
-    @extend .carousel-btn;
-    bottom: 50%;
-    right: 0;
-    border-radius: 3rem 0 0 3rem;
+  // --------------------------------------------------
+  &__carousel-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+
+    &--left {
+      @extend .slider-section__carousel-icon;
+    }
+
+    &--right {
+      @extend .slider-section__carousel-icon;
+    }
   }
 
-  .slider-section:hover & {
+  // --------------------------------------------------
+  &:hover &__carousel-btn {
     opacity: 1;
   }
-
-  &:hover {
-    background-color: $color-black;
-  }
 }
 
-.carousel-icon {
-  width: 1.8rem;
-  height: 1.8rem;
+// ----------------------------------------------------------------------------------------------------
 
-  &--left {
-    @extend .carousel-icon;
-  }
-
-  &--right {
-    @extend .carousel-icon;
-  }
-
-  .carousel-btn:hover & {
-    fill: $color-white;
-  }
+.slides-container {
+  height: 100%;
 }
 
 .slide {
+  /* Subgrid definition for slide contents. It has the same columns as the global grid layout. */
   display: grid;
   @include grid-columns;
   align-items: center;
@@ -91,44 +103,39 @@
   }
 
   &__content {
+    /* Placement in the subgrid layout. */
     grid-column: center-start / center-end;
     color: $color-white;
-
-    & > .slider-para--lg:last-of-type::after {
-      content: "";
-      display: block;
-      margin-top: 1rem;
-      margin-left: 0.5rem;
-      width: 17%;
-      height: 0.5rem;
-      background-color: currentColor;
-    }
-
-    & > [class*="btn"] {
-      margin-top: 5%;
-    }
-  }
-}
-
-.slider-para {
-  width: max-content;
-  line-height: 1;
-
-  &--sm {
-    @extend .slider-para;
-    /* Another method to specify responsive font-size with javascript. 
-    "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
-    https://github.com/Jam3/nextjs-boilerplate/pull/49 */
-    font-size: clamp(1rem, 5.8rem, 4.5vw);
-    font-weight: 400;
   }
 
-  &--lg {
-    @extend .slider-para;
-    /* Another method to specify responsive font-size with javascript. 
-    "Currently when we want to access a Sass variable within JavaScript, we add it to a CSS variable and retrieve using getPropertyValue('--var'). Now that we're SSR'ing, we are only able to access these variables on the browser side. Due to this limitation, this feature adds the ability to import sass variables directly in our JavaScript files that works on server side."
-    https://github.com/Jam3/nextjs-boilerplate/pull/49 */
-    font-size: clamp(1rem, 10.2rem, 8vw);
-    font-weight: 600;
+  &__para {
+    width: max-content;
+    line-height: 1;
+
+    &--sm {
+      @extend .slide__para;
+      font-size: clamp(1rem, 5.8rem, 4.5vw);
+      font-weight: 400;
+    }
+
+    &--lg {
+      @extend .slide__para;
+      font-size: clamp(1rem, 10.2rem, 8vw);
+      font-weight: 600;
+
+      &:last-of-type::after {
+        content: "";
+        display: block;
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+        width: 17%;
+        height: 0.5rem;
+        background-color: currentColor;
+      }
+    }
+  }
+
+  & [class*="btn"] {
+    margin-top: 5%;
   }
 }

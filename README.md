@@ -7,4 +7,4 @@
 ## Tools & Guidelines
 
 1. [Concentric-CSS](https://github.com/brandon-rhodes/Concentric-CSS)
-   - Used as a standard order for CSS properties with some changes (Moved transition and animation properties to the end and in general we didn't use it strictly.).
+   - Used as a standard order for CSS properties with some changes (Moved transition and animation properties to the end and width and height properties moved immediately after margin properties. In general we didn't follow this standard strictly.).

@@ -5,9 +5,9 @@
     align-items: center;
     position: relative;
     /* The z-index value for page content is in range 1-99 and for modals is in range 100-199. */
-    // z-index: 95; Commented out because sublists accidentally become visible when hovering over the next section.
-    max-width: 90%;
+    // z-index: 95; Commented out because sublists accidentally become visible when hovering over the next section ("slider-section").
     margin: auto;
+    max-width: 90%;
   }
 
   &__navigation {
@@ -35,7 +35,7 @@
   align-items: center;
   border-top: $border--1;
 
-  /* Extend each item to take the full available width. */
+  /* Extend each item to occupy the full available width. */
   & > * {
     flex-grow: 1;
   }
@@ -74,7 +74,7 @@
 .sub-list {
   position: absolute;
   top: 100%;
-  /* To fix a bug that makes sublists that we don't hover over accidentally become visible. When sublist is visible we specified z-index: 99;. */
+  /* Prevent sublists that we don't hover over accidentally become visible. When a sublist is visible its z-index is 99, otherwise it is -1. */
   z-index: -1;
   visibility: hidden;
   opacity: 0;
@@ -89,7 +89,7 @@
 
   &__item {
     font-size: $font-size--sm;
-    /* To make the title of a sublist always has the hover effect when hovering over any child of this sublist. */
+    /* Make the title of a sublist always have a hover effect when hovering over any child of this sublist. */
     &:hover .sub-list__sub-title {
       @include arrow-icon-btn-hover;
     }
@@ -192,12 +192,16 @@
   &__label {
     position: absolute;
     right: 0;
-    /* To make the search icon visible above the input. */
+    /* Make the search icon visible above the input. */
     z-index: -1;
 
     /* Span included only for web accessibility purposes. */
     & > span {
-      display: none;
+      display: inline-block;
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
     }
   }
 

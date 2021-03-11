@@ -1,7 +1,7 @@
 .blog-section {
   /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
-  /* Subgrid for section contents that has the same columns as the global grid layout. */
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   @include grid-columns;
   padding: 8rem 0;
@@ -19,7 +19,7 @@
   &__articles {
     /* Placement in the subgrid layout. */
     grid-column: center-start / center-end;
-    /* Another subgrid for blog article cards. */
+    /* Another subgrid definition for blog article cards. */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;

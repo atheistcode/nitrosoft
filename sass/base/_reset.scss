@@ -16,6 +16,12 @@ img {
   max-width: 100%;
 }
 
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
 input,
 button,
 textarea,

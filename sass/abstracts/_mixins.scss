@@ -7,7 +7,7 @@
 
 @mixin filled-btn {
   position: relative;
-  /* Shows the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
+  /* Show the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
   z-index: 1;
   border: $border--1;
   border-radius: $border-radius--lg;
@@ -24,9 +24,9 @@
     right: 0;
     bottom: 0;
     left: 0;
-    /* Shows the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
+    /* Show the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
     z-index: -1;
-    /* Makes the height increase animation start from center bottom. */
+    /* Make the height increase animation start from center bottom. */
     transform-origin: 50% 100%;
     transform: scaleY(0);
     background-color: $color-secondary--light;
@@ -90,13 +90,4 @@
   grid-template-columns:
     [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end])
     [center-end] minmax(5vw, 1fr) [full-end];
-}
-
-@mixin link-style {
-  color: $link-color;
-  transition: $transition--1;
-
-  &:hover {
-    color: $text-color;
-  }
 }

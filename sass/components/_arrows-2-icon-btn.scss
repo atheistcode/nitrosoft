@@ -1,13 +1,14 @@
-.arrow-2-icon-btn {
+.arrows-2-icon-btn {
+  /* Establish a containing for pseudo elements to be able to move them around. */
   position: relative;
+  /* Hide the overflowing content and define enough padding values to show the after pseudo element and hide the before pseudo element on initial state. */
   overflow: hidden;
-  width: max-content;
-  padding: 1rem;
-  padding-right: 6rem;
+  padding: 1rem 6rem 1rem 1rem;
   color: $color-white;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   font-weight: 500;
+  transition: $transition--1;
 
   &::before {
     content: "\2192";
@@ -15,7 +16,6 @@
     transform: translate(-145%, -35%);
     color: currentColor;
     font-size: 3.7rem;
-    transition: $transition--1;
   }
 
   &::after {
@@ -24,11 +24,9 @@
     transform: translate(45%, -35%);
     color: currentColor;
     font-size: 3.7rem;
-    transition: $transition--1;
   }
 
   &:hover {
-    color: currentColor;
     padding-left: 6rem;
     padding-right: 0;
   }

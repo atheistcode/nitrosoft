@@ -3,15 +3,15 @@
   align-items: center;
 
   &__icon {
+    margin-right: 0.2rem;
     width: 3.8rem;
     height: 5.4rem;
-    margin-right: 0.2rem;
   }
 
   &__title {
+    text-transform: lowercase;
     font-size: $font-size-logo;
     font-weight: 500;
-    text-transform: lowercase;
 
     :nth-child(1) {
       color: $color-primary;

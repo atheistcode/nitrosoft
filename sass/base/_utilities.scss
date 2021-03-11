@@ -1,9 +1,12 @@
 .link {
-  display: inline-block;
-  text-decoration: none;
-  @include link-style;
+  color: $link-color;
+  transition: $transition--1;
+
+  &:hover {
+    color: $text-color;
+  }
 }
 
-.border-bottom {
+.border-bottom-dotted {
   border-bottom: 0.1rem dotted $text-color;
 }
