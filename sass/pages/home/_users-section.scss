@@ -68,7 +68,7 @@
 
 .user {
   &__img {
-    /* To make .user__img has a higher stacking order than the pseudo element .user::before. */
+    /* Make "user__img" has a higher stacking order than the ::before pseudo element of "user". */
     position: relative;
     max-width: 3rem;
     max-height: 3rem;

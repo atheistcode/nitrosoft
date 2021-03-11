@@ -8,7 +8,7 @@
   height: 48vw;
   max-height: 62rem;
 
-  // --------------------------------------------------
+  //////////////////////////////////////////////////
   &__carousel-btn {
     display: flex;
     justify-content: center;
@@ -46,7 +46,7 @@
     }
   }
 
-  // --------------------------------------------------
+  //////////////////////////////////////////////////
   &__carousel-icon {
     width: 1.8rem;
     height: 1.8rem;
@@ -60,17 +60,19 @@
     }
   }
 
-  // --------------------------------------------------
+  //////////////////////////////////////////////////
   &:hover &__carousel-btn {
     opacity: 1;
   }
 }
 
-// ----------------------------------------------------------------------------------------------------
+//////////////////////////////////////////////////
 
 .slides-container {
   height: 100%;
 }
+
+//////////////////////////////////////////////////
 
 .slide {
   /* Subgrid definition for slide contents. It has the same columns as the global grid layout. */
@@ -102,12 +104,14 @@
     background-image: url("/assets/images/background-images/slider-images/slider-3.jpg");
   }
 
+  //////////////////////////////////////////////////
   &__content {
-    /* Placement in the subgrid layout. */
+    /* Placement in the slide subgrid layout. */
     grid-column: center-start / center-end;
     color: $color-white;
   }
 
+  //////////////////////////////////////////////////
   &__para {
     width: max-content;
     line-height: 1;
@@ -135,7 +139,9 @@
     }
   }
 
+  //////////////////////////////////////////////////
   & [class*="btn"] {
     margin-top: 5%;
+    font-size: 2rem;
   }
 }

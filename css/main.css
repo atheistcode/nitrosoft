@@ -329,7 +329,7 @@ body {
 }
 
 .arrows-2-icon-btn {
-  /* Establish a containing for pseudo elements to be able to move them around. */
+  /* Establish a containing block for pseudo elements to be able to move them around. */
   position: relative;
   /* Hide the overflowing content and define enough padding values to show the after pseudo element and hide the before pseudo element on initial state. */
   overflow: hidden;
@@ -641,7 +641,7 @@ body {
   padding: 8rem 0;
 }
 .blog-section__header {
-  /* Placement in the subgrid layout. */
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   text-align: center;
 }
@@ -649,7 +649,7 @@ body {
   color: #032a5e;
 }
 .blog-section__articles {
-  /* Placement in the subgrid layout. */
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   /* Another subgrid definition for blog article cards. */
   display: grid;
@@ -658,7 +658,7 @@ body {
   margin: 3rem auto 6rem auto;
 }
 .blog-section__footer {
-  /* Placement in the subgrid layout. */
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   text-align: center;
 }
@@ -776,7 +776,9 @@ body {
 }
 
 .company-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start/full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
   row-gap: 2rem;
@@ -784,28 +786,35 @@ body {
   padding-top: 8rem;
 }
 .company-section__header {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  /* Another subgrid definition for the header. */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   column-gap: 2rem;
 }
 .company-section__header > .heading-6 {
+  /* Placement in the header subgrid layout. */
   grid-column: 1;
   grid-row: 1;
   color: #1fc2ef;
 }
 .company-section__header > .heading-2 {
+  /* Placement in the header subgrid layout. */
   grid-column: 1;
   grid-row: 2;
   color: white;
 }
 .company-section__header > .para {
+  /* Placement in the header subgrid layout. */
   grid-column: 2;
   grid-row: 1/span 2;
 }
 .company-section__info-figures {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   grid-row: 2;
+  /* Another subgrid definition for info figures. */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   gap: 3rem;
@@ -813,9 +822,11 @@ body {
   margin-bottom: -11rem;
 }
 .company-section__footer {
+  /* Placement in the section subgrid layout. */
   grid-column: full-start/full-end;
   grid-row: 3;
   background-color: #f1f5f8;
+  /* Higher padding value on top to leave empty space for the info figures with negative bottom margin. */
   padding-top: 12rem;
   padding-bottom: 6rem;
   text-align: center;
@@ -837,6 +848,8 @@ body {
   padding: 2rem;
   text-align: center;
   transition: all 0.2s ease-in-out;
+  /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space from the layout. */
+  /* display: block; and overflow: hidden; are applied on all child elements. height: 0; is applied on the child element with an out of flow state. */
 }
 .info-figure__caption > * {
   display: block;
@@ -846,15 +859,14 @@ body {
 .info-figure__caption .heading-5 {
   height: 2.4rem;
   color: #1fc2ef;
-  /* This property is to solve text flickering on transition. */
+  /* Fix text flickering on transition. */
   will-change: transform;
 }
 .info-figure__caption .heading-3 {
   margin: 0.4rem 0;
   color: #032a5e;
 }
-.info-figure__caption .arrow-icon-text, .info-figure__caption .filled-arrow-icon-btn {
-  /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space. */
+.info-figure__caption > :last-child {
   height: 0;
 }
 .info-figure:hover .info-figure__caption {
@@ -864,12 +876,14 @@ body {
   height: 0;
   transform: translateY(-100%);
 }
-.info-figure:hover .info-figure__caption > a {
+.info-figure:hover .info-figure__caption > :last-child {
   height: 2.4rem;
 }
 
 .industries-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start/full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
   row-gap: 2rem;
@@ -877,28 +891,35 @@ body {
   padding: 8rem 0;
 }
 .industries-section__header {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  /* Another subgrid definition for the header. */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   column-gap: 2rem;
 }
 .industries-section__header > .heading-6 {
+  /* Placement in the header subgrid layout. */
   grid-column: 1;
   grid-row: 1;
   color: #1fc2ef;
 }
 .industries-section__header > .heading-2 {
+  /* Placement in the header subgrid layout. */
   grid-column: 1;
   grid-row: 2;
   color: white;
 }
 .industries-section__header > .para {
+  /* Placement in the header subgrid layout. */
   grid-column: 2;
   grid-row: 1/span 2;
 }
 .industries-section__industry-cards {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   grid-row: 2;
+  /* Another subgrid definition for industry cards. */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(11.2rem, 1fr));
   gap: 3rem;
@@ -910,6 +931,7 @@ body {
   border: 0.1rem solid #e6e6e6;
   border-color: rgba(3, 42, 94, 0.5);
   border-radius: 0.5rem;
+  /* Pseudo element as a background color for the industry card. */
 }
 .industry-card__link-container {
   display: flex;
@@ -920,18 +942,18 @@ body {
   padding: 15%;
   text-align: center;
 }
-.industry-card .heading-5 {
+.industry-card__heading {
   margin-bottom: 1.5rem;
   color: white;
 }
-.industry-card .para {
+.industry-card__para {
   font-size: 1.5rem;
 }
 .industry-card__icon {
   margin-bottom: 3rem;
   width: 6.4rem;
   height: 6.4rem;
-  /* To visually insert this pseudo element in the first order in link-container. */
+  /* Visually insert it in the first order. */
   order: -1;
 }
 .industry-card::before {
@@ -954,12 +976,15 @@ body {
 }
 
 .services-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start/full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
   padding: 8rem 0 4rem 0;
 }
 .services-section__header {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   margin-bottom: 4rem;
   text-align: center;
@@ -968,19 +993,24 @@ body {
   color: #032a5e;
 }
 .services-section__service-cards {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  /* Another subgrid definition for service cards. */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   gap: 3rem;
   margin-bottom: 4rem;
 }
 .services-section__footer {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   margin-bottom: 6rem;
   text-align: center;
 }
 .services-section__customer-brands {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  /* Another subgrid definition for customer brands. */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1.6rem, 1fr));
   column-gap: 3rem;
@@ -991,10 +1021,11 @@ body {
   padding: 10%;
   text-align: center;
 }
-.service-card > .heading-3 {
+.service-card__heading {
   color: #032a5e;
 }
 .service-card__service-icon {
+  /* Align the svg icon and the span vertically in a flex container. */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1100,7 +1131,7 @@ body {
   background-image: url("/assets/images/background-images/slider-images/slider-3.jpg");
 }
 .slide__content {
-  /* Placement in the subgrid layout. */
+  /* Placement in the slide subgrid layout. */
   grid-column: center-start/center-end;
   color: white;
 }
@@ -1127,15 +1158,19 @@ body {
 }
 .slide [class*=btn], .slide--1 [class*=btn], .slide--2 [class*=btn], .slide--3 [class*=btn] {
   margin-top: 5%;
+  font-size: 2rem;
 }
 
 .studies-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start/full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
   background-color: #171122;
 }
 .studies-section__header {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   text-align: center;
 }
@@ -1146,13 +1181,16 @@ body {
   color: white;
 }
 .studies-section__project-cards {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  /* Another subgrid definition for project cards. */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   gap: 3rem;
   margin: 3rem 0 -4.5rem 0;
 }
 .studies-section__footer {
+  /* Placement in the section subgrid layout. */
   grid-column: full-start/full-end;
   grid-row: 3;
   background-image: linear-gradient(to bottom, #f1f5f8, white);
@@ -1162,6 +1200,7 @@ body {
 }
 
 .project {
+  /* Establish a containing block for "project__back-img" to insert it as a background image in "project" container. */
   position: relative;
   min-height: 20rem;
   overflow: hidden;
@@ -1175,19 +1214,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* To make the whole container clickable we need to put it in a higher stacking order. */
+  /* put it in a higher stacking order, to make the whole container clickable. */
   position: relative;
   z-index: 1;
   height: 100%;
   padding: 1rem 15%;
 }
-.project .heading-3 {
+.project__heading {
   color: white;
 }
 .project__brand-img {
   margin-top: 1rem;
 }
 .project__back-img {
+  /* Absolutely position the image to be a background image for the "project" container. */
   position: absolute;
   top: 0;
   left: 0;
@@ -1269,7 +1309,7 @@ body {
 }
 
 .user__img {
-  /* To make .user__img has a higher stacking order than the pseudo element .user::before. */
+  /* Make "user__img" has a higher stacking order than the ::before pseudo element of "user". */
   position: relative;
   max-width: 3rem;
   max-height: 3rem;

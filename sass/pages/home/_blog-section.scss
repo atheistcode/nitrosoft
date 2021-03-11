@@ -7,7 +7,7 @@
   padding: 8rem 0;
 
   &__header {
-    /* Placement in the subgrid layout. */
+    /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
     text-align: center;
 
@@ -17,7 +17,7 @@
   }
 
   &__articles {
-    /* Placement in the subgrid layout. */
+    /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
     /* Another subgrid definition for blog article cards. */
     display: grid;
@@ -27,7 +27,7 @@
   }
 
   &__footer {
-    /* Placement in the subgrid layout. */
+    /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
     text-align: center;
   }

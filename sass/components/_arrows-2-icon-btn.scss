@@ -1,5 +1,5 @@
 .arrows-2-icon-btn {
-  /* Establish a containing for pseudo elements to be able to move them around. */
+  /* Establish a containing block for pseudo elements to be able to move them around. */
   position: relative;
   /* Hide the overflowing content and define enough padding values to show the after pseudo element and hide the before pseudo element on initial state. */
   overflow: hidden;

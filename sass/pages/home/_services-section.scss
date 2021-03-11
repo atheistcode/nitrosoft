@@ -1,10 +1,14 @@
 .services-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   @include grid-columns;
   padding: 8rem 0 4rem 0;
 
+  //////////////////////////////////////////////////
   &__header {
+    /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
     margin-bottom: 4rem;
     text-align: center;
@@ -14,38 +18,51 @@
     }
   }
 
+  //////////////////////////////////////////////////
   &__service-cards {
+    /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
+    /* Another subgrid definition for service cards. */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
     gap: 3rem;
     margin-bottom: 4rem;
   }
 
+  //////////////////////////////////////////////////
   &__footer {
+    /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
     margin-bottom: 6rem;
     text-align: center;
   }
 
+  //////////////////////////////////////////////////
   &__customer-brands {
+    /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
+    /* Another subgrid definition for customer brands. */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(1.6rem, 1fr));
     column-gap: 3rem;
   }
 }
 
+//////////////////////////////////////////////////
+
 .service-card {
   background-color: $color-primary--light-3;
   padding: 10%;
   text-align: center;
 
-  & > .heading-3 {
+  //////////////////////////////////////////////////
+  &__heading {
     color: $text-color--dark;
   }
 
+  //////////////////////////////////////////////////
   &__service-icon {
+    /* Align the svg icon and the span vertically in a flex container. */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,6 +85,7 @@
     }
   }
 
+  //////////////////////////////////////////////////
   &:hover &__service-icon svg {
     transform: translateY(-2rem) rotate(8deg);
 
@@ -76,6 +94,8 @@
     }
   }
 }
+
+//////////////////////////////////////////////////
 
 .brand__img {
   width: 100%;
