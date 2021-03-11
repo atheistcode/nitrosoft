@@ -43,3 +43,41 @@
     transform: scale(0);
   }
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.35);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-show-text {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+
+  3%,
+  25% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* This step is specified the same as the last step in order to leave a time gap between each iteration. */
+  30% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}

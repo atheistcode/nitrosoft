@@ -3,7 +3,7 @@
   display: grid;
   @include grid-columns;
   background-image: linear-gradient(to top, $color-primary--light-3, $color-white),
-    url("/assets/images/background-images/bg-team.jpg");
+    url("/assets/images/background-images/bg-users-section.jpg");
   background-position: center bottom;
   background-size: contain;
   background-repeat: no-repeat;
