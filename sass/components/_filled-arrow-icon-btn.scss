@@ -1,5 +1,5 @@
 .filled-arrow-icon-btn {
-  @extend .arrow-icon-text;
+  @include arrow-icon-after-text;
   position: relative;
   /* To show the text above the pseudo element background. */
   z-index: 1;

@@ -64,13 +64,21 @@
     opacity: 0;
   }
 
-  3%,
+  /* Takes 2% to enter. */
+  2% {
+    transform: translateX(5%);
+    opacity: 1;
+  }
+
+  4%,
   25% {
     transform: translateX(0);
     opacity: 1;
   }
+  /* Takes 5% to exit. */
+  /* It will have an effect as if the next slide pushes the previous one, because it arrives to position while the previous one is still there for 3%. */
 
-  /* This step is specified the same as the last step in order to leave a time gap between each iteration. */
+  /* From 30% to 100% is the same in order to leave a time gap between each iteration. */
   30% {
     transform: translateX(50%);
     opacity: 0;

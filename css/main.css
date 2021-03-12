@@ -60,11 +60,18 @@
     transform: translateX(-50%);
     opacity: 0;
   }
-  3%, 25% {
+  /* Takes 2% to enter. */
+  2% {
+    transform: translateX(5%);
+    opacity: 1;
+  }
+  4%, 25% {
     transform: translateX(0);
     opacity: 1;
   }
-  /* This step is specified the same as the last step in order to leave a time gap between each iteration. */
+  /* Takes 5% to exit. */
+  /* It will have an effect as if the next slide pushes the previous one, because it arrives to position while the previous one is still there for 3%. */
+  /* From 30% to 100% is the same in order to leave a time gap between each iteration. */
   30% {
     transform: translateX(50%);
     opacity: 0;
@@ -306,35 +313,12 @@ body {
   border-bottom: 0.1rem dotted #667c99;
 }
 
-.arrow-icon-btn {
-  position: relative;
-  color: currentColor;
-  transition: all 0.2s ease-in-out;
-}
-.arrow-icon-btn::before {
-  content: "➜";
-  position: absolute;
-  top: 0.6rem;
-  left: 1rem;
-  opacity: 0;
-  color: currentColor;
-  font-size: 1.2rem;
-  transition: all 0.2s ease-in-out;
-}
-.arrow-icon-btn:hover {
-  color: #032a5e;
-}
-.arrow-icon-btn:hover::before {
-  transform: translateX(0.8rem);
-  opacity: 1;
-}
-
-.arrow-icon-heading {
+.arrow-icon-after {
   position: relative;
   white-space: nowrap;
   transition: all 0.2s ease-in-out;
 }
-.arrow-icon-heading::after {
+.arrow-icon-after::after {
   content: "➜";
   position: absolute;
   top: 0.2rem;
@@ -344,24 +328,35 @@ body {
   color: currentColor;
   transition: all 0.2s ease-in-out;
 }
-.arrow-icon-heading:hover {
+.arrow-icon-after:hover {
   transform: translateX(-1rem);
 }
-.arrow-icon-heading:hover::after {
+.arrow-icon-after:hover::after {
   opacity: 1;
   transform: translateX(1rem);
 }
 
-.arrow-icon-text, .filled-arrow-icon-btn {
-  color: #1fc2ef;
-  white-space: nowrap;
-  font-size: 1.6rem;
-  font-weight: 500;
-}
-.arrow-icon-text::after, .filled-arrow-icon-btn::after {
-  content: "➜";
-  margin-left: 0.5rem;
+.arrow-icon-before-btn {
+  position: relative;
   color: currentColor;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-icon-before-btn::before {
+  content: "➜";
+  position: absolute;
+  top: 0.6rem;
+  left: 1rem;
+  opacity: 0;
+  color: currentColor;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+}
+.arrow-icon-before-btn:hover {
+  color: #032a5e;
+}
+.arrow-icon-before-btn:hover::before {
+  transform: translateX(0.8rem);
+  opacity: 1;
 }
 
 .arrows-2-icon-btn {
@@ -396,10 +391,19 @@ body {
 }
 
 .filled-arrow-icon-btn {
+  color: #1fc2ef;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  font-weight: 500;
   position: relative;
   /* To show the text above the pseudo element background. */
   z-index: 1;
   padding: 0.8rem;
+}
+.filled-arrow-icon-btn::after {
+  content: "➜";
+  margin-left: 0.5rem;
+  color: currentColor;
 }
 .filled-arrow-icon-btn::before {
   content: "";
@@ -431,7 +435,6 @@ body {
   height: 5.4rem;
 }
 .logo__title {
-  text-transform: lowercase;
   font-size: 2.6rem;
   font-weight: 500;
 }
@@ -764,6 +767,7 @@ body {
   z-index: 1;
   border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
+  background-color: white;
   padding: 1.5rem 2rem;
   color: #1fc2ef;
   /* Transition for border, color, or transform changes. */
@@ -775,7 +779,8 @@ body {
   /* The 4 dimensions peoperties have 0 value, to take full width and height. */
   top: 0;
   right: 0;
-  bottom: 0;
+  /* Fix small area visible below the pseudo element. */
+  bottom: -0.1rem;
   left: 0;
   /* Show the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
   z-index: -1;
@@ -903,7 +908,16 @@ body {
   color: #032a5e;
 }
 .info-figure__caption > :last-child {
+  color: #1fc2ef;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  font-weight: 500;
   height: 0;
+}
+.info-figure__caption > :last-child::after {
+  content: "➜";
+  margin-left: 0.5rem;
+  color: currentColor;
 }
 .info-figure:hover .info-figure__caption {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -1422,13 +1436,13 @@ body {
   row-gap: 1rem;
   column-gap: 5%;
 }
-.contact-option .heading-3 {
+.contact-option__heading {
   grid-column: 1;
   grid-row: 1;
   color: #032a5e;
   margin: 0;
 }
-.contact-option .para {
+.contact-option__para {
   grid-column: 1;
   grid-row: 2;
 }
@@ -1438,15 +1452,15 @@ body {
   width: 6.4rem;
   height: 6.4rem;
 }
-.contact-option:hover .contact-option__icon {
-  animation: 1s infinite shake-icon;
-}
-.contact-option:hover .arrow-icon-heading {
+.contact-option:hover .contact-option__heading {
   transform: translateX(-1rem);
 }
-.contact-option:hover .arrow-icon-heading::after {
+.contact-option:hover .contact-option__heading::after {
   opacity: 1;
   transform: translateX(1rem);
+}
+.contact-option:hover .contact-option__icon {
+  animation: 1s infinite shake-icon;
 }
 
 .video-section {
@@ -1472,6 +1486,9 @@ body {
   position: relative;
   /* Must have a height value because all its child elements are absolutely positioned. */
   height: 9.6rem;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
   line-height: 1;
 }
 .video-section__heading > * {
@@ -1481,20 +1498,19 @@ body {
   opacity: 0;
   width: 100%;
   text-align: center;
-  animation: slide-show-text 10s infinite;
-  animation-timing-function: cubic-bezier(0.17, 0.67, 0.5, 1.44);
+  animation: slide-show-text 12s infinite;
 }
 .video-section__heading > :nth-child(1) {
   animation-delay: 0s;
 }
 .video-section__heading > :nth-child(2) {
-  animation-delay: 2.5s;
+  animation-delay: 3s;
 }
 .video-section__heading > :nth-child(3) {
-  animation-delay: 5s;
+  animation-delay: 6s;
 }
 .video-section__heading > :nth-child(4) {
-  animation-delay: 7.5s;
+  animation-delay: 9s;
 }
 .video-section__para {
   font-size: 2.1rem;
@@ -1505,7 +1521,7 @@ body {
   border-radius: 50%;
   background-color: white;
   padding: 2rem;
-  animation: pulse 3.5s infinite ease;
+  animation: pulse 3.5s infinite ease-in-out;
 }
 .video-section__icon {
   display: block;

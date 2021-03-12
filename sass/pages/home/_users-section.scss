@@ -160,14 +160,14 @@
     column-gap: 5%;
   }
 
-  & .heading-3 {
+  &__heading {
     grid-column: 1;
     grid-row: 1;
     color: $text-color--dark;
     margin: 0;
   }
 
-  & .para {
+  &__para {
     grid-column: 1;
     grid-row: 2;
   }
@@ -179,11 +179,11 @@
     height: 6.4rem;
   }
 
-  &:hover &__icon {
-    animation: 1s infinite shake-icon;
+  &:hover &__heading {
+    @include arrow-icon-after-hover;
   }
 
-  &:hover .arrow-icon-heading {
-    @include arrow-icon-heading-hover;
+  &:hover &__icon {
+    animation: 1s infinite shake-icon;
   }
 }

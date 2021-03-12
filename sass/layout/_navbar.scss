@@ -101,7 +101,7 @@
     font-size: $font-size--sm;
     /* Make the title of a sublist always have a hover effect when hovering over any child of this sublist. */
     &:hover .sub-list__sub-title {
-      @include arrow-icon-btn-hover;
+      @include arrow-icon-before-btn-hover;
     }
   }
 

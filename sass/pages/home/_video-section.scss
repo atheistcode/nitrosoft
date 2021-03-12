@@ -27,6 +27,9 @@
     position: relative;
     /* Must have a height value because all its child elements are absolutely positioned. */
     height: 9.6rem;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
     line-height: 1;
 
     & > * {
@@ -36,21 +39,20 @@
       opacity: 0;
       width: 100%;
       text-align: center;
-      animation: slide-show-text 10s infinite;
-      animation-timing-function: cubic-bezier(0.17, 0.67, 0.5, 1.44);
+      animation: slide-show-text 12s infinite;
     }
 
     & > :nth-child(1) {
       animation-delay: 0s;
     }
     & > :nth-child(2) {
-      animation-delay: 2.5s;
+      animation-delay: 3s;
     }
     & > :nth-child(3) {
-      animation-delay: 5s;
+      animation-delay: 6s;
     }
     & > :nth-child(4) {
-      animation-delay: 7.5s;
+      animation-delay: 9s;
     }
   }
 
@@ -66,7 +68,7 @@
     border-radius: 50%;
     background-color: $color-white;
     padding: 2rem;
-    animation: pulse 3.5s infinite ease;
+    animation: pulse 3.5s infinite ease-in-out;
   }
 
   //////////////////////////////////////////////////

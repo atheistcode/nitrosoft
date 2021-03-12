@@ -1,20 +1,20 @@
-.arrow-icon-heading {
+.arrow-icon-before-btn {
   position: relative;
-  white-space: nowrap;
+  color: currentColor;
   transition: $transition--1;
 
-  &::after {
+  &::before {
     content: "\279C";
     position: absolute;
-    top: 0.2rem;
+    top: 0.6rem;
+    left: 1rem;
     opacity: 0;
-    transform: translateX(-0.5rem);
-    font-size: 1.5rem;
     color: currentColor;
+    font-size: 1.2rem;
     transition: $transition--1;
   }
 
   &:hover {
-    @include arrow-icon-heading-hover;
+    @include arrow-icon-before-btn-hover;
   }
 }

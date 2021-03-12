@@ -107,6 +107,7 @@
     }
 
     & > :last-child {
+      @include arrow-icon-after-text;
       height: 0;
     }
   }
