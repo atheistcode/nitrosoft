@@ -1,3 +1,5 @@
+// -------------------------1------------------------- //
+
 .blog-section {
   /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
@@ -6,16 +8,12 @@
   @include grid-columns;
   padding: 8rem 0;
 
+  // -------------------------2------------------------- //
   &__header {
-    /* Placement in the section subgrid layout. */
-    grid-column: center-start / center-end;
-    text-align: center;
-
-    & > .heading-2 {
-      color: $text-color--dark;
-    }
+    @include header-h6-h2;
   }
 
+  // -------------------------2------------------------- //
   &__articles {
     /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
@@ -23,20 +21,25 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
-    margin: 3rem auto 6rem auto;
   }
 
+  // -------------------------2------------------------- //
   &__footer {
     /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
+    margin-top: 4rem;
     text-align: center;
   }
 }
 
+// -------------------------1------------------------- //
+
 .article-card {
   overflow: hidden;
+  border-radius: $border-radius--lg;
   background-color: $color-primary--light-3;
 
+  // -------------------------2------------------------- //
   /* Placement of the large article card. */
   &:first-of-type {
     grid-column: 1 / span 2;
@@ -53,29 +56,32 @@
     grid-row: 2;
   }
 
+  // -------------------------2------------------------- //
   /* The "article-card__link-container" class exists only in small article cards. */
   &__link-container {
     /* Expand the container to make its contents occupy the full height. */
     height: 100%;
 
-    /* For small article cards ("article-card__link-container" class exists), we want the first child ("article-card__heading") to occupy the as much height as possible, pushing down all other elements ("article-card__date"). */
+    /* For small article cards (where "article-card__link-container" class exists), we want the first child (heading) to occupy as much height as possible, pushing down all other elements (date). */
     & [class*="heading"] {
       flex-grow: 1;
     }
-    /* Visually insert the date ("article-card__date") in the same order as in HTML. Otherwise it will be visually inserted first only if it is in a large card ("article-card__link-container" class doesn't exist). */
+    /* Visually insert the date in the same order as in HTML. Otherwise it will be visually inserted first only if it is in a large card (where "article-card__link-container" class doesn't exist). */
     & [class*="date"] {
       order: 0;
     }
   }
 
+  // -------------------------2------------------------- //
   &__article {
     /* Expand the container to make its contents occupy the full height. */
     height: 100%;
-    /* Make it a flex container to be able to visually insert elements in an order different from the HTML order. */
+    /* A flex container to be able to visually insert elements in an order different from their HTML order. */
     display: flex;
     flex-direction: column;
   }
 
+  // -------------------------2------------------------- //
   &__content {
     /* Expand all contents to occupy the full height. */
     flex: 1 1 0;
@@ -84,25 +90,27 @@
     padding: 7% 10%;
   }
 
+  // -------------------------2------------------------- //
   &__heading {
     margin-bottom: 2rem;
     color: $text-color--dark;
   }
 
-  &__para {
+  // -------------------------2------------------------- //
+  & .para {
     margin-bottom: 2rem;
   }
 
+  // -------------------------2------------------------- //
   &__date {
-    /* Visually insert the date as the first element in large card. */
+    /* Visually insert the date first in content of large card. */
     order: -1;
     font-size: $font-size--sm;
   }
 
+  // -------------------------2------------------------- //
   &__btn {
-    position: relative;
-    /* Show text above pseudo element background. The element has z-index: 1 and the pseudo element has z-index: -1. */
-    z-index: 1;
+    @include filled-btn;
     border: $border--1;
     border-radius: $border-radius--lg;
     background-color: $color-white;
@@ -116,49 +124,38 @@
     transition: $transition--1;
 
     &::before {
-      content: "";
-      position: absolute;
-      /* The 4 dimensions peoperties have 0 value, to take full width and height. */
-      top: 0;
-      right: 0;
-      /* Fix small area visible below the pseudo element. Visible when there is a border. */
+      /* Fix the small area visible below the pseudo element. Visible when there is a border. */
       bottom: -0.1rem;
-      left: 0;
-      /* Show text above pseudo element background. The element itself has z-index: 1 and the pseudo element has z-index: -1. */
-      z-index: -1;
-      /* Start the transform from center bottom. */
-      transform-origin: 50% 100%;
-      transform: scaleY(0);
-      background-color: $color-secondary--light;
       /* Transition when hover off. */
       transition: $transition--2;
     }
 
     &:hover {
       border-color: $color-secondary--light;
-      color: $color-white;
     }
 
     &:hover::before {
-      transform: scaleY(1);
       /* Transition when hover on. */
       transition: $transition--4;
     }
   }
 
+  // -------------------------2------------------------- //
   &__img-container {
-    /* Visually insert the image as the first element. */
+    /* Visually insert the image first in card. */
     order: -1;
     overflow: hidden;
     background-color: $color-primary;
   }
 
+  // -------------------------2------------------------- //
   &__img {
     filter: grayscale(100%);
     opacity: 0.8;
     transition: $transition--1;
   }
 
+  // -------------------------2------------------------- //
   &:hover &__img {
     transform: scale(1.1);
     filter: grayscale(0);

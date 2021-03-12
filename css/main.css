@@ -2,8 +2,8 @@
 /* We use this hover effect when hovering over another or a parent element. */
 /* We use this hover effect when hovering over another or a parent element. */
 /* We use this hover effect when hovering over another or a parent element. */
-/* Main grid-template-columns definition that consists of 14 columns. */
 /* We use this hover effect when hovering over another or a parent element. */
+/* Main grid-template-columns definition that consists of 14 columns. */
 /* COLORS */
 /* TEXT COLORS */
 /* FONTS */
@@ -667,6 +667,7 @@ body {
 .blog-section__header {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  margin-bottom: 4rem;
   text-align: center;
 }
 .blog-section__header > .heading-2 {
@@ -679,16 +680,17 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
-  margin: 3rem auto 6rem auto;
 }
 .blog-section__footer {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  margin-top: 4rem;
   text-align: center;
 }
 
 .article-card {
   overflow: hidden;
+  border-radius: 0.5rem;
   background-color: #f1f5f8;
   /* Placement of the large article card. */
   /* Placement of the small article cards. */
@@ -707,8 +709,8 @@ body {
 .article-card__link-container {
   /* Expand the container to make its contents occupy the full height. */
   height: 100%;
-  /* For small article cards ("article-card__link-container" class exists), we want the first child ("article-card__heading") to occupy the as much height as possible, pushing down all other elements ("article-card__date"). */
-  /* Visually insert the date ("article-card__date") in the same order as in HTML. Otherwise it will be visually inserted first only if it is in a large card ("article-card__link-container" class doesn't exist). */
+  /* For small article cards (where "article-card__link-container" class exists), we want the first child (heading) to occupy as much height as possible, pushing down all other elements (date). */
+  /* Visually insert the date in the same order as in HTML. Otherwise it will be visually inserted first only if it is in a large card (where "article-card__link-container" class doesn't exist). */
 }
 .article-card__link-container [class*=heading] {
   flex-grow: 1;
@@ -719,7 +721,7 @@ body {
 .article-card__article {
   /* Expand the container to make its contents occupy the full height. */
   height: 100%;
-  /* Make it a flex container to be able to visually insert elements in an order different from the HTML order. */
+  /* A flex container to be able to visually insert elements in an order different from their HTML order. */
   display: flex;
   flex-direction: column;
 }
@@ -734,18 +736,19 @@ body {
   margin-bottom: 2rem;
   color: #032a5e;
 }
-.article-card__para {
+.article-card .para {
   margin-bottom: 2rem;
 }
 .article-card__date {
-  /* Visually insert the date as the first element in large card. */
+  /* Visually insert the date first in content of large card. */
   order: -1;
   font-size: 1.5rem;
 }
 .article-card__btn {
   position: relative;
-  /* Show text above pseudo element background. The element has z-index: 1 and the pseudo element has z-index: -1. */
+  /* To show text above pseudo element background. */
   z-index: 1;
+  padding: 0.8rem;
   border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
   background-color: white;
@@ -764,29 +767,37 @@ body {
   /* The 4 dimensions peoperties have 0 value, to take full width and height. */
   top: 0;
   right: 0;
-  /* Fix small area visible below the pseudo element. Visible when there is a border. */
-  bottom: -0.1rem;
+  bottom: 0;
   left: 0;
-  /* Show text above pseudo element background. The element itself has z-index: 1 and the pseudo element has z-index: -1. */
+  /* To show pseudo element background below text. */
   z-index: -1;
   /* Start the transform from center bottom. */
   transform-origin: 50% 100%;
   transform: scaleY(0);
   background-color: #fc5445;
+  transition: all 0.3s cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+.article-card__btn:hover {
+  color: white;
+}
+.article-card__btn:hover::before {
+  transform: scaleY(1);
+}
+.article-card__btn::before {
+  /* Fix the small area visible below the pseudo element. Visible when there is a border. */
+  bottom: -0.1rem;
   /* Transition when hover off. */
   transition: all 0.3s ease-in-out;
 }
 .article-card__btn:hover {
   border-color: #fc5445;
-  color: white;
 }
 .article-card__btn:hover::before {
-  transform: scaleY(1);
   /* Transition when hover on. */
   transition: all 0.3s cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 .article-card__img-container {
-  /* Visually insert the image as the first element. */
+  /* Visually insert the image first in card. */
   order: -1;
   overflow: hidden;
   background-color: #032a5e;
@@ -1033,12 +1044,11 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   gap: 3rem;
-  margin-bottom: 4rem;
 }
 .services-section__footer {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
-  margin-bottom: 6rem;
+  margin: 4rem 0 6rem 0;
   text-align: center;
 }
 .services-section__customer-brands {
@@ -1293,6 +1303,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
+  padding-bottom: 6rem;
 }
 .users-section__map {
   /* Placement in the section subgrid layout. */
@@ -1334,7 +1345,7 @@ body {
 .users-section__footer {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
-  padding: 6rem 0;
+  margin-top: 4rem;
   text-align: center;
 }
 
