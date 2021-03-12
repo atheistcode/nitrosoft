@@ -1,44 +1,20 @@
+// -------------------------1------------------------- //
+
 .industries-section {
   /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
   /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   @include grid-columns;
-  row-gap: 2rem;
   background-color: $color-primary--dark-2;
   padding: 8rem 0;
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__header {
-    /* Placement in the section subgrid layout. */
-    grid-column: center-start / center-end;
-    /* Another subgrid definition for the header. */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
-    column-gap: 2rem;
-
-    & > .heading-6 {
-      /* Placement in the header subgrid layout. */
-      grid-column: 1;
-      grid-row: 1;
-      color: $color-primary--light-1;
-    }
-
-    & > .heading-2 {
-      /* Placement in the header subgrid layout. */
-      grid-column: 1;
-      grid-row: 2;
-      color: $color-white;
-    }
-
-    & > .para {
-      /* Placement in the header subgrid layout. */
-      grid-column: 2;
-      grid-row: 1 / span 2;
-    }
+    @include header-h6-h2-para;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__industry-cards {
     /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
@@ -47,11 +23,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(11.2rem, 1fr));
     gap: 3rem;
-    margin-top: 2rem;
   }
 }
 
-//////////////////////////////////////////////////
+// -------------------------1------------------------- //
 
 .industry-card {
   position: relative;
@@ -59,7 +34,7 @@
   border-color: rgba($color-primary, 0.5);
   border-radius: $border-radius--lg;
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__link-container {
     display: flex;
     flex-direction: column;
@@ -70,27 +45,27 @@
     text-align: center;
   }
 
-  //////////////////////////////////////////////////
-  &__heading {
+  // -------------------------2------------------------- //
+  & .heading-5 {
     margin-bottom: 1.5rem;
     color: $color-white;
   }
 
-  //////////////////////////////////////////////////
-  &__para {
+  // -------------------------2------------------------- //
+  & .para {
     font-size: $font-size--sm;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__icon {
     margin-bottom: 3rem;
     width: 6.4rem;
     height: 6.4rem;
-    /* Visually insert it in the first order. */
+    /* Visually insert the icon in the first order. */
     order: -1;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   /* Pseudo element as a background color for the industry card. */
   &::before {
     content: "";
@@ -103,7 +78,7 @@
     transition: $transition--1;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &:hover::before {
     transform: scale(1);
     border: transparent;

@@ -313,29 +313,6 @@ body {
   border-bottom: 0.1rem dotted #667c99;
 }
 
-.arrow-icon-after {
-  position: relative;
-  white-space: nowrap;
-  transition: all 0.2s ease-in-out;
-}
-.arrow-icon-after::after {
-  content: "➜";
-  position: absolute;
-  top: 0.2rem;
-  opacity: 0;
-  transform: translateX(-0.5rem);
-  font-size: 1.5rem;
-  color: currentColor;
-  transition: all 0.2s ease-in-out;
-}
-.arrow-icon-after:hover {
-  transform: translateX(-1rem);
-}
-.arrow-icon-after:hover::after {
-  opacity: 1;
-  transform: translateX(1rem);
-}
-
 .arrows-bef-aft-btn {
   /* Establish a containing block for pseudo elements to move them around. */
   position: relative;
@@ -369,38 +346,40 @@ body {
   padding-right: 0;
 }
 
-.filled-arrow-icon-btn {
+.filled-arrow-after-btn {
   color: #1fc2ef;
   white-space: nowrap;
-  font-size: 1.6rem;
   font-weight: 500;
   position: relative;
-  /* To show the text above the pseudo element background. */
+  /* To show text above pseudo element background. */
   z-index: 1;
   padding: 0.8rem;
 }
-.filled-arrow-icon-btn::after {
+.filled-arrow-after-btn::after {
   content: "➜";
   margin-left: 0.5rem;
   color: currentColor;
 }
-.filled-arrow-icon-btn::before {
+.filled-arrow-after-btn::before {
   content: "";
   position: absolute;
+  /* The 4 dimensions peoperties have 0 value, to take full width and height. */
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  /* To show pseudo element background below text. */
   z-index: -1;
+  /* Start the transform from center bottom. */
   transform-origin: 50% 100%;
   transform: scaleY(0);
   background-color: #fc5445;
   transition: all 0.3s cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
-.filled-arrow-icon-btn:hover {
+.filled-arrow-after-btn:hover {
   color: white;
 }
-.filled-arrow-icon-btn:hover::before {
+.filled-arrow-after-btn:hover::before {
   transform: scaleY(1);
 }
 
@@ -764,19 +743,19 @@ body {
   font-size: 1.5rem;
 }
 .article-card__btn {
-  white-space: nowrap;
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 500;
   position: relative;
-  /* Show the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
+  /* Show text above pseudo element background. The element has z-index: 1 and the pseudo element has z-index: -1. */
   z-index: 1;
   border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
   background-color: white;
   padding: 1.5rem 2rem;
   color: #1fc2ef;
-  /* Transition for border, color, or transform changes. */
+  white-space: nowrap;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  /* Transition for properties (border, color, transform). */
   transition: all 0.2s ease-in-out;
 }
 .article-card__btn::before {
@@ -785,16 +764,16 @@ body {
   /* The 4 dimensions peoperties have 0 value, to take full width and height. */
   top: 0;
   right: 0;
-  /* Fix small area visible below the pseudo element. */
+  /* Fix small area visible below the pseudo element. Visible when there is a border. */
   bottom: -0.1rem;
   left: 0;
-  /* Show the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
+  /* Show text above pseudo element background. The element itself has z-index: 1 and the pseudo element has z-index: -1. */
   z-index: -1;
-  /* Make the height increase animation start from center bottom. */
+  /* Start the transform from center bottom. */
   transform-origin: 50% 100%;
   transform: scaleY(0);
   background-color: #fc5445;
-  /* Transition when hover on. */
+  /* Transition when hover off. */
   transition: all 0.3s ease-in-out;
 }
 .article-card__btn:hover {
@@ -803,7 +782,7 @@ body {
 }
 .article-card__btn:hover::before {
   transform: scaleY(1);
-  /* Transition when hover off. */
+  /* Transition when hover on. */
   transition: all 0.3s cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 .article-card__img-container {
@@ -828,7 +807,6 @@ body {
   /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
-  row-gap: 2rem;
   background-color: #231834;
   padding-top: 8rem;
 }
@@ -839,6 +817,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   column-gap: 2rem;
+  margin-bottom: 4rem;
 }
 .company-section__header > .heading-6 {
   /* Placement in the header subgrid layout. */
@@ -866,7 +845,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   gap: 3rem;
   position: relative;
-  margin-bottom: -11rem;
+  margin-bottom: -8rem;
 }
 .company-section__footer {
   /* Placement in the section subgrid layout. */
@@ -874,7 +853,8 @@ body {
   grid-row: 3;
   background-color: #f1f5f8;
   /* Higher padding value on top to leave empty space for the info figures with negative bottom margin. */
-  padding-top: 12rem;
+  margin-top: rem;
+  padding-top: 14rem;
   padding-bottom: 6rem;
   text-align: center;
 }
@@ -896,7 +876,7 @@ body {
   text-align: center;
   transition: all 0.2s ease-in-out;
   /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space from the layout. */
-  /* display: block; and overflow: hidden; are applied on all child elements. height: 0; is applied on the child element with an out of flow state. */
+  /* display: block; and overflow: hidden; are applied on all child elements. height: 0; is applied on the child element with an out-of-flow state. */
 }
 .info-figure__caption > * {
   display: block;
@@ -916,7 +896,6 @@ body {
 .info-figure__caption > :last-child {
   color: #1fc2ef;
   white-space: nowrap;
-  font-size: 1.6rem;
   font-weight: 500;
   height: 0;
 }
@@ -942,7 +921,6 @@ body {
   /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
-  row-gap: 2rem;
   background-color: #171122;
   padding: 8rem 0;
 }
@@ -953,6 +931,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   column-gap: 2rem;
+  margin-bottom: 4rem;
 }
 .industries-section__header > .heading-6 {
   /* Placement in the header subgrid layout. */
@@ -979,7 +958,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(11.2rem, 1fr));
   gap: 3rem;
-  margin-top: 2rem;
 }
 
 .industry-card {
@@ -998,18 +976,18 @@ body {
   padding: 15%;
   text-align: center;
 }
-.industry-card__heading {
+.industry-card .heading-5 {
   margin-bottom: 1.5rem;
   color: white;
 }
-.industry-card__para {
+.industry-card .para {
   font-size: 1.5rem;
 }
 .industry-card__icon {
   margin-bottom: 3rem;
   width: 6.4rem;
   height: 6.4rem;
-  /* Visually insert it in the first order. */
+  /* Visually insert the icon in the first order. */
   order: -1;
 }
 .industry-card::before {
@@ -1077,7 +1055,7 @@ body {
   padding: 10%;
   text-align: center;
 }
-.service-card__heading {
+.service-card > .heading-3 {
   color: #032a5e;
 }
 .service-card__service-icon {
@@ -1225,7 +1203,11 @@ body {
 .studies-section__header {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
+  margin-bottom: 4rem;
   text-align: center;
+}
+.studies-section__header > .heading-2 {
+  color: #032a5e;
 }
 .studies-section__header > .heading-6 {
   color: #1fc2ef;
@@ -1240,7 +1222,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   gap: 3rem;
-  margin: 3rem 0 -4.5rem 0;
+  margin-bottom: -4.5rem;
 }
 .studies-section__footer {
   /* Placement in the section subgrid layout. */
@@ -1273,7 +1255,7 @@ body {
   height: 100%;
   padding: 1rem 15%;
 }
-.project__heading {
+.project .heading-3 {
   color: white;
 }
 .project__brand-img {
@@ -1284,7 +1266,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0.3;
+  opacity: 0.2;
   filter: grayscale(100%);
 }
 .project:nth-of-type(1) {
@@ -1301,7 +1283,9 @@ body {
 }
 
 .users-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start/full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
   background-image: linear-gradient(to top, #f1f5f8, white), url("/assets/images/background-images/bg-users-section.jpg");
@@ -1311,9 +1295,11 @@ body {
   background-blend-mode: multiply;
 }
 .users-section__map {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
 }
 .users-section__contact-options {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   display: flex;
   flex-wrap: wrap;
@@ -1346,6 +1332,7 @@ body {
   background-color: rgba(102, 124, 153, 0.4);
 }
 .users-section__footer {
+  /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   padding: 6rem 0;
   text-align: center;
@@ -1433,32 +1420,56 @@ body {
   background-color: #e6e6e6;
 }
 .contact-option__link-container {
+  /* Another subgrid definition for the contact option container. */
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
   row-gap: 1rem;
   column-gap: 5%;
 }
-.contact-option__heading {
+.contact-option .heading-3 {
+  position: relative;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  /* Placement in the contact option container. */
   grid-column: 1;
   grid-row: 1;
   color: #032a5e;
   margin: 0;
 }
-.contact-option__para {
+.contact-option .heading-3::after {
+  content: "➜";
+  position: absolute;
+  top: 0.2rem;
+  opacity: 0;
+  transform: translateX(-0.5rem);
+  font-size: 1.5rem;
+  color: currentColor;
+  transition: all 0.2s ease-in-out;
+}
+.contact-option .heading-3:hover {
+  transform: translateX(-1rem);
+}
+.contact-option .heading-3:hover::after {
+  opacity: 1;
+  transform: translateX(1rem);
+}
+.contact-option .para {
+  /* Placement in the contact option container. */
   grid-column: 1;
   grid-row: 2;
 }
 .contact-option__icon {
+  /* Placement in the contact option container. */
   grid-column: 2;
   grid-row: 1/3;
   width: 6.4rem;
   height: 6.4rem;
 }
-.contact-option:hover .contact-option__heading {
+.contact-option:hover .heading-3 {
   transform: translateX(-1rem);
 }
-.contact-option:hover .contact-option__heading::after {
+.contact-option:hover .heading-3::after {
   opacity: 1;
   transform: translateX(1rem);
 }

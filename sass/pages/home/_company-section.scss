@@ -1,44 +1,20 @@
+// -------------------------1------------------------- //
+
 .company-section {
   /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
   /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
   display: grid;
   @include grid-columns;
-  row-gap: 2rem;
   background-color: $color-primary--dark-1;
   padding-top: 8rem;
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__header {
-    /* Placement in the section subgrid layout. */
-    grid-column: center-start / center-end;
-    /* Another subgrid definition for the header. */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
-    column-gap: 2rem;
-
-    & > .heading-6 {
-      /* Placement in the header subgrid layout. */
-      grid-column: 1;
-      grid-row: 1;
-      color: $color-primary--light-1;
-    }
-
-    & > .heading-2 {
-      /* Placement in the header subgrid layout. */
-      grid-column: 1;
-      grid-row: 2;
-      color: $color-white;
-    }
-
-    & > .para {
-      /* Placement in the header subgrid layout. */
-      grid-column: 2;
-      grid-row: 1 / span 2;
-    }
+    @include header-h6-h2-para;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__info-figures {
     /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
@@ -48,34 +24,35 @@
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
     gap: 3rem;
     position: relative;
-    margin-bottom: -11rem;
+    margin-bottom: -8rem;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__footer {
     /* Placement in the section subgrid layout. */
     grid-column: full-start / full-end;
     grid-row: 3;
     background-color: $color-primary--light-3;
     /* Higher padding value on top to leave empty space for the info figures with negative bottom margin. */
-    padding-top: 12rem;
+    margin-top: rem;
+    padding-top: 14rem;
     padding-bottom: 6rem;
     text-align: center;
   }
 }
 
-//////////////////////////////////////////////////
+// -------------------------1------------------------- //
 
 .info-figure {
   cursor: pointer;
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__img {
     object-fit: cover;
     object-position: center;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__caption {
     position: relative;
     margin: -7rem auto 0 auto;
@@ -87,7 +64,7 @@
     transition: $transition--1;
 
     /* The three properties (display: block;  height: 0; overflow: hidden;) are required to hide an element and remove its space from the layout. */
-    /* display: block; and overflow: hidden; are applied on all child elements. height: 0; is applied on the child element with an out of flow state. */
+    /* display: block; and overflow: hidden; are applied on all child elements. height: 0; is applied on the child element with an out-of-flow state. */
     & > * {
       display: block;
       overflow: hidden;
@@ -107,12 +84,12 @@
     }
 
     & > :last-child {
-      @include arrow-icon-after-text;
+      @include arrow-after-static;
       height: 0;
     }
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &:hover .info-figure__caption {
     box-shadow: $shadow--2;
 

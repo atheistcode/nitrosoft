@@ -1,0 +1,4 @@
+.filled-arrow-after-btn {
+  @include arrow-after-static;
+  @include filled-btn;
+}

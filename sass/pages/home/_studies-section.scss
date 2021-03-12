@@ -1,3 +1,5 @@
+// -------------------------1------------------------- //
+
 .studies-section {
   /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
@@ -6,11 +8,9 @@
   @include grid-columns;
   background-color: $color-primary--dark-2;
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__header {
-    /* Placement in the section subgrid layout. */
-    grid-column: center-start / center-end;
-    text-align: center;
+    @include header-h6-h2;
 
     & > .heading-6 {
       color: $color-primary--light-1;
@@ -21,7 +21,7 @@
     }
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__project-cards {
     /* Placement in the section subgrid layout. */
     grid-column: center-start / center-end;
@@ -29,10 +29,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
     gap: 3rem;
-    margin: 3rem 0 -4.5rem 0;
+    margin-bottom: -4.5rem;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__footer {
     /* Placement in the section subgrid layout. */
     grid-column: full-start / full-end;
@@ -44,7 +44,7 @@
   }
 }
 
-//////////////////////////////////////////////////
+// -------------------------1------------------------- //
 
 .project {
   /* Establish a containing block for "project__back-img" to insert it as a background image in "project" container. */
@@ -56,7 +56,7 @@
   text-align: center;
   transition: $transition--1;
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__link-container {
     display: flex;
     flex-direction: column;
@@ -69,27 +69,27 @@
     padding: 1rem 15%;
   }
 
-  //////////////////////////////////////////////////
-  &__heading {
+  // -------------------------2------------------------- //
+  & .heading-3 {
     color: $color-white;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__brand-img {
     margin-top: 1rem;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__back-img {
     /* Absolutely position the image to be a background image for the "project" container. */
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0.3;
+    opacity: 0.2;
     filter: grayscale(100%);
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &:nth-of-type(1) {
     background-color: #71cbcc;
   }

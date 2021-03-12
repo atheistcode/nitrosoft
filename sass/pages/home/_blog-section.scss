@@ -100,8 +100,50 @@
   }
 
   &__btn {
-    @include btn;
-    @include filled-btn;
+    position: relative;
+    /* Show text above pseudo element background. The element has z-index: 1 and the pseudo element has z-index: -1. */
+    z-index: 1;
+    border: $border--1;
+    border-radius: $border-radius--lg;
+    background-color: $color-white;
+    padding: 1.5rem 2rem;
+    color: $text-color--light;
+    white-space: nowrap;
+    text-align: center;
+    font-size: $font-size--rg;
+    font-weight: 500;
+    /* Transition for properties (border, color, transform). */
+    transition: $transition--1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      /* The 4 dimensions peoperties have 0 value, to take full width and height. */
+      top: 0;
+      right: 0;
+      /* Fix small area visible below the pseudo element. Visible when there is a border. */
+      bottom: -0.1rem;
+      left: 0;
+      /* Show text above pseudo element background. The element itself has z-index: 1 and the pseudo element has z-index: -1. */
+      z-index: -1;
+      /* Start the transform from center bottom. */
+      transform-origin: 50% 100%;
+      transform: scaleY(0);
+      background-color: $color-secondary--light;
+      /* Transition when hover off. */
+      transition: $transition--2;
+    }
+
+    &:hover {
+      border-color: $color-secondary--light;
+      color: $color-white;
+    }
+
+    &:hover::before {
+      transform: scaleY(1);
+      /* Transition when hover on. */
+      transition: $transition--4;
+    }
   }
 
   &__img-container {

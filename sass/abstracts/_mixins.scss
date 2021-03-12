@@ -56,67 +56,9 @@
   }
 }
 
-/* Main grid-template-columns definition that consists of 14 columns. */
-@mixin grid-columns {
-  grid-template-columns:
-    [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end])
-    [center-end] minmax(5vw, 1fr) [full-end];
-}
-
-@mixin btn {
-  white-space: nowrap;
-  text-align: center;
-  font-size: $font-size--rg;
-  font-weight: 500;
-}
-
-@mixin filled-btn {
-  position: relative;
-  /* Show the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
-  z-index: 1;
-  border: $border--1;
-  border-radius: $border-radius--lg;
-  background-color: $color-white;
-  padding: 1.5rem 2rem;
-  color: $text-color--light;
-  /* Transition for border, color, or transform changes. */
-  transition: $transition--1;
-
-  &::before {
-    content: "";
-    position: absolute;
-    /* The 4 dimensions peoperties have 0 value, to take full width and height. */
-    top: 0;
-    right: 0;
-    /* Fix small area visible below the pseudo element. */
-    bottom: -0.1rem;
-    left: 0;
-    /* Show the text above the pseudo element background. The element itself have z-index: 1; and the pseudo element have z-index: -1;. */
-    z-index: -1;
-    /* Make the height increase animation start from center bottom. */
-    transform-origin: 50% 100%;
-    transform: scaleY(0);
-    background-color: $color-secondary--light;
-    /* Transition when hover on. */
-    transition: $transition--2;
-  }
-
-  &:hover {
-    border-color: $color-secondary--light;
-    color: $color-white;
-  }
-
-  &:hover::before {
-    transform: scaleY(1);
-    /* Transition when hover off. */
-    transition: $transition--4;
-  }
-}
-
-@mixin arrow-icon-after-text {
+@mixin arrow-after-static {
   color: $color-primary--light-1;
   white-space: nowrap;
-  font-size: 1.6rem;
   font-weight: 500;
 
   &::after {
@@ -126,12 +68,113 @@
   }
 }
 
+/* Main grid-template-columns definition that consists of 14 columns. */
+@mixin grid-columns {
+  grid-template-columns:
+    [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end])
+    [center-end] minmax(5vw, 1fr) [full-end];
+}
+
+@mixin header-h6-h2-para {
+  /* Placement in the section subgrid layout. */
+  grid-column: center-start / center-end;
+  /* Another subgrid definition for the header. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  column-gap: 2rem;
+  margin-bottom: 4rem;
+
+  & > .heading-6 {
+    /* Placement in the header subgrid layout. */
+    grid-column: 1;
+    grid-row: 1;
+    color: $color-primary--light-1;
+  }
+
+  & > .heading-2 {
+    /* Placement in the header subgrid layout. */
+    grid-column: 1;
+    grid-row: 2;
+    color: $color-white;
+  }
+
+  & > .para {
+    /* Placement in the header subgrid layout. */
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
+
+@mixin header-h6-h2 {
+  /* Placement in the section subgrid layout. */
+  grid-column: center-start / center-end;
+  margin-bottom: 4rem;
+  text-align: center;
+
+  & > .heading-2 {
+    color: $text-color--dark;
+  }
+}
+
+@mixin filled-btn {
+  position: relative;
+  /* To show text above pseudo element background. */
+  z-index: 1;
+  padding: 0.8rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    /* The 4 dimensions peoperties have 0 value, to take full width and height. */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* To show pseudo element background below text. */
+    z-index: -1;
+    /* Start the transform from center bottom. */
+    transform-origin: 50% 100%;
+    transform: scaleY(0);
+    background-color: $color-secondary--light;
+    transition: $transition--4;
+  }
+
+  &:hover {
+    color: $color-white;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
+}
+
 /* We use this hover effect when hovering over another or a parent element. */
-@mixin arrow-icon-after-hover {
+@mixin arrow-after-btn-hover {
   transform: translateX(-1rem);
 
   &::after {
     opacity: 1;
     transform: translateX(1rem);
+  }
+}
+
+@mixin arrow-after-btn {
+  position: relative;
+  white-space: nowrap;
+  transition: $transition--1;
+
+  &::after {
+    content: "\279C";
+    position: absolute;
+    top: 0.2rem;
+    opacity: 0;
+    transform: translateX(-0.5rem);
+    font-size: 1.5rem;
+    color: currentColor;
+    transition: $transition--1;
+  }
+
+  &:hover {
+    @include arrow-after-btn-hover;
   }
 }
