@@ -1,3 +1,68 @@
+@mixin link {
+  color: $link-color;
+  transition: $transition--1;
+
+  &:hover {
+    color: $text-color;
+  }
+}
+
+/* We use this hover effect when hovering over another or a parent element. */
+@mixin menu-btn-hover {
+  &::before {
+    transform: rotate(-45deg) translateX(75%) scaleX(1.5);
+  }
+
+  &::after {
+    transform: rotate(45deg) translateX(-75%) scaleX(1.5);
+  }
+}
+
+/* We use this hover effect when hovering over another or a parent element. */
+@mixin sub-list-hover {
+  z-index: 99;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-1rem);
+}
+
+/* We use this hover effect when hovering over another or a parent element. */
+@mixin arrow-before-btn-hover {
+  &::before {
+    transform: translateX(0.8rem);
+    opacity: 1;
+  }
+}
+
+@mixin arrow-before-btn {
+  position: relative;
+  width: max-content;
+  color: currentColor;
+  transition: $transition--1;
+
+  &::before {
+    content: "\279C";
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    opacity: 0;
+    color: currentColor;
+    font-size: 80%;
+    transition: $transition--1;
+  }
+
+  &:hover {
+    @include arrow-before-btn-hover;
+  }
+}
+
+/* Main grid-template-columns definition that consists of 14 columns. */
+@mixin grid-columns {
+  grid-template-columns:
+    [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end])
+    [center-end] minmax(5vw, 1fr) [full-end];
+}
+
 @mixin btn {
   white-space: nowrap;
   text-align: center;
@@ -60,36 +125,8 @@
     color: currentColor;
   }
 }
-/* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
-@mixin menu-btn-hover {
-  &::before {
-    transform: rotate(-45deg) translateX(75%) scaleX(1.5);
-  }
 
-  &::after {
-    transform: rotate(45deg) translateX(-75%) scaleX(1.5);
-  }
-}
-
-/* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
-@mixin sub-list-hover {
-  z-index: 99;
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(-1rem);
-}
-
-/* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
-@mixin arrow-icon-before-btn-hover {
-  color: $link-color;
-
-  &::before {
-    transform: translateX(0.8rem);
-    opacity: 1;
-  }
-}
-
-/* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
+/* We use this hover effect when hovering over another or a parent element. */
 @mixin arrow-icon-after-hover {
   transform: translateX(-1rem);
 
@@ -97,11 +134,4 @@
     opacity: 1;
     transform: translateX(1rem);
   }
-}
-
-/* Main grid-template-columns definition that consists of 14 columns. */
-@mixin grid-columns {
-  grid-template-columns:
-    [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end])
-    [center-end] minmax(5vw, 1fr) [full-end];
 }

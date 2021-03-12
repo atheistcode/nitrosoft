@@ -1,9 +1,9 @@
 @charset "UTF-8";
-/* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
-/* We had to create a separate mixin for this effect and not simply include it in the component .scss partial file, because this effect is only used when hovering over a parent element. */
-/* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
-/* We included this as a mixin here also because we may need to use this effect when hovering over another or parent element.  */
+/* We use this hover effect when hovering over another or a parent element. */
+/* We use this hover effect when hovering over another or a parent element. */
+/* We use this hover effect when hovering over another or a parent element. */
 /* Main grid-template-columns definition that consists of 14 columns. */
+/* We use this hover effect when hovering over another or a parent element. */
 /* COLORS */
 /* TEXT COLORS */
 /* FONTS */
@@ -61,9 +61,9 @@
     opacity: 0;
   }
   /* Takes 2% to enter. */
-  2% {
+  1% {
     transform: translateX(5%);
-    opacity: 1;
+    opacity: 0.5;
   }
   4%, 25% {
     transform: translateX(0);
@@ -336,56 +336,35 @@ body {
   transform: translateX(1rem);
 }
 
-.arrow-icon-before-btn {
-  position: relative;
-  color: currentColor;
-  transition: all 0.2s ease-in-out;
-}
-.arrow-icon-before-btn::before {
-  content: "➜";
-  position: absolute;
-  top: 0.6rem;
-  left: 1rem;
-  opacity: 0;
-  color: currentColor;
-  font-size: 1.2rem;
-  transition: all 0.2s ease-in-out;
-}
-.arrow-icon-before-btn:hover {
-  color: #032a5e;
-}
-.arrow-icon-before-btn:hover::before {
-  transform: translateX(0.8rem);
-  opacity: 1;
-}
-
-.arrows-2-icon-btn {
-  /* Establish a containing block for pseudo elements to be able to move them around. */
+.arrows-bef-aft-btn {
+  /* Establish a containing block for pseudo elements to move them around. */
   position: relative;
   /* Hide the overflowing content and define enough padding values to show the after pseudo element and hide the before pseudo element on initial state. */
   overflow: hidden;
+  /* Padding is needed to show pseudo element which is absolutely positioned. */
   padding: 1rem 6rem 1rem 1rem;
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  font-size: 2rem;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
 }
-.arrows-2-icon-btn::before {
+.arrows-bef-aft-btn::before {
   content: "→";
   position: absolute;
   transform: translate(-145%, -35%);
   color: currentColor;
   font-size: 3.7rem;
 }
-.arrows-2-icon-btn::after {
+.arrows-bef-aft-btn::after {
   content: "→";
   position: absolute;
   transform: translate(45%, -35%);
   color: currentColor;
   font-size: 3.7rem;
 }
-.arrows-2-icon-btn:hover {
+.arrows-bef-aft-btn:hover {
   padding-left: 6rem;
   padding-right: 0;
 }
@@ -476,15 +455,12 @@ body {
   max-width: 90%;
 }
 .header__navigation {
+  /* Expand to occupy all available width and push elements on both sides. */
   flex: 1 1 0;
   padding: 0 5%;
 }
-.header__extras {
-  display: flex;
-  align-items: center;
-}
 
-.nav-info {
+.navigation__nav-info {
   padding: 1.5rem 0;
   text-align: center;
   font-size: 1.5rem;
@@ -501,9 +477,9 @@ body {
   flex-grow: 1;
 }
 .nav-list__item {
+  /* Flex container to center "nav-list__link" and "nav-list__sublist" if it exists above each other. We used justify-content: center; so it will align the two elements in the center of their container and the width of this container will be the highest width of the two elements because "nav-list__sublist" is absolutely positioned so it is actually on top of "nav-list__link".  */
   display: flex;
   justify-content: center;
-  align-items: center;
   position: relative;
   white-space: nowrap;
   font-weight: 500;
@@ -521,10 +497,15 @@ body {
   transform: translateY(-1rem);
 }
 .nav-list__link {
+  color: #032a5e;
+  transition: all 0.2s ease-in-out;
+  /* Flex container to align the link text and the menu button. */
   display: flex;
-  justify-content: stretch;
   align-items: center;
   padding: 2rem 0;
+}
+.nav-list__link:hover {
+  color: #667c99;
 }
 .nav-list__link > .menu-btn {
   margin-left: 0.5rem;
@@ -533,7 +514,7 @@ body {
 .sub-list, .sub-list--2 {
   position: absolute;
   top: 100%;
-  /* Prevent sublists that we don't hover over accidentally become visible. When a sublist is visible its z-index is 99, otherwise it is -1. */
+  /* Prevent sublists that we don't hover over from accidentally becoming visible. When a sublist is visible its z-index is 99, otherwise it is -1. */
   z-index: -1;
   visibility: hidden;
   opacity: 0;
@@ -543,25 +524,44 @@ body {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: white;
   padding: 2rem 0;
+  font-size: 1.5rem;
   font-weight: initial;
   transition: all 0.2s ease-in-out;
 }
 .sub-list__item {
-  font-size: 1.5rem;
-  /* Make the title of a sublist always have a hover effect when hovering over any child of this sublist. */
-}
-.sub-list__item:hover .sub-list__sub-title {
-  color: #032a5e;
+  /* Only needed in "sub-list--2" because it has "sub-list__sub-title". Make the title of a sublist always have a hover effect when hovering over any child of this sublist. */
 }
 .sub-list__item:hover .sub-list__sub-title::before {
   transform: translateX(0.8rem);
   opacity: 1;
 }
 .sub-list__link {
+  position: relative;
+  width: max-content;
+  color: currentColor;
+  transition: all 0.2s ease-in-out;
   display: block;
   padding: 0.5rem 4rem;
 }
+.sub-list__link::before {
+  content: "➜";
+  position: absolute;
+  top: 0.6rem;
+  left: 1rem;
+  opacity: 0;
+  color: currentColor;
+  font-size: 80%;
+  transition: all 0.2s ease-in-out;
+}
+.sub-list__link:hover::before {
+  transform: translateX(0.8rem);
+  opacity: 1;
+}
+.sub-list__link:hover {
+  color: #032a5e;
+}
 .sub-list__sub-title {
+  /* Only needed in "sub-list--2" because it has "sub-list__sub-title". */
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
@@ -602,73 +602,79 @@ body {
   border-left: 0.1rem solid #e6e6e6;
 }
 
-.extras-icon {
+.extras {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.extras__chat-icon {
   margin-right: 1.5rem;
   width: 4rem;
   height: 4rem;
 }
-
-.extras-text {
+.extras__text {
   border-right: 0.1rem solid #e6e6e6;
   padding-right: 2.5rem;
   font-size: 1.5rem;
 }
-
-.search-icon {
-  margin-left: 0.5rem;
-  cursor: pointer;
-  padding: 1.5rem;
+.extras__search-icon {
+  display: none;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
 }
-.search-icon > svg {
-  width: 1.8rem;
-  height: 2.4rem;
-  fill: #032a5e;
-  transition: all 0.2s ease-in-out;
-}
-.search-icon:hover svg {
-  fill: #667c99;
+.extras__search-form {
+  margin-left: 4rem;
 }
 
-.search {
+.search-form {
   display: flex;
   align-items: center;
-  position: absolute;
-  right: 0;
   z-index: 99;
-  visibility: hidden;
-  opacity: 0;
   transition: all 0.2s ease-in-out;
 }
-.search__label {
+.search-form__label {
+  display: none;
+}
+.search-form__input {
+  /* Absolutely positioned to prevent other content from being pushed when its width increases. */
   position: absolute;
   right: 0;
   /* Make the search icon visible above the input. */
   z-index: -1;
-  /* Span included only for web accessibility purposes. */
-}
-.search__label > span {
-  display: inline-block;
-  visibility: hidden;
-  opacity: 0;
-  height: 0;
+  width: 6rem;
   overflow: hidden;
-}
-.search__input {
-  width: 2rem;
-  height: 5.5rem;
   border: 0.1rem solid #e6e6e6;
   border-radius: 0.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  padding-right: 4rem;
-  padding-left: 2rem;
+  padding: 2rem;
   transition: all 0.2s ease-in-out;
 }
-.search__input:focus {
-  width: 28.5rem;
+.search-form__input:not(:focus)::placeholder {
+  opacity: 0;
 }
-.search__btn {
+.search-form__input:focus {
+  width: 32rem;
+}
+.search-form__input:focus::placeholder {
+  opacity: 1;
+  color: #667c99;
+}
+.search-form__btn {
+  opacity: 0.5;
+  margin-right: 1.5rem;
   border: none;
   background-color: transparent;
+}
+
+.search-icon {
+  color: #032a5e;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  width: 1.8rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+.search-icon:hover {
+  color: #667c99;
 }
 
 .blog-section {
@@ -1119,43 +1125,41 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
+  bottom: 50%;
   opacity: 0;
   transform: translateY(50%);
   width: 7rem;
   height: 6rem;
   cursor: pointer;
   background-color: white;
-  /* Different transition effects for each background color and opacity. */
+  /* Different transition effects for each of properties background color and opacity. */
   transition: all 0.2s ease-in-out, background-color 0s;
 }
 .slider-section__carousel-btn--left {
-  bottom: 50%;
   left: 0;
   border-radius: 0 3rem 3rem 0;
 }
 .slider-section__carousel-btn--right {
-  bottom: 50%;
   right: 0;
   border-radius: 3rem 0 0 3rem;
 }
 .slider-section__carousel-btn:hover, .slider-section__carousel-btn--left:hover, .slider-section__carousel-btn--right:hover {
   background-color: black;
 }
-.slider-section__carousel-btn:hover .slider-section__carousel-icon, .slider-section__carousel-btn:hover .slider-section__carousel-icon--right, .slider-section__carousel-btn:hover .slider-section__carousel-icon--left, .slider-section__carousel-btn--left:hover .slider-section__carousel-icon, .slider-section__carousel-btn--left:hover .slider-section__carousel-icon--right, .slider-section__carousel-btn--left:hover .slider-section__carousel-icon--left, .slider-section__carousel-btn--right:hover .slider-section__carousel-icon, .slider-section__carousel-btn--right:hover .slider-section__carousel-icon--right, .slider-section__carousel-btn--right:hover .slider-section__carousel-icon--left {
+.slider-section__carousel-btn:hover .carousel-icon, .slider-section__carousel-btn:hover .carousel-icon--right, .slider-section__carousel-btn:hover .carousel-icon--left, .slider-section__carousel-btn--left:hover .carousel-icon, .slider-section__carousel-btn--left:hover .carousel-icon--right, .slider-section__carousel-btn--left:hover .carousel-icon--left, .slider-section__carousel-btn--right:hover .carousel-icon, .slider-section__carousel-btn--right:hover .carousel-icon--right, .slider-section__carousel-btn--right:hover .carousel-icon--left {
   fill: white;
 }
-.slider-section__carousel-icon, .slider-section__carousel-icon--right, .slider-section__carousel-icon--left {
-  width: 1.8rem;
-  height: 1.8rem;
+.slider-section__slides-container {
+  height: 100%;
 }
 .slider-section:hover .slider-section__carousel-btn, .slider-section:hover .slider-section__carousel-btn--left, .slider-section:hover .slider-section__carousel-btn--right {
   opacity: 1;
 }
 
-.slides-container {
-  height: 100%;
+.carousel-icon, .carousel-icon--right, .carousel-icon--left {
+  width: 1.8rem;
+  height: 1.8rem;
 }
-
 .slide, .slide--3, .slide--2, .slide--1 {
   /* Subgrid definition for slide contents. It has the same columns as the global grid layout. */
   display: grid;
@@ -1208,7 +1212,6 @@ body {
 }
 .slide [class*=btn], .slide--1 [class*=btn], .slide--2 [class*=btn], .slide--3 [class*=btn] {
   margin-top: 5%;
-  font-size: 2rem;
 }
 
 .studies-section {
@@ -1486,7 +1489,7 @@ body {
   position: relative;
   /* Must have a height value because all its child elements are absolutely positioned. */
   height: 9.6rem;
-  width: 80%;
+  width: 75%;
   margin-right: auto;
   margin-left: auto;
   line-height: 1;

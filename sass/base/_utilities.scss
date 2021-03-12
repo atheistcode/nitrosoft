@@ -1,10 +1,5 @@
 .link {
-  color: $link-color;
-  transition: $transition--1;
-
-  &:hover {
-    color: $text-color;
-  }
+  @include link;
 }
 
 .border-bottom-dotted {

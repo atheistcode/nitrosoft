@@ -1,5 +1,7 @@
 @use "sass:math";
 
+// -------------------------1------------------------- //
+
 .slider-section {
   /* Placement in the global grid layout that is defined in _base.scss. */
   grid-column: full-start / full-end;
@@ -8,31 +10,30 @@
   height: 48vw;
   max-height: 62rem;
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__carousel-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
+    bottom: 50%;
     opacity: 0;
     transform: translateY(50%);
     width: 7rem;
     height: 6rem;
     cursor: pointer;
     background-color: $color-white;
-    /* Different transition effects for each background color and opacity. */
+    /* Different transition effects for each of properties background color and opacity. */
     transition: $transition--1, background-color 0s;
 
     &--left {
       @extend .slider-section__carousel-btn;
-      bottom: 50%;
       left: 0;
       border-radius: 0 3rem 3rem 0;
     }
 
     &--right {
       @extend .slider-section__carousel-btn;
-      bottom: 50%;
       right: 0;
       border-radius: 3rem 0 0 3rem;
     }
@@ -40,39 +41,39 @@
     &:hover {
       background-color: $color-black;
 
-      .slider-section__carousel-icon {
+      .carousel-icon {
         fill: $color-white;
       }
     }
   }
 
-  //////////////////////////////////////////////////
-  &__carousel-icon {
-    width: 1.8rem;
-    height: 1.8rem;
-
-    &--left {
-      @extend .slider-section__carousel-icon;
-    }
-
-    &--right {
-      @extend .slider-section__carousel-icon;
-    }
+  // -------------------------2------------------------- //
+  &__slides-container {
+    height: 100%;
   }
 
-  //////////////////////////////////////////////////
-  &:hover &__carousel-btn {
+  // -------------------------2------------------------- //
+  &:hover .slider-section__carousel-btn {
     opacity: 1;
   }
 }
 
-//////////////////////////////////////////////////
+// -------------------------1------------------------- //
 
-.slides-container {
-  height: 100%;
+.carousel-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+
+  &--left {
+    @extend .carousel-icon;
+  }
+
+  &--right {
+    @extend .carousel-icon;
+  }
 }
 
-//////////////////////////////////////////////////
+// -------------------------1------------------------- //
 
 .slide {
   /* Subgrid definition for slide contents. It has the same columns as the global grid layout. */
@@ -87,6 +88,7 @@
   background-size: cover;
   background-blend-mode: multiply;
 
+  // -------------------------2------------------------- //
   &--1 {
     background-image: url("/assets/images/background-images/slider-images/slider-1.jpg");
     @extend .slide;
@@ -104,14 +106,14 @@
     background-image: url("/assets/images/background-images/slider-images/slider-3.jpg");
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__content {
     /* Placement in the slide subgrid layout. */
     grid-column: center-start / center-end;
     color: $color-white;
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   &__para {
     width: max-content;
     line-height: 1;
@@ -139,9 +141,8 @@
     }
   }
 
-  //////////////////////////////////////////////////
+  // -------------------------2------------------------- //
   & [class*="btn"] {
     margin-top: 5%;
-    font-size: 2rem;
   }
 }
