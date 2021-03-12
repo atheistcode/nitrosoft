@@ -1,43 +1,88 @@
 // -------------------------1------------------------- //
 
 .testimonials-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
+  grid-column: full-start / full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
+  display: grid;
+  @include grid-columns;
+  padding: 8rem 0 4rem 0;
+
   // -------------------------2------------------------- //
   &__header {
+    @include header-h6-h2;
   }
 
   // -------------------------2------------------------- //
   &__testimonials {
+    /* Placement in the section subgrid layout. */
+    grid-column: center-start / center-end;
+    grid-row: 2;
+    /* Another subgrid definition for info figures. */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    gap: 3rem;
   }
 
   // -------------------------2------------------------- //
   &__carousel-controls {
+    /* Placement in the section subgrid layout. */
+    grid-column: center-start / center-end;
   }
 }
 
 // -------------------------1------------------------- //
 
 .testimonial-card {
+  border-radius: $border-radius--lg;
+  border-top: 0.4rem solid $color-primary;
+  box-shadow: $shadow--1;
+  padding: 10%;
+  transition: $transition--1;
+
+  // -------------------------2------------------------- //
+  &:nth-last-of-type(even) {
+    border-top-color: $color-secondary;
+  }
+
   // -------------------------2------------------------- //
   &__brand-img {
+    margin-bottom: 3rem;
   }
 
   // -------------------------2------------------------- //
   &__para {
+    margin-bottom: 2rem;
   }
 
   // -------------------------2------------------------- //
   &__customer-name {
+    color: $color-primary--dark-1;
   }
 
   // -------------------------2------------------------- //
   &__customer-title {
+    font-size: $font-size--sm;
   }
 }
 
 // -------------------------1------------------------- //
 
 .carousel-controls {
+  margin: 2rem auto auto auto;
+  width: max-content;
+
   // -------------------------2------------------------- //
   &__carousel-btn {
+    margin: 0 0.5rem;
+    width: 5rem;
+    height: 0.7rem;
+    border: none;
+    background-color: $color-secondary;
+    transition: $transition--1;
+
+    &:hover {
+      background-color: $color-primary;
+    }
   }
 }
