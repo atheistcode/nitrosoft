@@ -353,6 +353,7 @@ body {
   position: relative;
   /* To show text above pseudo element background. */
   z-index: 1;
+  overflow: hidden;
   padding: 0.8rem;
 }
 .filled-arrow-after-btn::after {
@@ -362,6 +363,7 @@ body {
 }
 .filled-arrow-after-btn::before {
   content: "";
+  display: flex;
   position: absolute;
   /* The 4 dimensions peoperties have 0 value, to take full width and height. */
   top: 0;
@@ -748,11 +750,13 @@ body {
   position: relative;
   /* To show text above pseudo element background. */
   z-index: 1;
+  overflow: hidden;
   padding: 0.8rem;
   border: 0.1rem solid #e6e6e6;
+  border-color: transparent;
   border-radius: 0.5rem;
   background-color: white;
-  padding: 1.5rem 2rem;
+  padding: 2rem 4rem;
   color: #1fc2ef;
   white-space: nowrap;
   text-align: center;
@@ -763,6 +767,7 @@ body {
 }
 .article-card__btn::before {
   content: "";
+  display: flex;
   position: absolute;
   /* The 4 dimensions peoperties have 0 value, to take full width and height. */
   top: 0;
@@ -784,13 +789,15 @@ body {
   transform: scaleY(1);
 }
 .article-card__btn::before {
-  /* Fix the small area visible below the pseudo element. Visible when there is a border. */
-  bottom: -0.1rem;
+  border: 0.1rem solid #e6e6e6;
+  border-color: #fc5445;
+  background-color: #fc5445;
   /* Transition when hover off. */
   transition: all 0.3s ease-in-out;
 }
 .article-card__btn:hover {
   border-color: #fc5445;
+  color: white;
 }
 .article-card__btn:hover::before {
   /* Transition when hover on. */
@@ -924,6 +931,96 @@ body {
 }
 .info-figure:hover .info-figure__caption > :last-child {
   height: 2.4rem;
+}
+
+.contact-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
+  grid-column: full-start/full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  background-image: url("/assets/images/background-images/bg-contact-section.jpg");
+  /* Contain the background image full width and starting from the bottom of the section. */
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 8rem 0 20% 0;
+}
+.contact-section__content {
+  /* Placement in the section subgrid layout. */
+  grid-column: center-start/center-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20%;
+  text-align: center;
+}
+.contact-section .heading-5 {
+  margin-bottom: 2rem;
+  color: #171122;
+}
+.contact-section .heading-2 {
+  color: #171122;
+}
+.contact-section .para {
+  margin-bottom: 4rem;
+}
+.contact-section__btn {
+  position: relative;
+  /* To show text above pseudo element background. */
+  z-index: 1;
+  overflow: hidden;
+  padding: 0.8rem;
+  border: 0.1rem solid #e6e6e6;
+  border-color: transparent;
+  border-radius: 0.5rem;
+  background-color: #ff311f;
+  padding: 2rem 4rem;
+  color: white;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 500;
+  /* Transition for properties (border, color, transform). */
+  transition: all 0.2s ease-in-out;
+}
+.contact-section__btn::before {
+  content: "";
+  display: flex;
+  position: absolute;
+  /* The 4 dimensions peoperties have 0 value, to take full width and height. */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* To show pseudo element background below text. */
+  z-index: -1;
+  /* Start the transform from center bottom. */
+  transform-origin: 50% 100%;
+  transform: scaleY(0);
+  background-color: #fc5445;
+  transition: all 0.3s cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+.contact-section__btn:hover {
+  color: white;
+}
+.contact-section__btn:hover::before {
+  transform: scaleY(1);
+}
+.contact-section__btn::before {
+  border: 0.1rem solid #e6e6e6;
+  border-color: #032a5e;
+  background-color: #032a5e;
+  /* Transition when hover off. */
+  transition: all 0.3s ease-in-out;
+}
+.contact-section__btn:hover {
+  border-color: #032a5e;
+  color: white;
+}
+.contact-section__btn:hover::before {
+  /* Transition when hover on. */
+  transition: all 0.3s cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
 .industries-section {

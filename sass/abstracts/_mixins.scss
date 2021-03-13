@@ -99,14 +99,16 @@
   }
 }
 
-@mixin filled-btn {
+@mixin fill-a-btn {
   position: relative;
   /* To show text above pseudo element background. */
   z-index: 1;
+  overflow: hidden;
   padding: 0.8rem;
 
   &::before {
     content: "";
+    display: flex;
     position: absolute;
     /* The 4 dimensions peoperties have 0 value, to take full width and height. */
     top: 0;
@@ -128,6 +130,46 @@
 
   &:hover::before {
     transform: scaleY(1);
+  }
+}
+
+@mixin filled-btn(
+  $bg-color: $color-white,
+  $bg-color-hover: $color-secondary--light,
+  $color: $text-color--light,
+  $color-hover: $color-white,
+  $font-size: $font-size--rg
+) {
+  @include fill-a-btn;
+  border: $border--1;
+  border-color: transparent;
+  border-radius: $border-radius--lg;
+  background-color: $bg-color;
+  padding: 2rem 4rem;
+  color: $color;
+  white-space: nowrap;
+  text-align: center;
+  font-size: $font-size;
+  font-weight: 500;
+  /* Transition for properties (border, color, transform). */
+  transition: $transition--1;
+
+  &::before {
+    border: $border--1;
+    border-color: $bg-color-hover;
+    background-color: $bg-color-hover;
+    /* Transition when hover off. */
+    transition: $transition--2;
+  }
+
+  &:hover {
+    border-color: $bg-color-hover;
+    color: $color-hover;
+  }
+
+  &:hover::before {
+    /* Transition when hover on. */
+    transition: $transition--4;
   }
 }
 

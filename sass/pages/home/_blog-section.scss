@@ -110,34 +110,7 @@
 
   // -------------------------2------------------------- //
   &__btn {
-    @include filled-btn;
-    border: $border--1;
-    border-radius: $border-radius--lg;
-    background-color: $color-white;
-    padding: 1.5rem 2rem;
-    color: $text-color--light;
-    white-space: nowrap;
-    text-align: center;
-    font-size: $font-size--rg;
-    font-weight: 500;
-    /* Transition for properties (border, color, transform). */
-    transition: $transition--1;
-
-    &::before {
-      /* Fix the small area visible below the pseudo element. Visible when there is a border. */
-      bottom: -0.1rem;
-      /* Transition when hover off. */
-      transition: $transition--2;
-    }
-
-    &:hover {
-      border-color: $color-secondary--light;
-    }
-
-    &:hover::before {
-      /* Transition when hover on. */
-      transition: $transition--4;
-    }
+    @include filled-btn();
   }
 
   // -------------------------2------------------------- //

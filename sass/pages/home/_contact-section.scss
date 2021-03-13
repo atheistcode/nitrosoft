@@ -1,0 +1,47 @@
+// -------------------------1------------------------- //
+
+.contact-section {
+  /* Placement in the global grid layout that is defined in _base.scss. */
+  grid-column: full-start / full-end;
+  /* Subgrid definition for section contents. It has the same columns as the global grid layout. */
+  display: grid;
+  @include grid-columns;
+  background-image: url("/assets/images/background-images/bg-contact-section.jpg");
+  /* Contain the background image full width and starting from the bottom of the section. */
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 8rem 0 20% 0;
+
+  // -------------------------2------------------------- //
+  &__content {
+    /* Placement in the section subgrid layout. */
+    grid-column: center-start / center-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20%;
+    text-align: center;
+  }
+
+  // -------------------------2------------------------- //
+  & .heading-5 {
+    margin-bottom: 2rem;
+    color: $color-primary--dark-2;
+  }
+
+  // -------------------------2------------------------- //
+  & .heading-2 {
+    color: $color-primary--dark-2;
+  }
+
+  // -------------------------2------------------------- //
+  & .para {
+    margin-bottom: 4rem;
+  }
+
+  // -------------------------2------------------------- //
+  &__btn {
+    @include filled-btn($color-secondary, $color-primary, $color-white, $color-white, $font-size--lg);
+  }
+}
