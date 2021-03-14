@@ -4,6 +4,7 @@
 /* We use this hover effect when hovering over another or a parent element. */
 /* We use this hover effect when hovering over another or a parent element. */
 /* Main grid-template-columns definition that consists of 14 columns. */
+/* Element that will include this mixin must be a containing block. */
 /* COLORS */
 /* TEXT COLORS */
 /* FONTS */
@@ -511,13 +512,36 @@ body {
   gap: 2rem;
 }
 .footnav-list__link {
+  position: relative;
   color: #032a5e;
   transition: all 0.2s ease-in-out;
+  /* Width decreases to the right on hover off. */
   margin-bottom: 1.5rem;
+  padding: 0 0.1rem;
   font-weight: 500;
 }
 .footnav-list__link:hover {
   color: #ff311f;
+}
+.footnav-list__link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* Width increases to the right on hover off. */
+  right: auto;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-bottom: 0.1rem solid #ff311f;
+  transition: all 0.2s ease-in-out;
+}
+.footnav-list__link:hover::before {
+  width: 100%;
+}
+.footnav-list__link:not(:hover)::before {
+  right: 0;
+  left: auto;
 }
 
 .footnav-sublist__sub-item {
@@ -525,7 +549,30 @@ body {
   font-size: 1.5rem;
 }
 .footnav-sublist__sub-link {
+  position: relative;
+  /* Width decreases to the right on hover off. */
+  padding: 0 0.1rem;
   transition: all 0.2s ease-in-out;
+}
+.footnav-sublist__sub-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  /* Width increases to the right on hover off. */
+  right: auto;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-bottom: 0.1rem solid #ff311f;
+  transition: all 0.2s ease-in-out;
+}
+.footnav-sublist__sub-link:hover::before {
+  width: 100%;
+}
+.footnav-sublist__sub-link:not(:hover)::before {
+  right: 0;
+  left: auto;
 }
 .footnav-sublist__sub-link:hover {
   color: #ff311f;
@@ -569,6 +616,28 @@ body {
   position: relative;
   white-space: nowrap;
   font-weight: 500;
+  /* Width decreases to the right on hover off. */
+  /* If there is a sublist make it visible and animate the menu button. */
+}
+.nav-list__item::before {
+  content: "";
+  position: absolute;
+  top: -0.1rem;
+  /* Width increases to the right on hover off. */
+  right: auto;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-bottom: 0.2rem solid #ff311f;
+  transition: all 0.3s ease-in-out;
+}
+.nav-list__item:hover::before {
+  width: 100%;
+}
+.nav-list__item:not(:hover)::before {
+  right: 0;
+  left: auto;
 }
 .nav-list__item:hover .menu-btn::before {
   transform: rotate(-45deg) translateX(75%) scaleX(1.5);

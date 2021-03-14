@@ -53,6 +53,9 @@
     white-space: nowrap;
     font-weight: 500;
 
+    @include border-increase-animation(top, 0.2rem);
+
+    /* If there is a sublist make it visible and animate the menu button. */
     &:hover {
       & .menu-btn {
         @include menu-btn-hover;

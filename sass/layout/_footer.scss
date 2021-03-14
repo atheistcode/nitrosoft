@@ -116,8 +116,11 @@
 
   // -------------------------2------------------------- //
   &__link {
+    position: relative;
     @include footer-link;
+    @include border-increase-animation(bottom, 0.1rem);
     margin-bottom: 1.5rem;
+    padding: 0 0.1rem;
     font-weight: 500;
   }
 }
@@ -133,6 +136,9 @@
 
   // -------------------------2------------------------- //
   &__sub-link {
+    position: relative;
+    @include border-increase-animation(bottom, 0.1rem);
+    padding: 0 0.1rem;
     transition: $transition--1;
 
     &:hover {

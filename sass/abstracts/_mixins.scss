@@ -229,3 +229,41 @@
     color: $text-color--dark;
   }
 }
+
+/* Element that will include this mixin must be a containing block. */
+@mixin border-increase-animation($border-position: top, $border-height: 0.2rem) {
+  &::before {
+    content: "";
+    position: absolute;
+
+    @if ($border-position == top) {
+      top: -0.1rem;
+    } @else if ($border-position == bottom) {
+      bottom: 0;
+    }
+
+    /* Width increases to the right on hover off. */
+    right: auto;
+    left: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-bottom: $border-height solid $color-secondary;
+
+    @if ($border-position == top) {
+      transition: $transition--2;
+    } @else if ($border-position == bottom) {
+      transition: $transition--1;
+    }
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  /* Width decreases to the right on hover off. */
+  &:not(:hover)::before {
+    right: 0;
+    left: auto;
+  }
+}
