@@ -7,6 +7,15 @@
   }
 }
 
+@mixin footer-link {
+  color: $link-color;
+  transition: $transition--1;
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
+
 /* We use this hover effect when hovering over another or a parent element. */
 @mixin menu-btn-hover {
   &::before {
@@ -143,7 +152,7 @@
   @include fill-a-btn;
   border: $border--1;
   border-color: transparent;
-  border-radius: $border-radius--lg;
+  border-radius: $border-radius--rg;
   background-color: $bg-color;
   padding: 2rem 4rem;
   color: $color;

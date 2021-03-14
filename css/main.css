@@ -309,6 +309,14 @@ body {
   color: #667c99;
 }
 
+.footer-link {
+  color: #032a5e;
+  transition: all 0.2s ease-in-out;
+}
+.footer-link:hover {
+  color: #ff311f;
+}
+
 .border-bottom-dotted {
   border-bottom: 0.1rem dotted #667c99;
 }
@@ -388,11 +396,14 @@ body {
 .logo {
   display: flex;
   align-items: center;
+  border-radius: 1.5rem;
+  background-color: #f1f5f8;
+  padding: 0.5rem 1rem 0.5rem 0;
 }
 .logo__icon {
   margin-right: 0.2rem;
-  width: 3.8rem;
-  height: 5.4rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 .logo__title {
   font-size: 2.6rem;
@@ -424,6 +435,100 @@ body {
 .menu-btn::after {
   transform-origin: left;
   transform: rotate(-45deg);
+}
+
+.footer {
+  /* Grid definition for footer. */
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+}
+.footer__contents-top {
+  grid-column: full-start/full-end;
+  grid-row: 1;
+  /* Subgrid definition for contents-top. It has the same columns as the global grid layout. */
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  padding: 5rem 0;
+}
+.footer__contents-bottom {
+  grid-column: full-start/full-end;
+  grid-row: 2;
+  /* Subgrid definition for contents-bottom. It has the same columns as the global grid layout. */
+  display: grid;
+  grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+  border-top: 0.1rem solid #e6e6e6;
+  padding: 2.5rem 0;
+}
+.footer__info {
+  /* Placement in the contents-top subgrid. */
+  grid-column: center-start/col-end 4;
+  grid-row: 1;
+}
+.footer__navigation {
+  /* Placement in the contents-top subgrid. */
+  grid-column: col-start 5/center-end;
+  grid-row: 1;
+}
+.footer__copyright {
+  /* Placement in the contents-bottom subgrid. */
+  grid-column: center-start/center-end;
+  text-align: center;
+}
+
+.foot-info > * {
+  margin-bottom: 2.5rem;
+}
+.foot-info__logo {
+  display: inline-block;
+  border-radius: 1.5rem;
+  background-color: #f1f5f8;
+  padding: 0.5rem;
+}
+.foot-info__logo > .logo-icon {
+  width: 4rem;
+  height: 4rem;
+}
+.social-list__item {
+  display: inline-block;
+}
+.social-list__item:not(:last-of-type) {
+  margin-right: 1rem;
+}
+.social-list__icon {
+  width: 3.2rem;
+  max-height: 3.2rem;
+  fill: #667c99;
+  transition: all 0.2s ease-in-out;
+}
+.social-list__icon:hover {
+  fill: #ff311f;
+}
+
+.footnav-list {
+  /* Another subgrid definition for footnav-list. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+}
+.footnav-list__link {
+  color: #032a5e;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.footnav-list__link:hover {
+  color: #ff311f;
+}
+
+.footnav-sublist__sub-item {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.footnav-sublist__sub-link {
+  transition: all 0.2s ease-in-out;
+}
+.footnav-sublist__sub-link:hover {
+  color: #ff311f;
 }
 
 .header__content {
@@ -979,7 +1084,7 @@ body {
   color: white;
   white-space: nowrap;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 500;
   /* Transition for properties (border, color, transform). */
   transition: all 0.2s ease-in-out;

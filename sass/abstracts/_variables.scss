@@ -18,11 +18,12 @@ $text-color--light: $color-primary--light-1;
 $text-color--dark: $color-primary;
 
 $link-color: $color-primary;
+$link-color--dark: $color-primary--dark-1;
 
 /* FONTS */
 $font-size--sm: 1.5rem;
 $font-size--rg: 1.6rem;
-$font-size--lg: 1.7rem;
+$font-size--lg: 1.8rem;
 
 $font-size-logo: 2.6rem;
 
@@ -38,7 +39,8 @@ $border-color--1: $color-gray--light;
 
 $border--1: 0.1rem solid $border-color--1;
 
-$border-radius--lg: 0.5rem;
+$border-radius--rg: 0.5rem;
+$border-radius--lg: 1.5rem;
 
 /* SHADOWS */
 $shadow--1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

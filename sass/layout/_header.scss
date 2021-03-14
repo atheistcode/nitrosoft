@@ -89,7 +89,7 @@
   opacity: 0;
   min-width: 25rem;
   border: $border--1;
-  border-radius: $border-radius--lg;
+  border-radius: $border-radius--rg;
   box-shadow: $shadow--1;
   background-color: $color-white;
   padding: 2rem 0;
@@ -226,7 +226,7 @@
     width: 6rem;
     overflow: hidden;
     border: $border--1;
-    border-radius: $border-radius--lg;
+    border-radius: $border-radius--rg;
     box-shadow: $shadow--1;
     padding: 2rem;
     transition: $transition--1;

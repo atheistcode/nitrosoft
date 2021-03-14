@@ -1,0 +1,142 @@
+// -------------------------1------------------------- //
+
+.footer {
+  /* Grid definition for footer. */
+  display: grid;
+  @include grid-columns;
+
+  // -------------------------2------------------------- //
+  &__contents-top {
+    grid-column: full-start / full-end;
+    grid-row: 1;
+    /* Subgrid definition for contents-top. It has the same columns as the global grid layout. */
+    display: grid;
+    @include grid-columns;
+    padding: 5rem 0;
+  }
+
+  // -------------------------2------------------------- //
+  &__contents-bottom {
+    grid-column: full-start / full-end;
+    grid-row: 2;
+    /* Subgrid definition for contents-bottom. It has the same columns as the global grid layout. */
+    display: grid;
+    @include grid-columns;
+    border-top: $border--1;
+    padding: 2.5rem 0;
+  }
+
+  // -------------------------2------------------------- //
+  &__info {
+    /* Placement in the contents-top subgrid. */
+    grid-column: center-start / col-end 4;
+    grid-row: 1;
+  }
+
+  // -------------------------2------------------------- //
+  &__navigation {
+    /* Placement in the contents-top subgrid. */
+    grid-column: col-start 5 / center-end;
+    grid-row: 1;
+  }
+
+  // -------------------------2------------------------- //
+  &__copyright {
+    /* Placement in the contents-bottom subgrid. */
+    grid-column: center-start / center-end;
+    text-align: center;
+  }
+}
+
+// -------------------------1------------------------- //
+
+.foot-info {
+  & > * {
+    margin-bottom: 2.5rem;
+  }
+
+  // -------------------------2------------------------- //
+  &__logo {
+    display: inline-block;
+    border-radius: $border-radius--lg;
+    background-color: $color-primary--light-3;
+    padding: 0.5rem;
+
+    & > .logo-icon {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  // -------------------------2------------------------- //
+  &__address {
+  }
+}
+
+// -------------------------1------------------------- //
+
+.social-list {
+  // -------------------------2------------------------- //
+  &__item {
+    display: inline-block;
+
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+  }
+
+  // -------------------------2------------------------- //
+  &__link {
+  }
+
+  // -------------------------2------------------------- //
+  &__icon {
+    width: 3.2rem;
+    max-height: 3.2rem;
+    fill: $text-color;
+    transition: $transition--1;
+
+    &:hover {
+      fill: $color-secondary;
+    }
+  }
+}
+
+// -------------------------1------------------------- //
+
+.footnav-list {
+  /* Another subgrid definition for footnav-list. */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+
+  // -------------------------2------------------------- //
+  &__item {
+  }
+
+  // -------------------------2------------------------- //
+  &__link {
+    @include footer-link;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+// -------------------------1------------------------- //
+
+.footnav-sublist {
+  // -------------------------2------------------------- //
+  &__sub-item {
+    margin-bottom: 1rem;
+    font-size: $font-size--sm;
+  }
+
+  // -------------------------2------------------------- //
+  &__sub-link {
+    transition: $transition--1;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}

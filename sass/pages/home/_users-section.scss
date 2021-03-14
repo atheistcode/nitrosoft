@@ -28,7 +28,7 @@
     flex-wrap: wrap;
     align-items: center;
     position: relative;
-    border-radius: $border-radius--lg;
+    border-radius: $border-radius--rg;
     box-shadow: $shadow--1;
     margin-top: -8rem;
     background-color: rgba($color-white, 0.9);
@@ -41,7 +41,7 @@
       transform: translateX(1%);
       width: 98%;
       height: 0.8rem;
-      border-radius: 0 0 $border-radius--lg $border-radius--lg;
+      border-radius: 0 0 $border-radius--rg $border-radius--rg;
       background-color: rgba($color-primary--light-2, 0.2);
     }
 
@@ -52,7 +52,7 @@
       transform: translateX(2%);
       width: 96%;
       height: 0.8rem;
-      border-radius: 0 0 $border-radius--lg $border-radius--lg;
+      border-radius: 0 0 $border-radius--rg $border-radius--rg;
       background-color: rgba($color-primary--light-2, 0.4);
     }
   }
