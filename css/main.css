@@ -30,19 +30,14 @@
 }
 @keyframes pin-on-map {
   0% {
-    transform: scale(0);
-  }
-  30% {
     transform: scale(1);
   }
-  50% {
-    transform: scale(1.2);
-  }
-  70% {
-    transform: scale(1.5);
+  90% {
+    transform: scale(2);
   }
   100% {
-    transform: scale(0);
+    opacity: 0;
+    transform: scale(1);
   }
 }
 @keyframes pulse {
@@ -1712,9 +1707,8 @@ body {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #032a5e;
-  opacity: 0.2;
-  animation: pin-on-map 3s infinite;
+  background-color: #1fc2ef;
+  animation: pin-on-map 2s infinite;
 }
 .user--1 {
   top: -2%;

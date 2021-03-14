@@ -98,9 +98,8 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: $color-primary;
-    opacity: 0.2;
-    animation: pin-on-map 3s infinite;
+    background-color: $color-primary--light-1;
+    animation: pin-on-map 2s infinite;
   }
 
   // -------------------------2------------------------- //
