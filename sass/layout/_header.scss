@@ -238,4 +238,11 @@
       display: inline-block;
     }
   }
+
+  // -------------------------2------------------------- //
+  @include media-respond($bp-sm) {
+    & > *:not([class*="menu-icon"]) {
+      display: none;
+    }
+  }
 }
