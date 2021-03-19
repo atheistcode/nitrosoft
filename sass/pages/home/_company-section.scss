@@ -25,6 +25,10 @@
     gap: 3rem;
     position: relative;
     margin-bottom: -8rem;
+
+    @include media-respond($bp-sm) {
+      grid-template-columns: 100%;
+    }
   }
 
   // -------------------------2------------------------- //
@@ -35,8 +39,7 @@
     background-color: $color-primary--light-3;
     /* Higher padding value on top to leave empty space for the info figures with negative bottom margin. */
     margin-top: rem;
-    padding-top: 14rem;
-    padding-bottom: 6rem;
+    padding: 14rem 1.5rem 6rem 1.5rem;
     text-align: center;
   }
 }

@@ -144,5 +144,9 @@
   // -------------------------2------------------------- //
   & [class*="btn"] {
     margin-top: 5%;
+
+    @include media-respond($bp-sm) {
+      display: none;
+    }
   }
 }

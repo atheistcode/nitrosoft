@@ -216,6 +216,11 @@
     /* Placement in the header subgrid layout. */
     grid-column: 2;
     grid-row: 1 / span 2;
+
+    @include media-respond($bp-sm) {
+      grid-column: 1;
+      grid-row: 3;
+    }
   }
 }
 
@@ -265,5 +270,31 @@
   &:not(:hover)::before {
     right: 0;
     left: auto;
+  }
+}
+
+@mixin media-respond($breakpoint) {
+  @if $breakpoint == $bp-xs {
+    @media only screen and (max-width: ($bp-xs / 16) * 1em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == $bp-sm {
+    @media only screen and (max-width: ($bp-sm / 16) * 1em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == $bp-lg {
+    @media only screen and (max-width: ($bp-lg / 16) * 1em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == $bp-xl {
+    @media only screen and (min-width: ($bp-xl / 16) * 1em) {
+      @content;
+    }
   }
 }

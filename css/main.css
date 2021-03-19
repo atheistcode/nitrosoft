@@ -11,6 +11,7 @@
 /* BORDERS */
 /* SHADOWS */
 /* TRANSITIONS */
+/* BREAKPOINTS */
 @keyframes shake-icon {
   0% {
     transform: scale3d(1, 1, 1);
@@ -82,6 +83,18 @@ html {
   /* To make calculations easier when using rem. */
   font-size: 62.5%;
 }
+@media only screen and (max-width: 78.125em) {
+  html {
+    /* 1 rem = 9px, 9/16 = 56.25% */
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  html {
+    /* 1 rem = 8px, 8/16 = 50% */
+    font-size: 50%;
+  }
+}
 
 ul {
   list-style: none;
@@ -104,6 +117,22 @@ select:focus-visible {
 .main {
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  z-index: 200;
+  transform: translateX(-100%);
+  border: 0.2rem solid #fc5445;
+  background-color: #fff;
+  padding: 2rem;
+  color: #032a5e;
+  font-weight: 500;
+  transition: all 0.1s;
+}
+.skip-link:focus {
+  transform: translateX(0%);
 }
 
 *,
@@ -582,6 +611,12 @@ body {
   margin: auto;
   max-width: 90%;
 }
+@media only screen and (max-width: 78.125em) {
+  .header__content {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
 .header__navigation {
   /* Expand to occupy all available width and push elements on both sides. */
   flex: 1 1 0;
@@ -592,6 +627,11 @@ body {
   padding: 1.5rem 0;
   text-align: center;
   font-size: 1.5rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .navigation__nav-info {
+    display: none;
+  }
 }
 
 .nav-list {
@@ -659,6 +699,11 @@ body {
 }
 .nav-list__link > .menu-btn {
   margin-left: 0.5rem;
+}
+@media only screen and (max-width: 78.125em) {
+  .nav-list {
+    display: none;
+  }
 }
 
 .sub-list, .sub-list--2 {
@@ -767,6 +812,12 @@ body {
   padding-right: 2.5rem;
   font-size: 1.5rem;
 }
+@media only screen and (max-width: 78.125em) {
+  .extras__text {
+    padding-right: 0;
+    border-right: none;
+  }
+}
 .extras__search-icon {
   display: none;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
@@ -814,6 +865,11 @@ body {
   border: none;
   background-color: transparent;
 }
+@media only screen and (max-width: 78.125em) {
+  .search-form {
+    display: none;
+  }
+}
 
 .search-icon {
   color: #032a5e;
@@ -852,6 +908,11 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
 }
+@media only screen and (max-width: 37.5em) {
+  .blog-section__articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .blog-section__footer {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
@@ -868,14 +929,11 @@ body {
   /* The "article-card__link-container" class exists only in small article cards. */
 }
 .article-card:first-of-type {
-  grid-column: 1/span 2;
-  grid-row: 1/span 2;
+  grid-column: span 2;
+  grid-row: span 2;
 }
-.article-card:nth-of-type(2), .article-card:nth-of-type(3) {
-  grid-row: 1;
-}
-.article-card:nth-of-type(4), .article-card:nth-of-type(5) {
-  grid-row: 2;
+.article-card:nth-of-type(2), .article-card:nth-of-type(3), .article-card:nth-of-type(4), .article-card:nth-of-type(5) {
+  grid-column: span 1;
 }
 .article-card__link-container {
   /* Expand the container to make its contents occupy the full height. */
@@ -1023,6 +1081,12 @@ body {
   grid-column: 2;
   grid-row: 1/span 2;
 }
+@media only screen and (max-width: 37.5em) {
+  .company-section__header > .para {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
 .company-section__info-figures {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
@@ -1034,6 +1098,11 @@ body {
   position: relative;
   margin-bottom: -8rem;
 }
+@media only screen and (max-width: 37.5em) {
+  .company-section__info-figures {
+    grid-template-columns: 100%;
+  }
+}
 .company-section__footer {
   /* Placement in the section subgrid layout. */
   grid-column: full-start/full-end;
@@ -1041,8 +1110,7 @@ body {
   background-color: #f1f5f8;
   /* Higher padding value on top to leave empty space for the info figures with negative bottom margin. */
   margin-top: rem;
-  padding-top: 14rem;
-  padding-bottom: 6rem;
+  padding: 14rem 1.5rem 6rem 1.5rem;
   text-align: center;
 }
 
@@ -1227,13 +1295,19 @@ body {
   grid-column: 2;
   grid-row: 1/span 2;
 }
+@media only screen and (max-width: 37.5em) {
+  .industries-section__header > .para {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
 .industries-section__industry-cards {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
   grid-row: 2;
   /* Another subgrid definition for industry cards. */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(11.2rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 3rem;
 }
 
@@ -1308,8 +1382,13 @@ body {
   grid-column: center-start/center-end;
   /* Another subgrid definition for service cards. */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   gap: 3rem;
+}
+@media only screen and (max-width: 37.5em) {
+  .services-section__service-cards {
+    grid-template-columns: 1fr;
+  }
 }
 .services-section__footer {
   /* Placement in the section subgrid layout. */
@@ -1322,8 +1401,9 @@ body {
   grid-column: center-start/center-end;
   /* Another subgrid definition for customer brands. */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(1.6rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
   column-gap: 3rem;
+  row-gap: 2rem;
 }
 
 .service-card {
@@ -1360,6 +1440,11 @@ body {
 }
 .service-card:hover .service-card__service-icon svg + span {
   transform: scale(0.75);
+}
+@media only screen and (max-width: 37.5em) {
+  .service-card {
+    padding: 5%;
+  }
 }
 
 .brand__img {
@@ -1466,6 +1551,11 @@ body {
 }
 .slide [class*=btn], .slide--1 [class*=btn], .slide--2 [class*=btn], .slide--3 [class*=btn] {
   margin-top: 5%;
+}
+@media only screen and (max-width: 37.5em) {
+  .slide [class*=btn], .slide--1 [class*=btn], .slide--2 [class*=btn], .slide--3 [class*=btn] {
+    display: none;
+  }
 }
 
 .studies-section {
@@ -1678,6 +1768,11 @@ body {
   border-radius: 0 0 0.5rem 0.5rem;
   background-color: rgba(102, 124, 153, 0.4);
 }
+@media only screen and (max-width: 37.5em) {
+  .users-section__contact-options {
+    margin-top: -2rem;
+  }
+}
 .users-section__footer {
   /* Placement in the section subgrid layout. */
   grid-column: center-start/center-end;
@@ -1822,6 +1917,11 @@ body {
 .contact-option:hover .contact-option__icon {
   animation: 1s infinite shake-icon;
 }
+@media only screen and (max-width: 37.5em) {
+  .contact-option:first-child {
+    margin-bottom: 2rem;
+  }
+}
 
 .video-section {
   /* Placement in the global grid layout that is defined in _base.scss. */
@@ -1833,23 +1933,23 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 12rem 0;
+  padding: 12rem 1.5rem;
 }
 .video-section__content {
   color: white;
   text-align: center;
 }
 .video-section__lead-text {
-  font-size: 4.8rem;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
 }
 .video-section__heading {
   position: relative;
   /* Must have a height value because all its child elements are absolutely positioned. */
-  height: 9.6rem;
+  height: clamp(4rem, 10vw, 9.6rem);
   width: 75%;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 2rem auto 2rem auto;
   line-height: 1;
+  font-size: clamp(4rem, 10vw, 9.6rem);
 }
 .video-section__heading > * {
   position: absolute;
@@ -1873,7 +1973,7 @@ body {
   animation-delay: 9s;
 }
 .video-section__para {
-  font-size: 2.1rem;
+  font-size: clamp(2rem, 5vw, 2.1rem);
 }
 .video-section__btn {
   margin-top: 5rem;

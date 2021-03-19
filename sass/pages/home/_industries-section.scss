@@ -21,7 +21,7 @@
     grid-row: 2;
     /* Another subgrid definition for industry cards. */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11.2rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 3rem;
   }
 }

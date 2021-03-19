@@ -19,8 +19,12 @@
     grid-column: center-start / center-end;
     /* Another subgrid definition for service cards. */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     gap: 3rem;
+
+    @include media-respond($bp-sm) {
+      grid-template-columns: 1fr;
+    }
   }
 
   // -------------------------2------------------------- //
@@ -37,8 +41,9 @@
     grid-column: center-start / center-end;
     /* Another subgrid definition for customer brands. */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(1.6rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
     column-gap: 3rem;
+    row-gap: 2rem;
   }
 }
 
@@ -86,6 +91,11 @@
     & + span {
       transform: scale(0.75);
     }
+  }
+
+  // -------------------------2------------------------- //
+  @include media-respond($bp-sm) {
+    padding: 5%;
   }
 }
 

@@ -2,6 +2,16 @@ html {
   line-height: 1.4;
   /* To make calculations easier when using rem. */
   font-size: 62.5%;
+
+  @include media-respond($bp-lg) {
+    /* 1 rem = 9px, 9/16 = 56.25% */
+    font-size: 56.25%;
+  }
+
+  @include media-respond($bp-sm) {
+    /* 1 rem = 8px, 8/16 = 50% */
+    font-size: 50%;
+  }
 }
 
 ul {
@@ -29,4 +39,21 @@ select {
   // I don't know why this is not working.
   // grid-template-rows: 48vw repeat(9, min-content);
   @include grid-columns;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  z-index: 200;
+  transform: translateX(-100%);
+  border: 0.2rem solid $color-secondary--light;
+  background-color: #fff;
+  padding: 2rem;
+  color: $color-primary;
+  font-weight: 500;
+  transition: all 0.1s;
+
+  &:focus {
+    transform: translateX(0%);
+  }
 }

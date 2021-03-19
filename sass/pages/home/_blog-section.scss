@@ -21,6 +21,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
+
+    @include media-respond($bp-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   // -------------------------2------------------------- //
@@ -42,18 +46,16 @@
   // -------------------------2------------------------- //
   /* Placement of the large article card. */
   &:first-of-type {
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
+    grid-column: span 2;
+    grid-row: span 2;
   }
 
   /* Placement of the small article cards. */
   &:nth-of-type(2),
-  &:nth-of-type(3) {
-    grid-row: 1;
-  }
+  &:nth-of-type(3),
   &:nth-of-type(4),
   &:nth-of-type(5) {
-    grid-row: 2;
+    grid-column: span 1;
   }
 
   // -------------------------2------------------------- //

@@ -11,7 +11,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 12rem 0;
+  padding: 12rem 1.5rem;
 
   // -------------------------2------------------------- //
   &__content {
@@ -21,18 +21,18 @@
 
   // -------------------------2------------------------- //
   &__lead-text {
-    font-size: 4.8rem;
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
   }
 
   // -------------------------2------------------------- //
   &__heading {
     position: relative;
     /* Must have a height value because all its child elements are absolutely positioned. */
-    height: 9.6rem;
+    height: clamp(4rem, 10vw, 9.6rem);
     width: 75%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 2rem auto 2rem auto;
     line-height: 1;
+    font-size: clamp(4rem, 10vw, 9.6rem);
 
     & > * {
       position: absolute;
@@ -60,7 +60,7 @@
 
   // -------------------------2------------------------- //
   &__para {
-    font-size: 2.1rem;
+    font-size: clamp(2rem, 5vw, 2.1rem);
   }
 
   // -------------------------2------------------------- //
