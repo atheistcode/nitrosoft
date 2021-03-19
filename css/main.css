@@ -628,7 +628,7 @@ body {
   text-align: center;
   font-size: 1.5rem;
 }
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 78.125em) {
   .navigation__nav-info {
     display: none;
   }
@@ -812,75 +812,36 @@ body {
   padding-right: 2.5rem;
   font-size: 1.5rem;
 }
-@media only screen and (max-width: 78.125em) {
-  .extras__text {
-    padding-right: 0;
-    border-right: none;
-  }
-}
 .extras__search-icon {
-  display: none;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
 }
-.extras__search-form {
-  margin-left: 4rem;
-}
-
-.search-form {
-  display: flex;
-  align-items: center;
-  z-index: 99;
-  transition: all 0.2s ease-in-out;
-}
-.search-form__label {
-  display: none;
-}
-.search-form__input {
-  /* Absolutely positioned to prevent other content from being pushed when its width increases. */
-  position: absolute;
-  right: 0;
-  /* Make the search icon visible above the input. */
-  z-index: -1;
-  width: 6rem;
-  overflow: hidden;
-  border: 0.1rem solid #e6e6e6;
-  border-radius: 0.5rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  padding: 2rem;
-  transition: all 0.2s ease-in-out;
-}
-.search-form__input:not(:focus)::placeholder {
-  opacity: 0;
-}
-.search-form__input:focus {
-  width: 32rem;
-}
-.search-form__input:focus::placeholder {
-  opacity: 1;
-  color: #667c99;
-}
-.search-form__btn {
-  opacity: 0.5;
-  margin-right: 1.5rem;
-  border: none;
-  background-color: transparent;
-}
-@media only screen and (max-width: 78.125em) {
-  .search-form {
-    display: none;
-  }
-}
-
-.search-icon {
+.extras__search-icon .search-icon {
   color: #032a5e;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   width: 1.8rem;
   height: 2.4rem;
   cursor: pointer;
+  fill: #667c99;
 }
-.search-icon:hover {
+.extras__search-icon .search-icon:hover {
   color: #667c99;
+}
+.extras__menu-icon {
+  display: none;
+  margin-left: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+.extras__menu-icon .menu-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  fill: #667c99;
+}
+@media only screen and (max-width: 78.125em) {
+  .extras__menu-icon {
+    display: inline-block;
+  }
 }
 
 .blog-section {

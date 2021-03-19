@@ -34,7 +34,7 @@
     text-align: center;
     font-size: $font-size--sm;
 
-    @include media-respond($bp-sm) {
+    @include media-respond($bp-lg) {
       display: none;
     }
   }
@@ -205,87 +205,37 @@
     border-right: $border--1;
     padding-right: 2.5rem;
     font-size: $font-size--sm;
-
-    @include media-respond($bp-lg) {
-      padding-right: 0;
-      border-right: none;
-    }
   }
 
   // -------------------------2------------------------- //
   &__search-icon {
-    // No need for it for now.
-    display: none;
     padding: 1.5rem 1.5rem 1.5rem 2rem;
-  }
 
-  // -------------------------2------------------------- //
-  &__search-form {
-    margin-left: 4rem;
-  }
-}
-
-// -------------------------1------------------------- //
-
-.search-form {
-  display: flex;
-  align-items: center;
-  z-index: 99;
-  transition: $transition--1;
-
-  // -------------------------2------------------------- //
-  &__label {
-    display: none;
-  }
-
-  // -------------------------2------------------------- //
-  &__input {
-    /* Absolutely positioned to prevent other content from being pushed when its width increases. */
-    position: absolute;
-    right: 0;
-    /* Make the search icon visible above the input. */
-    z-index: -1;
-    width: 6rem;
-    overflow: hidden;
-    border: $border--1;
-    border-radius: $border-radius--rg;
-    box-shadow: $shadow--1;
-    padding: 2rem;
-    transition: $transition--1;
-
-    &:not(:focus)::placeholder {
-      opacity: 0;
-    }
-
-    &:focus {
-      width: 32rem;
-
-      &::placeholder {
-        opacity: 1;
-        color: $text-color;
-      }
+    .search-icon {
+      @include link;
+      display: inline-block;
+      width: 1.8rem;
+      height: 2.4rem;
+      cursor: pointer;
+      fill: $text-color;
     }
   }
 
   // -------------------------2------------------------- //
-  &__btn {
-    opacity: 0.5;
-    margin-right: 1.5rem;
-    border: none;
-    background-color: transparent;
-  }
-
-  @include media-respond($bp-lg) {
+  &__menu-icon {
     display: none;
+    margin-left: 1rem;
+    cursor: pointer;
+    padding: 1rem;
+
+    .menu-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: $text-color;
+    }
+
+    @include media-respond($bp-lg) {
+      display: inline-block;
+    }
   }
-}
-
-// -------------------------1------------------------- //
-
-.search-icon {
-  @include link;
-  display: inline-block;
-  width: 1.8rem;
-  height: 2.4rem;
-  cursor: pointer;
 }

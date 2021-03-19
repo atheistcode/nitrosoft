@@ -90,4 +90,7 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="iconmonstr-media-control-48">
     <path d="M3 22V2l18 10L3 22z"></path>
   </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="iconmonstr-menu-1">
+    <path d="M24 6H0V2h24v4zm0 4H0v4h24v-4zm0 8H0v4h24v-4z"></path>
+  </symbol>
 </svg>
