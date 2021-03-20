@@ -463,6 +463,7 @@ body {
 }
 
 .side-navigation {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1500,6 +1501,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 50;
   bottom: 50%;
   opacity: 0;
   transform: translateY(50%);
@@ -1525,6 +1527,8 @@ body {
   fill: white;
 }
 .slider-section__slides-container {
+  position: relative;
+  left: 0;
   height: 100%;
 }
 .slider-section:hover .slider-section__carousel-btn, .slider-section:hover .slider-section__carousel-btn--left, .slider-section:hover .slider-section__carousel-btn--right {
@@ -1536,28 +1540,31 @@ body {
   height: 1.8rem;
 }
 .slide, .slide--3, .slide--2, .slide--1 {
+  position: absolute;
   /* Subgrid definition for slide contents. It has the same columns as the global grid layout. */
   display: grid;
   grid-template-columns: [full-start] minmax(5vw, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 10rem) [col-end]) [center-end] minmax(5vw, 1fr) [full-end];
   align-items: center;
-  width: 100%;
   height: 100%;
   background-color: #1fc2ef;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
+  transition: all 0.7s ease-in-out;
 }
 .slide--1 {
   background-image: url("/assets/images/background-images/slider-images/slider-1.jpg");
 }
 .slide--2 {
-  display: none;
   background-image: url("/assets/images/background-images/slider-images/slider-2.jpg");
+  opacity: 0;
+  visibility: hidden;
 }
 .slide--3 {
-  display: none;
   background-image: url("/assets/images/background-images/slider-images/slider-3.jpg");
+  opacity: 0;
+  visibility: hidden;
 }
 .slide__content {
   /* Placement in the slide subgrid layout. */
