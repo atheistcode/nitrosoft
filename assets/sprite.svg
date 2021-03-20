@@ -35,12 +35,6 @@
     <title>Arrow Forward</title>
     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144m124-144H100"></path>
   </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24" id="iconmonstr-angel-right-thin">
-    <path d="M4 .755L18.374 12 4 23.219l.619.781L20 12 4.609 0 4 .755z"></path>
-  </symbol>
-  <symbol xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24" id="iconmonstr-angel-left-thin">
-    <path d="M20 .755L5.626 12 20 23.219l-.619.781L4 12 19.391 0 20 .755z"></path>
-  </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="private-folder">
     <title>Private Folder</title>
     <path d="M58 38v-8a8 8 0 10-16 0v8h-4v18h24V38zm-6 11a2 2 0 11-4 0v-4a2 2 0 114 0zm-6-11v-8a4 4 0 118 0v8z" fill="#8d8ea3"></path>
@@ -95,5 +89,11 @@
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="iconmonstr-x-mark-1">
     <path d="M24 20.188l-8.315-8.209 8.2-8.282L20.188 0l-8.212 8.318L3.666.115 0 3.781l8.321 8.24-8.206 8.313L3.781 24l8.237-8.318 8.285 8.203z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="iconmonstr-arrow-63">
+    <path d="M7.33 24L4.5 21.171l9.339-9.175L4.5 2.829 7.33 0 19.5 11.996z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="iconmonstr-arrow-64">
+    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167L16.67 24 4.5 12.004z"></path>
   </symbol>
 </svg>

@@ -7,7 +7,7 @@
     "watch:sass": "sass --watch sass/main.scss css/main.css",
     "compile:sass": "sass sass/main.scss css/main.comp.css",
     "prefix:css": "postcss css/main.comp.css --use autoprefixer --output css/main.prefix.css",
-    "compress:css": "sass --style=compressed css/main.prefix.css css/main.min.css",
+    "compress:css": "sass --style=compressed css/main.prefix.css css/main.css",
     "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "browserslist": [

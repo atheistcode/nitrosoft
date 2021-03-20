@@ -33,6 +33,11 @@ select {
   color: $color-white;
 }
 
+body {
+  /* Required to make side-navigation covers all the page height. */
+  position: relative;
+}
+
 /* Grid definition for the global page layout. */
 .main {
   display: grid;
