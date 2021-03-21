@@ -2,13 +2,16 @@ const sideNav = document.querySelector(".side-navigation");
 const menuBtn = document.querySelector(".extras__menu-icon");
 const closeBtn = document.querySelector(".close-btn");
 const subMenuBtns = document.querySelectorAll(".sidenav-sub-menu-btn");
+const body = document.querySelector("body");
 
 const openSideNav = () => {
   sideNav.style.display = "block";
+  body.style.overflow = "hidden";
 };
 
 const closeSideNav = () => {
   sideNav.style.display = "none";
+  body.style.overflow = "auto";
 };
 
 const toggleSubMenu = (e) => {
